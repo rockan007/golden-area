@@ -21,6 +21,7 @@
     "echarts": "^4.1.0",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.4",
+    "scroxt": "^1.4.2",
     "vue-template-compiler": "^2.5.16"
   }
 }

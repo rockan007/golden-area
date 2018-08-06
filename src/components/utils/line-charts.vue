@@ -72,7 +72,8 @@ export default {
         },
         yAxis: {
           type: "value",
-          axisLabel: { formatter: "{value} kWh" },
+          name: "kWh",
+          axisLabel: { formatter: "{value}" },
           axisLine: {
             lineStyle: {
               color: "#00706b" //坐标轴线颜色
@@ -93,4 +94,7 @@ export default {
 };
 </script>
 <style scoped>
+.echarts-container{
+  padding: 8px 16px;
+}
 </style>

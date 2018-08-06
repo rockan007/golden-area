@@ -1,5 +1,5 @@
 <template>
-    <table class="line-info-container table table-striped table-dark">
+    <table class="line-info-container table table-striped table-light">
         <tbody>
             <tr v-for="(info,index) in lineInfo" v-bind:key="index">
                 <th scope="row" class="border border-info">{{info.name}}</th>
@@ -16,7 +16,7 @@ export default {
       lineInfo: [
         {
           name: "容量",
-          content: '20kVA'
+          content: "20kVA"
         },
         {
           name: "表箱数",
@@ -43,6 +43,7 @@ export default {
 <style scoped>
 .line-info-container {
   position: absolute;
-    max-width: 200px;
+  max-width: 200px;
+  color: black;
 }
 </style>

@@ -10,6 +10,12 @@
           <div>
             户号：{{meterData.no?meterData.no:'无'}}
           </div>
+          <div>
+            电压：220v
+          </div>
+          <div>
+            电流：15.3A
+          </div>
         </div>
         <div class="meter-order position-absolute">{{meterOrder}}</div>
     </div>
@@ -101,7 +107,7 @@ export default {
 <style scoped>
 .meter-order {
   bottom: -5px;
-  left: 130px;
+  left: 220px;
 }
 .meter-container {
   color: red;

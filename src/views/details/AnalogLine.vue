@@ -1,21 +1,27 @@
 <template>
     <div class="analog-line-container flex-grow-1 d-flex flex-column">
-        <div class="analog-body flex-grow-1 d-flex align-items-center justify-content-center">
+        <div class="analog-body flex-grow-1 d-flex flex-column align-items-stretch justify-content-center">
+          <div class="btn-group ml-auto" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" v-on:click="selectType=0" v-bind:class='{"active":selectType==0}'>图表</button>
+            <button type="button" class="btn btn-secondary" v-on:click="selectType=1" v-bind:class='{"active":selectType==1}'>表格</button>
+          </div>
+          <template v-if="selectType==0">
             <template v-if="id==1">
-              <img src="http://wx.dianliangliang.com/sucai/hikd.2635fc5c.png" class="analog-image" alt="">
-              <line-info class="line-info"></line-info>
+              <img src="http://wx.dianliangliang.com/sucai/hikd.2635fc5c.png" class="analog-image flex-grow-1" alt="">
               <back-no v-bind:showBack='meterNo<35' v-for="meterNo in 37" v-bind:meterBoxNo="meterNo" :key="meterNo" v-on:dialogShow="getDialogShow" v-bind:class="['meterNo-'+meterNo,{'flex-column-reverse':meterNo>16}]"></back-no>
             </template>
             <template v-else>
               <img src="http://wx.dianliangliang.com/sucai/analog-line.1b8ec1ef.png" class="analog-image" alt="">
               <dynamic-no  v-for="no in 6" v-bind:key="no" v-bind:class="'dynamic-bottom-'+no" v-bind:dynamicItem="getRandomBottom(no)"></dynamic-no>
             </template> 
-            <div v-if="showDialog&&selectMeterBox" class="meter-dialog d-flex flex-column">
+          </template>
+          <opertional-parameters v-else></opertional-parameters>
+            <div v-if="showDialog&&selectMeterBox" class="meter-dialog d-flex flex-column shadow-lg">
               <div class="dia-header d-flex justify-content-center">
-                <div class="flex-grow-1">电表箱</div>
+                <div class="flex-grow-1">54#电表箱</div>
                 <div class="close-icon align-self-right" v-on:click.stop="cancelDia">X</div>
               </div>
-              <div class="dia-body flex-grow-1 d-flex flex-wrap">
+              <div class="dia-body flex-grow-1 d-flex  flex-wrap-reverse">
                   <meter-item  v-for="m in 9" :type="getRandomType()" v-bind:meterData="selectMeterBox.C[m-1]?selectMeterBox.C[m-1]:{}" :key="m" v-bind:meterOrder="m" class="col-4"></meter-item>
               </div>
             </div>
@@ -26,7 +32,7 @@
 import DynamicNo from "@/components/details/DynamicNo";
 import BackNo from "@/components/details/random-backNo";
 import MeterItem from "@/components/details/Meter-Item";
-import LineInfo from "@/components/details/LineInfo";
+import opertionalParameters from "@/views/details/operational-parameters";
 import { meterNoMap, meterBoxes } from "@/assets/scripts/meters-data.js";
 export default {
   name: "analog-line",
@@ -34,10 +40,11 @@ export default {
     "dynamic-no": DynamicNo,
     "back-no": BackNo,
     "meter-item": MeterItem,
-    "line-info": LineInfo
+    opertionalParameters
   },
   data: function() {
     return {
+      selectType: 0,
       id: 0,
       showDialog: 0,
       selectMap: 0,
@@ -61,7 +68,7 @@ export default {
       handler: function() {}
     },
     selectMeterBoxNo: function(newVal) {
-      this.selectMeterBox = this.meterBoxList[newVal-1];
+      this.selectMeterBox = this.meterBoxList[newVal - 1];
     }
   },
   filters: {
@@ -111,9 +118,13 @@ export default {
 };
 </script>
 <style scoped>
+.btn-secondary.active {
+  background-color: #00706b !important;
+  border-color: #00706b !important;
+}
 .line-info {
-  left: -50px;
-  bottom: 0px;
+  right: 16px;
+  top: 16px;
 }
 .close-icon {
   float: right;
@@ -143,7 +154,9 @@ export default {
   position: relative;
 }
 .analog-image {
-  width: 90%;
+  /* margin-top: 10px;
+  margin-left: -560px;
+  height: 400px; */
 }
 .dynamic-bottom-1 {
   left: 330px;

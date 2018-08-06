@@ -1,48 +1,43 @@
 <template>
-  <div class="home">
-     <div class="container">
-        <div class="row comprehensive_box">
-          <div class="col-lg-12">
-              <div class="row comprehensive_top">
-                <div class="col-lg-6 comprehensive_top_first">监控分布图</div>
-                <div class="col-lg-6 comprehensive_top_seand">下一页</div>
-              </div>
-               <div class="row comprehensive_body">
-                     <div class="comprehensive_body_li">
-                         <img src="../../assets/imgs/jian_03.png" alt="">
-                         <div class="modl">摄像头1</div>
-                     </div>
-                     <div class="comprehensive_body_li">
-                         <img src="../../assets/imgs/jian_05.png" alt="">
-                         <div class="modl">摄像头2</div>
-                     </div>
-                     <div class="comprehensive_body_li">
-                         <img src="../../assets/imgs/jian_06.png" alt="">
-                         <div class="modl">摄像头3</div>
-                     </div>
-                    <div class="comprehensive_body_li">
-                         <img src="../../assets/imgs/jian_11.png" alt="">
-                         <div class="modl">摄像头4</div>
-                     </div>
-                     <div class="comprehensive_body_li">
-                         <img src="../../assets/imgs/jian_12.png" alt="">
-                         <div class="modl">摄像头5</div>
-                     </div>
-                     <div class="comprehensive_body_li">
-                         <img src="../../assets/imgs/jian_13.png" alt="">
-                         <div class="modl">摄像头6</div>
-                     </div>
-               </div>
-           </div>
+        <div class="home flex-grow-1 d-flex flex-column">
+         <div class="eventAlert-header d-flex justify-content-between comprehensive_top">
+           <div class="col-lg-6 comprehensive_top_first">监控分布图</div>
+            <div class="col-lg-6 comprehensive_top_seand">下一页</div>
         </div>
-       </div>
+        <div class=" flex-grow-1 flex-shrink-1" style="overflow-y:auto; padding:30px;"> 
+             <div class="comprehensive_li" style="">
+               <img src="../../assets/imgs/video1.jpg"  alt="">
+               <div class="modl">摄像头1</div>
+               </div>
+               <div class="comprehensive_li" style="">
+               <img src="../../assets/imgs/video2.jpg"  alt="">
+               <div class="modl">摄像头2</div>
+               </div>
+               <div class="comprehensive_li" style="">
+               <img src="../../assets/imgs/video3.jpg"  alt="">
+               <div class="modl">摄像头3</div>
+               </div>
+               <div class="comprehensive_li" style="">
+               <img src="../../assets/imgs/video4.jpg"  alt="">
+               <div class="modl">摄像头4</div>
+               </div>
+               <div class="comprehensive_li" style="">
+               <img src="../../assets/imgs/video5.jpg"  alt="">
+               <div class="modl">摄像头5</div>
+               </div>
+               <div class="comprehensive_li" style="">
+               <img src="../../assets/imgs/video6.jpg" alt="">
+               <div class="modl">摄像头6</div>
+               </div>
+        </div>
     </div>
+   
+    
 </template>
 
 <script>
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import $ from "jquery";
 export default {
   name: "home",
   components: {},
@@ -55,24 +50,21 @@ export default {
 };
 </script>
 <style scoped>
+
+/* 改后 */
 * {
   font-family: "Microsoft YaHei" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-tr {
-  line-height: 1rem;
+.comprehensive_li{
+  position: relative;
+   width: 33%;height: 350px;float: left; margin-right: 6px;
+   margin-bottom: 10px;
 }
-#sel1 {
-  padding: 0px;
-}
-.form-control {
-  height: calc(1.25rem + 2px);
-}
-.comprehensive_box {
-  border: 1px solid #8eb7af;
-  border-radius: 3px;
-  min-height: 900px;
+.comprehensive_li img{
+  width: 100%;
+  height: 100%;
 }
 .comprehensive_top {
   padding: 5px 0px;
@@ -89,18 +81,6 @@ tr {
   padding-right: 20px;
   color: #fff;
 }
-.comprehensive_body {
-  padding: 50px;
-  min-height: 200px;
-}
-.comprehensive_body_li {
-  position: relative;
-  width: 33%;
-  padding: 0px;
-  margin: 0 auto;
-  min-height: 200px;
-  margin-bottom: 10px;
-}
 .modl {
   width: 85px;
   height: 35px;
@@ -113,41 +93,6 @@ tr {
   border-bottom-right-radius: 10px;
   padding-top: 5px;
 }
-.comprehensive_body div img {
-  width: 100%;
-  height: 100%;
-}
-.comprehensive_echarts {
-  padding: 50px;
-  padding-top: 80px;
-}
-.comprehensive_r_text {
-  margin-top: 75px;
-  color: #016f6c;
-}
-.comprehensive_d_text {
-  margin-top: 50px;
-}
-.comprehensive_b_text {
-  margin-top: 120px;
-}
-.btn {
-  line-height: 0.5rem;
-}
-.btn-outline-success {
-  margin: 0 auto;
 
-  color: #fff;
-  width: 190px;
-  background-color: #016f6c;
-}
-/* 下td */
-.Lfei_table {
-  margin-bottom: 30px;
-  color: #016f6c;
-  font-size: 17px;
-  padding-left: 20px;
-  text-align: left;
-}
 </style>
 

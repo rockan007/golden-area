@@ -11,9 +11,10 @@ import comprehensiveEnergy from '@/views/details/comprehensive-energy'
 import comprehensiveEGW from '@/views/details/comprehensive-EGW'
 import eleAnalysis from '@/views/details/ele-analysis';
 import videoSurveillance from '@/views/details/video-surveillance'
-
+import lineLoss from '@/views/details/line-loss'
+import eventAlert from '@/views/details/event-alert'
+import lineLoss1 from '@/views/details/LineLoss'
 Vue.use(Router)
-
 export default new Router({
   routes: [{
     path: '/',
@@ -57,10 +58,18 @@ export default new Router({
       path: "ele-analysis",
       name: 'ele-analysis',
       component: eleAnalysis
-    },{
-      path:'video-surveillance',
-      name:'video-surveillance',
-      component:videoSurveillance
+    }, {
+      path: 'video-surveillance',
+      name: 'video-surveillance',
+      component: videoSurveillance
+    }, {
+      path: 'line-loss',
+      name: 'line-loss',
+      component: lineLoss1
+    }, {
+      path: 'event-alert',
+      name: 'event-alert',
+      component: eventAlert
     }]
   }]
 })

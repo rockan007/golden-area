@@ -24,9 +24,7 @@ export default {
   },
   methods: {
     initCharts: function(optionData) {
-      this.pieCharts = echarts.init(
-        document.getElementById("pie-charts")
-      );
+      this.pieCharts = echarts.init(document.getElementById("pie-charts"));
       this.setOptions(optionData);
     },
     setOptions: function(optionData) {
@@ -59,9 +57,18 @@ export default {
           {
             name: "线损分析",
             type: "pie",
-            radius: "70%",
-            center: ["50%", "60%"],
+            radius: "60%",
+            center: ["50%", "50%"],
             data: optionData.data,
+            label: {
+              normal: {
+                formatter: "{b}:({d}%)",
+                textStyle: {
+                  fontWeight: "normal",
+                  fontSize: 15
+                }
+              }
+            },
             itemStyle: {
               emphasis: {
                 shadowBlur: 10,
@@ -70,7 +77,8 @@ export default {
               }
             }
           }
-        ]
+        ],
+        color: ["#2c8185", "#4da29e", "#9ccac8"]
       };
 
       // 使用刚指定的配置项和数据显示图表。

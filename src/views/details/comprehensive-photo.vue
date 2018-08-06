@@ -1,5 +1,5 @@
 <template>
-     <div class="energy-container flex-grow-1">
+     <!-- <div class="energy-container flex-grow-1"> -->
        
             <div class="row comprehensive_body">
               <div class="col-lg-7 comprehensive_echarts" id="comprehensive_echarts"></div>
@@ -23,11 +23,7 @@
                 </div>
               </div>
             </div>
-        <div class="row">
-          <div class="col-lg-6"></div>
-          <div class="col-lg-6"></div>
-        </div>
-    </div>
+
  
 </template>
 
@@ -99,11 +95,59 @@ export default {
 };
 </script>
 <style scoped>
-.comprehensive_top {
-  background-color: #00706b;
-}
-.comprehensive_body{
-  min-height: 300px;
-}
+  .comprehensive_top {
+    background-color: #00706b;
+  }
+  .comprehensive_body{
+    min-height: 300px;
+  }
+ .form-control {   
+    padding: 0px;
+    height: calc(1.25rem + 2px);
+     }
+    .comprehensive_box{
+      border:1px solid #8eb7af;
+       border-radius:3px;
+       min-height: 900px; 
+    }
+    .comprehensive_top{
+      padding:5px 0px; 
+      border-radius:3px;  
+      background-color: #016f6c;
+    }
+    .comprehensive_top_first{
+      border-right:2px solid #8eb7af;
+         color: #fff;
+    }
+    .comprehensive_top_seand{
+      color: #8eb7af;
+    }
+    .comprehensive_body{
+     min-height: 500px;
+    }
+    .comprehensive_echarts{
+    padding: 50px;
+      padding-top: 80px;
+    } 
+    .comprehensive_r_text{
+      margin-top: 75px;
+      color: #016f6c;
+    }
+    .comprehensive_d_text{
+      margin-top: 100px;
+    }
+    .comprehensive_b_text{
+      margin-top: 120px;
+    }
+    .btn{
+      line-height: 0.5rem;
+    }
+    .btn-outline-success{
+      margin: 0 auto;
+      
+      color: #fff;
+      width: 190px;
+      background-color: #016f6c;
+    }
 </style>
 

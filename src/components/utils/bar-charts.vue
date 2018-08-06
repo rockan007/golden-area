@@ -5,6 +5,12 @@
 import echarts from "echarts/dist/echarts.min.js";
 export default {
   name: "bar-charts",
+  props: {
+    title: {
+      default: "",
+      type: String
+    }
+  },
   data: function() {
     return {
       barCharts: ""
@@ -23,6 +29,18 @@ export default {
     },
     setChartsOptions: function() {
       let option = {
+        title: {
+          text: this.title,
+          x: "center",
+          textStyle: {
+            //标题内容的样式
+            color: "#00706b", //京东红
+            fontStyle: "normal", //主标题文字字体风格，默认normal，有italic(斜体),oblique(斜体)
+            fontWeight: "lighter", //可选normal(正常)，bold(加粗)，bolder(加粗)，lighter(变细)，100|200|300|400|500...
+            fontFamily: "san-serif", //主题文字字体，默认微软雅黑
+            fontSize: 18 //主题文字字体大小，默认为18px
+          }
+        },
         tooltip: {
           trigger: "axis",
           axisPointer: {
@@ -32,16 +50,9 @@ export default {
             }
           }
         },
-        toolbox: {
-          feature: {
-            dataView: { show: true, readOnly: false },
-            magicType: { show: true, type: ["line", "bar"] },
-            restore: { show: true },
-            saveAsImage: { show: true }
-          }
-        },
         legend: {
-          data: ["发电量", "储电量", "平均温度"]
+          data: ["发电量", "储电量", "平均温度"],
+          top: "30px",
         },
         xAxis: [
           {
@@ -68,22 +79,22 @@ export default {
         yAxis: [
           {
             type: "value",
-            name: "发电量",
+            name: "kWh",
             min: 0,
             max: 250,
             interval: 50,
             axisLabel: {
-              formatter: "{value} kWh"
+              formatter: "{value}"
             }
           },
           {
             type: "value",
-            name: "温度",
+            name: "°C",
             min: 0,
             max: 25,
             interval: 5,
             axisLabel: {
-              formatter: "{value} °C"
+              formatter: "{value} "
             }
           }
         ],

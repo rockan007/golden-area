@@ -48,6 +48,9 @@ export default {
         case 4:
           this.title = "视频监控";
           break;
+        case 5:
+          this.title = "事件预警";
+          break;
         default:
           this.title = "用电分析";
           break;
@@ -58,16 +61,18 @@ export default {
 </script>
 <style scoped>
 .detail-header {
+  min-height: 50px;
   padding: 8px 24px;
 }
 .back-home {
+  line-height: 34px;
   color: #00706b;
 }
 .header-title {
   color: white;
   padding: 4px 8px;
   border-radius: 8px;
-  background-color: #00706b;
+  background: linear-gradient(to bottom, rgba(0, 112, 107,0.6), rgba(0, 112, 107,1));
 }
 .detail-body {
   margin: 8px 16px;

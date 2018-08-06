@@ -2,9 +2,9 @@
     <nav class="area-nav navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand d-flex" href="#">
             <img class="logo-img" src="../../assets/imgs/logo.png" alt="">
-            <div class="d-flex flex-column">
+            <div class="title-container d-flex flex-column">
                 <div class="title">
-                      精品台区管理系统
+                      精品台区智能管理系统
                 </div>
                  <div class="sub-title">
                       国家电网山东电力公司德州供电公司
@@ -32,19 +32,31 @@ export default {
 };
 </script>
 <style scoped>
-.area-nav{
-    color: white;
+.area-nav {
+  color: white;
 }
-.bg-dark{
-    background-color: #00706b !important;
+.bg-dark {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 112, 107, 0.6),
+    rgba(0, 112, 107, 1)
+  ) !important;
 }
 .logo-img {
-  height: 60px;
+  height: 50px;
 }
-.title{
-    font-size:24px;
+.title-container {
+  margin-left: 12px;
 }
-.sub-title{
-    font-size: 12px;
+.title,
+.sub-title {
+  text-align: left;
+}
+.title {
+  font-weight: bold;
+  font-size: 18px;
+}
+.sub-title {
+  font-size: 12px;
 }
 </style>

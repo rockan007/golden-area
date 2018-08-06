@@ -6,10 +6,14 @@
           </div>
         </div>
         <div class="item-content flex-grow-1 d-flex">
-            <line-charts v-if="item.order==0"></line-charts>
-            <GIS-map v-else-if="item.order==1" v-bind:isDetail="0"></GIS-map>
-            <pie-charts v-else-if="item.order==2"></pie-charts>
-            <com-energy v-else-if="item.order==3"></com-energy>
+            <line-charts v-if="item.order==0" v-bind:item="item"></line-charts>
+            <GIS-map v-else-if="item.order==1" v-bind:item="item" v-bind:isDetail="0"></GIS-map>
+            <pie-charts v-else-if="item.order==2" v-bind:item="item"></pie-charts>
+            <com-energy v-else-if="item.order==3" v-bind:item="item"></com-energy>
+            <div class="flex-grow-1 d-flex justify-content-center align-items-center" v-else>
+               <img  src="../../assets/imgs/video-img.png" style="width:80%;height:auto"/>
+            </div>
+           
         </div>
     </div>
 </template>
@@ -48,6 +52,7 @@ export default {
           routerPath += "/sample-graph/0";
           break;
         case 2:
+          routerPath += "/line-loss";
           break;
         case 3:
           routerPath += "/com-energy/0";
@@ -65,10 +70,10 @@ export default {
 </script>
 <style scoped>
 .item-title {
-  background-color: #00706b;
   color: white;
   border-radius: 4px;
   width: 120px;
+  background: linear-gradient(to bottom, rgba(0, 112, 107,0.6), rgba(0, 112, 107,1));
 }
 .item-content {
   margin-top: 16px;

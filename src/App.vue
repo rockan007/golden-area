@@ -40,10 +40,10 @@ export default {
   width: 100%;
   height: 100%;
   padding: 0;
-  background-image: url(assets/imgs/home-back.png);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6)),url(assets/imgs/home-back.png); 
 }
 @media (min-width: 1200px) {
   .container {
