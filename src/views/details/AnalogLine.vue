@@ -1,20 +1,20 @@
 <template>
     <div class="analog-line-container flex-grow-1 d-flex flex-column">
-        <div class="analog-body flex-grow-1 d-flex flex-column align-items-stretch justify-content-center">
-          <div class="btn-group ml-auto" role="group" aria-label="Basic example">
+        <div class="analog-body flex-grow-1 d-flex flex-column  justify-content-center">
+          <div class="charts-select btn-group ml-auto" role="group">
             <button type="button" class="btn btn-secondary" v-on:click="selectType=0" v-bind:class='{"active":selectType==0}'>图表</button>
             <button type="button" class="btn btn-secondary" v-on:click="selectType=1" v-bind:class='{"active":selectType==1}'>表格</button>
           </div>
-          <template v-if="selectType==0">
-            <template v-if="id==1">
-              <img src="http://wx.dianliangliang.com/sucai/hikd.2635fc5c.png" class="analog-image flex-grow-1" alt="">
-              <back-no v-bind:showBack='meterNo<35' v-for="meterNo in 37" v-bind:meterBoxNo="meterNo" :key="meterNo" v-on:dialogShow="getDialogShow" v-bind:class="['meterNo-'+meterNo,{'flex-column-reverse':meterNo>16}]"></back-no>
+          <div v-if="selectType==0" style="height:0;padding:16px 16px 32px 16px;" class="flex-grow-1 flex-shrink-1 d-flex align-items-stretch position-relative">
+            <template v-if="id==1">  
+              <img src="../../assets/imgs/analog-map.png" class="analog-image flex-grow-1" alt="">
+              <back-no v-bind:showBack='meterNo<48' v-for="meterNo in 50" v-bind:meterBoxNo="meterNo" :key="meterNo" v-on:dialogShow="getDialogShow" v-bind:class="['meterNo-'+meterNo,{'flex-column-reverse':meterNo<21}]"></back-no>
             </template>
             <template v-else>
-              <img src="http://wx.dianliangliang.com/sucai/analog-line.1b8ec1ef.png" class="analog-image" alt="">
+              <img src="http://wx.dianliangliang.com/sucai/analog-line.1b8ec1ef.png" class="analog-image " alt="">
               <dynamic-no  v-for="no in 6" v-bind:key="no" v-bind:class="'dynamic-bottom-'+no" v-bind:dynamicItem="getRandomBottom(no)"></dynamic-no>
             </template> 
-          </template>
+          </div>
           <opertional-parameters v-else></opertional-parameters>
             <div v-if="showDialog&&selectMeterBox" class="meter-dialog d-flex flex-column shadow-lg">
               <div class="dia-header d-flex justify-content-center">
@@ -118,6 +118,10 @@ export default {
 };
 </script>
 <style scoped>
+.charts-select {
+  margin: 8px 16px 0 0;
+  min-height: 36px;
+}
 .btn-secondary.active {
   background-color: #00706b !important;
   border-color: #00706b !important;
@@ -154,13 +158,14 @@ export default {
   position: relative;
 }
 .analog-image {
+  width: 100%;
   /* margin-top: 10px;
   margin-left: -560px;
   height: 400px; */
 }
 .dynamic-bottom-1 {
-  left: 330px;
-  top: 590px;
+  left: 100px;
+  top: 500px;
 }
 .dynamic-bottom-2 {
   left: 450px;
@@ -183,151 +188,203 @@ export default {
   top: 590px;
 }
 .meterNo-1 {
-  left: 292px;
-  bottom: 75px;
+  left: 16px;
+  top: 224px;
 }
 .meterNo-2 {
-  left: 340px;
-  bottom: 75px;
+  left: 88px;
+  top: 224px;
 }
 .meterNo-3 {
-  left: 406px;
-  bottom: 75px;
+  left: 195px;
+  top: 224px;
 }
 .meterNo-4 {
-  left: 452px;
-  bottom: 75px;
+  left: 268px;
+  top: 224px;
 }
 .meterNo-5 {
-  left: 519px;
-  bottom: 75px;
+  left: 367px;
+  top: 224px;
 }
 .meterNo-6 {
-  left: 566px;
-  bottom: 75px;
+  left: 439px;
+  top: 224px;
 }
 .meterNo-7 {
-  left: 630px;
-  bottom: 75px;
+  left: 540px;
+  top: 224px;
 }
 .meterNo-8 {
-  left: 677px;
-  bottom: 75px;
+  left: 612px;
+  top: 224px;
 }
 .meterNo-9 {
-  right: 460px;
-  bottom: 75px;
+  left: 709px;
+  top: 224px;
 }
 .meterNo-10 {
-  right: 412px;
-  bottom: 75px;
+  left: 780px;
+  top: 224px;
 }
 .meterNo-11 {
-  right: 346px;
-  bottom: 75px;
+  right: 784px;
+  top: 224px;
 }
 .meterNo-12 {
-  right: 299px;
-  bottom: 75px;
+  right: 710px;
+  top: 224px;
 }
 .meterNo-13 {
-  right: 233px;
-  bottom: 75px;
+  right: 608px;
+  top: 224px;
 }
 .meterNo-14 {
-  right: 186px;
-  bottom: 75px;
+  right: 536px;
+  top: 224px;
 }
 .meterNo-15 {
-  right: 122px;
-  bottom: 75px;
+  right: 435px;
+  top: 224px;
 }
 .meterNo-16 {
-  right: 75px;
-  bottom: 75px;
+  right: 365px;
+  top: 224px;
 }
 .meterNo-17 {
-  left: 76px;
-  top: 152px;
+  right: 273px;
+  top: 224px;
 }
 .meterNo-18 {
-  left: 124px;
-  top: 152px;
+  right: 182px;
+  top: 224px;
 }
 .meterNo-19 {
-  left: 194px;
-  top: 152px;
+  right: 95px;
+  top: 224px;
 }
 .meterNo-20 {
-  left: 241px;
-  top: 152px;
+  right: 22px;
+  top: 224px;
 }
 .meterNo-21 {
-  left: 307px;
-  top: 152px;
+  right: 487px;
+  top: 74px;
 }
 .meterNo-22 {
-  left: 354px;
-  top: 152px;
+  right: 412px;
+  top: 74px;
 }
 .meterNo-23 {
-  left: 420px;
-  top: 152px;
+  right: 340px;
+  top: 74px;
 }
 .meterNo-24 {
-  left: 467px;
-  top: 152px;
+  right: 262px;
+  top: 74px;
 }
 .meterNo-25 {
-  left: 532px;
-  top: 152px;
+  right: 190px;
+  top: 74px;
 }
 .meterNo-26 {
-  left: 578px;
-  top: 152px;
+  right: 109px;
+  top: 74px;
 }
 .meterNo-27 {
-  right: 580px;
-  top: 152px;
+  right: 37px;
+  top: 74px;
 }
 .meterNo-28 {
-  right: 532px;
-  top: 152px;
+  left: 345px;
+  bottom: 190px;
 }
 .meterNo-29 {
-  right: 465px;
-  top: 152px;
+  left: 417px;
+  bottom: 190px;
 }
 .meterNo-30 {
-  right: 418px;
-  top: 152px;
+  left: 517px;
+  bottom: 190px;
 }
 .meterNo-31 {
-  right: 352px;
-  top: 152px;
+  left: 589px;
+  bottom: 190px;
 }
 .meterNo-32 {
-  right: 305px;
-  top: 152px;
+  left: 688px;
+  bottom: 190px;
 }
 .meterNo-33 {
-  right: 240px;
-  top: 152px;
+  left: 760px;
+  bottom: 190px;
 }
 .meterNo-34 {
-  right: 194px;
-  top: 152px;
+  left: 858px;
+  bottom: 190px;
 }
 .meterNo-35 {
-  left: 696px;
-  top: 180px;
+  left: 930px;
+  bottom: 190px;
 }
 .meterNo-36 {
-  right: 700px;
-  top: 230px;
+  right: 786px;
+  bottom: 190px;
 }
 .meterNo-37 {
-  left: 710px;
-  top: 230px;
+  right: 714px;
+  bottom: 190px;
+}
+.meterNo-38 {
+  right: 610px;
+  bottom: 190px;
+}
+.meterNo-39 {
+  right: 538px;
+  bottom: 190px;
+}
+.meterNo-40 {
+  right: 430px;
+  bottom: 190px;
+}
+.meterNo-41 {
+  right: 358px;
+  bottom: 190px;
+}
+.meterNo-42 {
+  right: 257px;
+  bottom: 190px;
+}
+.meterNo-43 {
+  right: 172px;
+  bottom: 190px;
+}
+.meterNo-44 {
+  right: 88px;
+  bottom: 190px;
+}
+.meterNo-45 {
+  right: 16px;
+  bottom: 190px;
+}
+.meterNo-46 {
+  right: 582px;
+  bottom: -5px;
+}
+.meterNo-47 {
+  right: 510px;
+  bottom: -5px;
+}
+.meterNo-48 {
+  left: 960px;
+  top: 260px;
+}
+.meterNo-49 {
+  right: 966px;
+  top: 300px;
+}
+.meterNo-50 {
+  left: 976px;
+  top: 300px;
 }
 </style>

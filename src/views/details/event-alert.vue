@@ -2,7 +2,7 @@
     <div class="eventAlert-container flex-grow-1 d-flex flex-column">
         <div class="eventAlert-header d-flex justify-content-between">
             <div class="eventAlert-title ">事件预警</div> 
-            <button class="btn btn-outline-warning" v-on:click="exportAlert">导出表格</button>
+            <button class="btn btn-outline-info" v-on:click="exportAlert">导出表格</button>
         </div>
         <div class="eventAlert-body flex-grow-1 flex-shrink-1" style="overflow-y:auto">
             <table class="table table-striped table-light">

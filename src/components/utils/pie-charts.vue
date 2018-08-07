@@ -1,5 +1,5 @@
 <template>
-    <div id="pie-charts" class="flex-grow-1">
+    <div id="pie-charts" class="pie-charts flex-grow-1">
 
     </div>
 </template>
@@ -11,7 +11,7 @@ export default {
     return {
       pieCharts: "",
       areaData: {
-        title: "台区",
+        title: "台区线损统计",
         data: [
           { value: 3500, name: "实际用电量" },
           { value: 300, name: "线损电量" }
@@ -34,9 +34,9 @@ export default {
           x: "center",
           textStyle: {
             //标题内容的样式
-            color: "#fff", //京东红
+            color: "#00706b", //京东红
             fontStyle: "normal", //主标题文字字体风格，默认normal，有italic(斜体),oblique(斜体)
-            fontWeight: "lighter", //可选normal(正常)，bold(加粗)，bolder(加粗)，lighter(变细)，100|200|300|400|500...
+            fontWeight: "bold", //可选normal(正常)，bold(加粗)，bolder(加粗)，lighter(变细)，100|200|300|400|500...
             fontFamily: "san-serif", //主题文字字体，默认微软雅黑
             fontSize: 18 //主题文字字体大小，默认为18px
           }
@@ -62,23 +62,24 @@ export default {
             data: optionData.data,
             label: {
               normal: {
-                formatter: "{b}:({d}%)",
+                formatter: "{b}\n{c}({d}%)",
                 textStyle: {
                   fontWeight: "normal",
-                  fontSize: 15
+                  fontSize: 14
                 }
               }
             },
             itemStyle: {
               emphasis: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: "rgba(0, 0, 0, 0.5)"
+                label: {
+                  show: true,
+                  formatter: "{b}\n{d}%"
+                }
               }
             }
           }
         ],
-        color: ["#2c8185", "#4da29e", "#9ccac8"]
+        color: ["#2c8185", "#ff7171", "#9ccac8"]
       };
 
       // 使用刚指定的配置项和数据显示图表。
@@ -88,4 +89,7 @@ export default {
 };
 </script>
 <style scoped>
+.pie-charts {
+  padding: 8px 16px;
+}
 </style>

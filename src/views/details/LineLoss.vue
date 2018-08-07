@@ -5,10 +5,10 @@
             <div class="lineLoss-title">
               线损分析
             </div>
-            <button class="btn btn-outline-warning" v-on:click="exportLineLoss()">导出表格</button>
+            <button class="btn btn-outline-info" v-on:click="exportLineLoss()">导出表格</button>
         </div>
         <div class="lineLoss-body flex-grow-1 d-flex flex-column">
-            <div class="d-flex align-items-center justify-content-center ">
+            <div class="date-select d-flex align-items-center justify-content-center ">
                 <div class="input-group mb-3 col-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="">开始时间</span>
@@ -40,7 +40,7 @@
                 <div id="line-3" style="width:0;" class="flex-grow-1 border border-info"></div>
                 <div id="line-4" style="width:0;" class="flex-grow-1 border border-info"></div>
               </div>
-              <table class="table table-striped table-light">
+              <table class="table-container table table-striped table-light">
                 <thead>
                   <tr>
                     <th scope="col">线路名称</th>
@@ -71,8 +71,8 @@ export default {
   data: function() {
     return {
       selectMeterBoxNo: 1,
-      startLLDate: "2018-07-16",
-      endLLDate: "20180-07-24",
+      startLLDate: "2018-08-01",
+      endLLDate: "2018-08-07",
       lineCharts: "",
       line1Charts: "",
       line2Charts: "",
@@ -225,7 +225,7 @@ export default {
             },
              label: {
               normal: {
-                formatter: "{b}:({d}%)",
+                formatter: "{b}\n{c}({d}%)",
                 textStyle: {
                   fontWeight: "normal",
                   fontSize: 15
@@ -244,6 +244,9 @@ export default {
 };
 </script>
 <style scoped>
+.date-select{
+  margin-bottom: 16px;
+}
 .lineLoss-header {
   padding-left: 16px;
   color: white;
@@ -257,7 +260,8 @@ export default {
 .lineLoss-container {
 }
 .lineLoss-title {
-  font-size: 24px;
+  font-size: 20px;
+  line-height: 40px;
 }
 .border-info {
   border-color: #00706b;
@@ -267,5 +271,8 @@ export default {
   padding: 8px 16px;
 }
 .lineLoss-echarts {
+}
+.table-container{
+  margin-top: 32px;
 }
 </style>

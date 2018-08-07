@@ -50,9 +50,9 @@ export default {
   width: 100%;
 }
 .energy-header {
-  font-size: 24px;
+  font-size: 20px;
   background-color: #00706b;
-  color: gray;
+  color:  #4da29e;;
   padding: 8px 16px;
 }
 .active {

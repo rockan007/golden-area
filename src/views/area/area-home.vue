@@ -51,9 +51,14 @@ export default {
 };
 </script>
 <style scoped>
-.home-row-0,
+.home-row-0{
+  height: 100px;
+}
 .home-row-1 {
   height: 0;
+}
+.home-row-0,
+.home-row-1{
   padding: 8px 16px;
 }
 </style>

@@ -1,35 +1,151 @@
 <template>
-    <div class="operational-parameters flex-grow-1 d-flex flex-column justify-content-stretch">
-        <div v-for="(table,index) in tableList" v-bind:key="index" class="table-container">
-            <div class="table-title"> 
-                {{table.title}}
-            </div>
-             <table class="table-body table-striped border">
-                <thead>
-                    <tr>
-                        <th scope="col">属性</th>
-                        <th scope="col">值</th>
-                        <th scope="col">属性</th>
-                        <th scope="col">值</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="line in (Math.ceil( table.params.length/2.0))" v-bind:key="line">
-                        <th scope="row">{{table.params[line*2-2].title}}</th>
-                        <td>{{table.params[line*2-2].param}}</td>
-                        <th scope="row">{{table.params[line*2-1].title}}</th>
-                        <td>{{table.params[line*2-1].param}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="operational-parameters flex-grow-1 d-flex flex-wrap" style="overflow-y:auto;">
+        <info-card class="col-6" v-for="(card,index) in cardList" v-bind:cardData="card" v-bind:order="index" v-bind:key="index"></info-card>
     </div>
 </template>
 <script>
+import infoCard from "../../components/details/info-card";
 export default {
   name: "operational-parameters",
+  components: {
+    infoCard
+  },
   data: function() {
     return {
+      cardList: [
+        {
+          title: "台区基本信息",
+          subTitles: [
+            {
+              title: "容量",
+              info: "400kVA"
+            },
+            {
+              title: "负载率",
+              info: "78.356%"
+            },
+            {
+              title: "总表数",
+              info: "138个"
+            }
+          ],
+          infoList: [
+            {
+              title: "总用户数",
+              info: "358"
+            },
+            {
+              title: "高压用户数",
+              info: "41"
+            },
+            {
+              title: "低压用户数",
+              info: "304"
+            },
+            {
+              title: "表箱数",
+              info: "36"
+            }
+          ],
+          isEle: 0
+        },
+        {
+          title: "变压器相关信息",
+          subTitles: [
+            {
+              title: "A相电电压",
+              info: "219.80V"
+            },
+            {
+              title: "B相电电压",
+              info: "221.08V"
+            },
+            {
+              title: "C相电电压",
+              info: "220.12V"
+            }
+          ],
+          infoList: [
+            {
+              title: "负载率",
+              info: "78%"
+            },
+            {
+              title: "容量",
+              info: "400kVA"
+            },
+            {
+              title: "低压用户数",
+              info: "304"
+            },
+            {
+              title: "实时温度",
+              info: "36℃"
+            }
+          ],
+          isEle: 1
+        },
+        {
+          title: "GP柜相关信息",
+          subTitles: [
+            {
+              title: "A相电电流",
+              info: "50.1A"
+            },
+            {
+              title: "B相电电流",
+              info: "46.9A"
+            },
+            {
+              title: "C相电电流",
+              info: "48.6A"
+            }
+          ],
+          infoList: [
+            {
+              title: "A相电电压",
+              info: "219.08V"
+            },
+            {
+              title: "B相电电压",
+              info: "220.08V"
+            },
+            {
+              title: "C相电电压",
+              info: "221.08V"
+            },
+            {
+              title: "实时温度",
+              info: "36℃"
+            }
+          ],
+          isEle: 1
+        },
+        {
+          title: "东线相关信息",
+          subTitles: [
+            {
+              title: "表数",
+              info: "69"
+            },
+            {
+              title: "高电压用户",
+              info: "12"
+            },
+            {
+              title: "低电压用户",
+              info: "57"
+            }
+          ],
+          infoList: [
+            {
+              title: "表箱数",
+              info: "12"
+            }
+          ],
+           isEle: 0
+        }
+      ],
       tableList: [
         {
           title: "基本信息",
@@ -92,7 +208,7 @@ export default {
               title: "负载率",
               param: 0.9
             }
-          ]
+          ],
         }
       ]
     };
@@ -109,6 +225,5 @@ export default {
 .table-body {
   width: 80%;
   margin: 0 10%;
-  /* text-align: left; */
 }
 </style>

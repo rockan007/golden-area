@@ -65,14 +65,21 @@ export default {
   padding: 8px 24px;
 }
 .back-home {
-  line-height: 34px;
+  line-height: 50px;
   color: #00706b;
 }
 .header-title {
   color: white;
-  padding: 4px 8px;
+  font-size: 20px;
+  font-weight: bold;
   border-radius: 8px;
-  background: linear-gradient(to bottom, rgba(0, 112, 107,0.6), rgba(0, 112, 107,1));
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 112, 107, 0.6),
+    rgba(0, 112, 107, 1)
+  );
+  padding: 8px 16px;
+  min-height: 46px;
 }
 .detail-body {
   margin: 8px 16px;

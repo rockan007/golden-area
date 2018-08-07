@@ -36,7 +36,7 @@ export default {
             //标题内容的样式
             color: "#00706b", //京东红
             fontStyle: "normal", //主标题文字字体风格，默认normal，有italic(斜体),oblique(斜体)
-            fontWeight: "lighter", //可选normal(正常)，bold(加粗)，bolder(加粗)，lighter(变细)，100|200|300|400|500...
+            fontWeight: "bold", //可选normal(正常)，bold(加粗)，bolder(加粗)，lighter(变细)，100|200|300|400|500...
             fontFamily: "san-serif", //主题文字字体，默认微软雅黑
             fontSize: 18 //主题文字字体大小，默认为18px
           }
@@ -52,7 +52,7 @@ export default {
         },
         legend: {
           data: ["发电量", "储电量", "平均温度"],
-          top: "30px",
+          top: "30px"
         },
         xAxis: [
           {
@@ -73,6 +73,14 @@ export default {
             ],
             axisPointer: {
               type: "shadow"
+            },
+            splitLine: {
+              show: false
+            },
+            axisLine: {
+              lineStyle: {
+                color: "#00706b" //坐标轴线颜色
+              }
             }
           }
         ],
@@ -85,6 +93,14 @@ export default {
             interval: 50,
             axisLabel: {
               formatter: "{value}"
+            },
+            splitLine: {
+              show: false
+            },
+            axisLine: {
+              lineStyle: {
+                color: "#00706b" //坐标轴线颜色
+              }
             }
           },
           {
@@ -95,9 +111,18 @@ export default {
             interval: 5,
             axisLabel: {
               formatter: "{value} "
+            },
+            splitLine: {
+              show: false
+            },
+            axisLine: {
+              lineStyle: {
+                color: "#00706b" //坐标轴线颜色
+              }
             }
           }
         ],
+        color: ["#4da29e", "#9ccac8"],
         series: [
           {
             name: "储电量",
@@ -162,4 +187,7 @@ export default {
 };
 </script>
 <style scoped>
+.bar-charts {
+  padding: 8px 16px;
+}
 </style>

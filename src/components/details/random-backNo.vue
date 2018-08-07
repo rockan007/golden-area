@@ -67,8 +67,8 @@ export default {
   position: absolute;
 }
 .back {
-  width: 44px;
-  height: 30px;
+  width: 68px;
+  height: 28px;
 }
 .no {
   font-size: 12px;

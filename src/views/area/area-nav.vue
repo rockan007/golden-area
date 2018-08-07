@@ -2,7 +2,7 @@
     <nav class="area-nav navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand d-flex" href="#">
             <img class="logo-img" src="../../assets/imgs/logo.png" alt="">
-            <div class="title-container d-flex flex-column">
+            <div class="title-container d-flex flex-column justify-content-center ">
                 <div class="title">
                       精品台区智能管理系统
                 </div>
@@ -34,6 +34,9 @@ export default {
 <style scoped>
 .area-nav {
   color: white;
+  height: 76px;
+  min-height: 76px;
+  max-height: 76px;
 }
 .bg-dark {
   background: linear-gradient(
@@ -43,16 +46,21 @@ export default {
   ) !important;
 }
 .logo-img {
-  height: 50px;
+  height: 70px;
+  line-height: 0;
 }
 .title-container {
   margin-left: 12px;
+}
+.title{
+
 }
 .title,
 .sub-title {
   text-align: left;
 }
 .title {
+  margin-top: -3px;
   font-weight: bold;
   font-size: 18px;
 }

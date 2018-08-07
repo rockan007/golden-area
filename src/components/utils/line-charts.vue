@@ -61,6 +61,18 @@ export default {
     },
     setOptions: function(optionData) {
       let option = {
+        title: {
+          text: '台区用电分析',
+          x: "center",
+          textStyle: {
+            //标题内容的样式
+            color: "#00706b", //京东红
+            fontStyle: "normal", //主标题文字字体风格，默认normal，有italic(斜体),oblique(斜体)
+            fontWeight: "bold", //可选normal(正常)，bold(加粗)，bolder(加粗)，lighter(变细)，100|200|300|400|500...
+            fontFamily: "san-serif", //主题文字字体，默认微软雅黑
+            fontSize: 18 //主题文字字体大小，默认为18px
+          }
+        },
         xAxis: {
           type: "category",
           data: optionData.xLine,
@@ -85,7 +97,8 @@ export default {
             data: optionData.yLine,
             type: "line"
           }
-        ]
+        ],
+        color: ["#9ccac8"]
       };
       // 使用刚指定的配置项和数据显示图表。
       this.eCharts.setOption(option);
@@ -94,7 +107,7 @@ export default {
 };
 </script>
 <style scoped>
-.echarts-container{
+.echarts-container {
   padding: 8px 16px;
 }
 </style>

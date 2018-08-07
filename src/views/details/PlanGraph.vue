@@ -1,9 +1,9 @@
 <template>
     <div class="plan-container flex-grow-1 d-flex flex-column align-items-center position-relative " >
-        <div id="plan-body" class="plan-body flex-grow-1 flex-shrink-1 d-flex align-items-center justify-content-center position-absolute"  data-spy="scroll" style="overflow-x: scroll">
+        <div id="plan-body" class="plan-body flex-grow-1 flex-shrink-1 d-flex align-items-center justify-content-center"  data-spy="scroll" style="overflow-x: scroll">
             <!-- <img src="http://wx.dianliangliang.com/sucai/plan-graph.74a0cb6d.png" alt=""> -->
-            <div id="plan-img" class="" style="padding:0px 20px 0px 2380px" >
-                <img class=""  src="http://wx.dianliangliang.com/sucai/pmt.png" alt="">
+            <div id="plan-img"   style="padding:300px 20px 50px" class="flex-grow-1 flex-shrink-1 d-flex" >
+                <img class="flex-grow-1" style="width:100%;" src="../../assets/imgs/pmt.png" alt="">
             </div>
             <!-- <img class="marginal-data position-absolute" src="http://wx.dianliangliang.com/sucai/marginal-data.png" alt=""> -->
         </div>
@@ -13,13 +13,11 @@
 import $ from "jquery";
 export default {
   name: "plan-graph",
-  components: {
-
-  },
+  components: {},
   mounted: function() {
     var myDiv = $("#plan-body");
     var scrollto = myDiv.offset().left + myDiv.width() / 2;
-    myDiv.animate({ scrollLeft: scrollto+150 });
+    myDiv.animate({ scrollLeft: scrollto + 150 });
     // let body=document.getElementById('plan-body');
     // body.scrollLeft=2000;
     // // body.scrollTo(5000,1000);
@@ -58,7 +56,7 @@ export default {
   right: 60px;
   z-index: 999;
   border-radius: 16px;
-  background-color: rgba(255, 255, 255, 1.0);
+  background-color: rgba(255, 255, 255, 1);
   padding: 16px;
 }
 .dia-header {

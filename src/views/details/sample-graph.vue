@@ -2,9 +2,9 @@
     <div class="sample-graph maps-container d-flex flex-column flex-shrink-1">
         <div class="maps-header" style="text-align:left;">
           <div>
-            <span v-on:click="setSelectMap(0)" v-bind:class="{'active':selectMap==0}">GIS图</span>/
-            <span v-on:click="setSelectMap(1)" v-bind:class="{'active':selectMap==1}">平面图</span>/
-            <span v-on:click="setSelectMap(2)" v-bind:class="{'active':selectMap==2}">模拟图</span>
+            <span class="option-map" v-on:click="setSelectMap(0)" v-bind:class="{'active':selectMap==0}">GIS图</span>|
+            <span class="option-map" v-on:click="setSelectMap(1)" v-bind:class="{'active':selectMap==1}">平面图</span>|
+            <span class="option-map" v-on:click="setSelectMap(2)" v-bind:class="{'active':selectMap==2}">模拟图</span>
           </div>
         </div>
         <router-view></router-view>
@@ -54,13 +54,16 @@ export default {
 };
 </script>
 <style scoped>
+.option-map{
+  color: #4da29e;
+}
 .sample-graph {
   width: 100%;
 }
 .maps-header {
   font-size: 24px;
   background-color: #00706b;
-  color: gray;
+  color:  #4da29e;
   padding: 8px 16px;
 }
 .active{

@@ -41,7 +41,7 @@ export default {
             //标题内容的样式
             color: "#00706b", //京东红
             fontStyle: "normal", //主标题文字字体风格，默认normal，有italic(斜体),oblique(斜体)
-            fontWeight: "lighter", //可选normal(正常)，bold(加粗)，bolder(加粗)，lighter(变细)，100|200|300|400|500...
+            fontWeight: "bold", //可选normal(正常)，bold(加粗)，bolder(加粗)，lighter(变细)，100|200|300|400|500...
             fontFamily: "san-serif", //主题文字字体，默认微软雅黑
             fontSize: 18 //主题文字字体大小，默认为18px
           }
@@ -54,24 +54,32 @@ export default {
             lineStyle: {
               color: "#00706b" //坐标轴线颜色
             }
+          },
+          splitLine: {
+            show: false
           }
         },
         yAxis: {
           scale: true,
           type: "value",
-          axisLabel: { formatter: "{value} m3" },
+          name: "m3",
+          axisLabel: { formatter: "{value}" },
           axisLine: {
             lineStyle: {
               color: "#00706b" //坐标轴线颜色
             }
+          },
+          splitLine: {
+            show: false
           }
         },
+        color: ["#4da29e", "#9ccac8"],
         series: [
-          {
-            type: "effectScatter",
-            symbolSize: 20,
-            data: [[172.7, 105.2], [153.4, 42]]
-          },
+          // {
+          //   type: "effectScatter",
+          //   symbolSize: 20,
+          //   data: [[172.7, 105.2], [153.4, 42]]
+          // },
           {
             type: "scatter",
             data: [
@@ -346,4 +354,7 @@ export default {
 };
 </script>
 <style scoped>
+.scatter-charts {
+  padding: 8px 16px;
+}
 </style>
