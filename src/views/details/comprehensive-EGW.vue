@@ -1,7 +1,7 @@
 <template>
-  <div class="flex-grow-1 d-flex flex-column" style="overflow-y:auto">
-  <div class="comprehensive_box">
-    <div class="row comprehensive_body">
+<div class="flex-grow-1 d-flex flex-column" style="overflow-y:auto">
+  <!-- <div class="comprehensive_box"> -->
+    <div class="row comprehensive_body" style=" margin: 0px;">
       <div class="col-lg-7 comprehensive_echarts">
         <div class="row comprehensive_echarts_text">用电量-用水量相关分析</div>
         <div id="water" class="row"></div>
@@ -22,7 +22,7 @@
       </div>  
     </div>
   </div>
-</div>       
+ <!-- </div>       -->
 </template>
 
 <script>

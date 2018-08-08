@@ -9,7 +9,7 @@
             <pie-charts v-else-if="item.order==2" v-bind:item="item"></pie-charts>
             <com-energy v-else-if="item.order==3" v-bind:item="item"></com-energy>
             <div class="flex-grow-1 d-flex flex-column justify-content-center align-items-center" v-else>
-               <img  src="../../assets/imgs/video-img.png" style="width:70%;height:auto"/>
+               <img  src="../../assets/imgs/video-img-1.png" style="width:70%;height:auto"/>
                <div class="online-video-title">实时在线监控</div>
             </div>
            

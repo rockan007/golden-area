@@ -1,11 +1,9 @@
 <template>
     <div class="plan-container flex-grow-1 d-flex flex-column align-items-center position-relative " >
         <div id="plan-body" class="plan-body flex-grow-1 flex-shrink-1 d-flex align-items-center justify-content-center"  data-spy="scroll" style="overflow-x: scroll">
-            <!-- <img src="http://wx.dianliangliang.com/sucai/plan-graph.74a0cb6d.png" alt=""> -->
-            <div id="plan-img"   style="padding:300px 20px 50px" class="flex-grow-1 flex-shrink-1 d-flex" >
-                <img class="flex-grow-1" style="width:100%;" src="../../assets/imgs/pmt.png" alt="">
+                <div id="plan-img"   style="padding:50px" class="flex-grow-1 flex-shrink-1 d-flex" >
+                <img  class="flex-grow-1" style="width:50%;height:100%;" src="http://wx.dianliangliang.com/sucai/pmt.png" alt="">
             </div>
-            <!-- <img class="marginal-data position-absolute" src="http://wx.dianliangliang.com/sucai/marginal-data.png" alt=""> -->
         </div>
     </div>
 </template>

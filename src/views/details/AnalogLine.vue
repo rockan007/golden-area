@@ -7,7 +7,7 @@
           </div>
           <div v-if="selectType==0" style="height:0;padding:16px 16px 32px 16px;" class="flex-grow-1 flex-shrink-1 d-flex align-items-stretch position-relative">
             <template v-if="id==1">  
-              <img src="../../assets/imgs/analog-map.png" class="analog-image flex-grow-1" alt="">
+              <img src="http://wx.dianliangliang.com/sucai/analog-map.png" class="analog-image flex-grow-1" alt="">
               <back-no v-bind:showBack='meterNo<48' v-for="meterNo in 50" v-bind:meterBoxNo="meterNo" :key="meterNo" v-on:dialogShow="getDialogShow" v-bind:class="['meterNo-'+meterNo,{'flex-column-reverse':meterNo<21}]"></back-no>
             </template>
             <template v-else>
@@ -189,83 +189,83 @@ export default {
 }
 .meterNo-1 {
   left: 16px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-2 {
   left: 88px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-3 {
   left: 195px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-4 {
   left: 268px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-5 {
   left: 367px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-6 {
   left: 439px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-7 {
   left: 540px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-8 {
   left: 612px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-9 {
   left: 709px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-10 {
   left: 780px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-11 {
   right: 784px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-12 {
   right: 710px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-13 {
   right: 608px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-14 {
   right: 536px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-15 {
   right: 435px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-16 {
   right: 365px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-17 {
   right: 273px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-18 {
   right: 182px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-19 {
   right: 95px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-20 {
   right: 22px;
-  top: 224px;
+  top:223px;
 }
 .meterNo-21 {
   right: 487px;
@@ -297,75 +297,75 @@ export default {
 }
 .meterNo-28 {
   left: 345px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-29 {
   left: 417px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-30 {
   left: 517px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-31 {
   left: 589px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-32 {
   left: 688px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-33 {
   left: 760px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-34 {
   left: 858px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-35 {
   left: 930px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-36 {
   right: 786px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-37 {
   right: 714px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-38 {
   right: 610px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-39 {
   right: 538px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-40 {
   right: 430px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-41 {
   right: 358px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-42 {
   right: 257px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-43 {
   right: 172px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-44 {
   right: 88px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-45 {
   right: 16px;
-  bottom: 190px;
+  bottom:190px;
 }
 .meterNo-46 {
   right: 582px;

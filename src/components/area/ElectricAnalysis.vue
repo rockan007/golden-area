@@ -298,9 +298,7 @@ export default {
 };
 </script>
 <style scoped>
-.analysis-container {
 
-}
 .analysis-header {
   font-size: 24px;
 }

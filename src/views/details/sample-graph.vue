@@ -28,7 +28,7 @@ export default {
       this.mapId = to.params.mapId;
     },
     selectMap: function(newVal) {
-      let routerPath = "/detail-main/1/sample-graph/"+this.selectMap;
+      let routerPath = "/detail-main/1/sample-graph/" + this.selectMap;
       switch (parseInt(newVal)) {
         case 0:
           routerPath += "/";
@@ -54,19 +54,19 @@ export default {
 };
 </script>
 <style scoped>
-.option-map{
+.option-map {
   color: #4da29e;
 }
 .sample-graph {
   width: 100%;
 }
 .maps-header {
-  font-size: 24px;
+  font-size: 20px;
   background-color: #00706b;
-  color:  #4da29e;
+  color: #4da29e;
   padding: 8px 16px;
 }
-.active{
+.active {
   color: white;
 }
 </style>

@@ -55,16 +55,19 @@ export default {
       });
     },
     initPoints: function(points) {
-      points.forEach(point => {
+      points.forEach((point, index) => {
         let marker = new google.maps.Marker({
           position: { lat: point.Lat, lng: point.Lng },
           map: this.GISMap,
-          icon: "http://wx.dianliangliang.com/sucai/GIS-map/" + point.CIDStr+'.png'
+          icon:
+            "http://wx.dianliangliang.com/sucai/GIS-map/" +
+            point.CIDStr +
+            (index == 22 ? ".gif" : ".png")
         });
-        this.initMarkListener(marker, point);
+        this.initMarkListener(marker, point, index);
       });
     },
-    initMarkListener: function(marker, point) {
+    initMarkListener: function(marker, point, index) {
       marker.addListener(
         "click",
         function() {
@@ -73,7 +76,7 @@ export default {
           }
           this.curPoint = point;
           var infowindow = new google.maps.InfoWindow({
-            content: this.getWinInfo(point),
+            content: this.getWinInfo(point, index),
             maxWidth: 300
           });
           infowindow.open(this.GISMap, marker);
@@ -81,8 +84,19 @@ export default {
         }.bind(this)
       );
     },
-    getWinInfo: function(point) {
+    getWinInfo: function(point, index) {
       console.log("要展示的位置信息：" + JSON.stringify(point));
+      let name = point.SBMName.replace(/\./g, "");
+      if (index == 22) {
+        return (
+          "<div>" +
+          "<div>" +
+          name +
+          "</div>" +
+          "<div>设备断电</div><div>2018-08-08 08:08:08</div>"
+        );
+        ("</div>");
+      }
       return point.SBMName.replace(/\./g, "");
     },
     initMap: function() {

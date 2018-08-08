@@ -2,7 +2,7 @@
     <div class="detail-main flex-grow-1 d-flex flex-column">
         <div class="detail-header d-flex">
             <div class="header-title">{{title}} <span class="iconfont icon-shuangjiantou3-copy"></span> </div>
-            <div class="back-home ml-auto" v-on:click="$router.push('\/')">返回台区首页</div>
+            <div class="back-home ml-auto" v-on:click="$router.push('\/')"><span class="iconfont icon-fanhui1"></span> 返回台区首页</div>
         </div>
         <div class="detail-body flex-grow-1 d-flex">
             <router-view ></router-view>
@@ -61,8 +61,9 @@ export default {
 </script>
 <style scoped>
 .detail-header {
-  min-height: 50px;
-  padding: 8px 24px;
+  min-height: 58px;
+  padding: 8px 24px 0;
+  
 }
 .back-home {
   line-height: 50px;
@@ -80,6 +81,7 @@ export default {
   );
   padding: 8px 16px;
   min-height: 46px;
+  max-height: 46px;
 }
 .detail-body {
   margin: 8px 16px;

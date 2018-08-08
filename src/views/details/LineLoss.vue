@@ -234,7 +234,7 @@ export default {
             },
           }
         ],
-        color: ["#2c8185", "#4da29e", "#9ccac8"]
+        color: ["#2c8185", "#ff7171", "#9ccac8"]
       };
 
       // 使用刚指定的配置项和数据显示图表。
@@ -257,8 +257,6 @@ export default {
   font-size: 20px;
   line-height: 36px;
 }
-.lineLoss-container {
-}
 .lineLoss-title {
   font-size: 20px;
   line-height: 40px;
@@ -269,8 +267,6 @@ export default {
 .lineLoss-body {
   margin-top: 16px;
   padding: 8px 16px;
-}
-.lineLoss-echarts {
 }
 .table-container{
   margin-top: 32px;
