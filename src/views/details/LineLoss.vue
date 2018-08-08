@@ -184,7 +184,7 @@ export default {
             //标题内容的样式
             color: "#00706b", //京东红
             fontStyle: "normal", //主标题文字字体风格，默认normal，有italic(斜体),oblique(斜体)
-            fontWeight: "lighter", //可选normal(正常)，bold(加粗)，bolder(加粗)，lighter(变细)，100|200|300|400|500...
+            fontWeight: "bold", //可选normal(正常)，bold(加粗)，bolder(加粗)，lighter(变细)，100|200|300|400|500...
             fontFamily: "san-serif", //主题文字字体，默认微软雅黑
             fontSize: 18 //主题文字字体大小，默认为18px
           }

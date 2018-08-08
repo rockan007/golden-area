@@ -19,7 +19,7 @@
             <div v-if="showDialog&&selectMeterBox" class="meter-dialog d-flex flex-column shadow-lg">
               <div class="dia-header d-flex justify-content-center">
                 <div class="flex-grow-1">54#电表箱</div>
-                <div class="close-icon align-self-right" v-on:click.stop="cancelDia">X</div>
+                <div class="close-icon align-self-right" v-on:click.stop="cancelDia"><span class="icon-close iconfont icon-htmal5icon21"></span></div>
               </div>
               <div class="dia-body flex-grow-1 d-flex  flex-wrap-reverse">
                   <meter-item  v-for="m in 9" :type="getRandomType()" v-bind:meterData="selectMeterBox.C[m-1]?selectMeterBox.C[m-1]:{}" :key="m" v-bind:meterOrder="m" class="col-4"></meter-item>
@@ -133,9 +133,12 @@ export default {
 .close-icon {
   float: right;
 }
+.icon-close {
+  font-size: 36px;
+}
 .dia-header {
   font-size: 36px;
-  color: lightskyblue;
+  color: #00706b;
 }
 .meter-dialog {
   position: absolute;
@@ -159,9 +162,6 @@ export default {
 }
 .analog-image {
   width: 100%;
-  /* margin-top: 10px;
-  margin-left: -560px;
-  height: 400px; */
 }
 .dynamic-bottom-1 {
   left: 100px;
@@ -188,203 +188,203 @@ export default {
   top: 590px;
 }
 .meterNo-1 {
-  left: 16px;
-  top:223px;
+  left: 210px;
+  top:210px;
 }
 .meterNo-2 {
-  left: 88px;
-  top:223px;
+  left: 268px;
+  top:210px;
 }
 .meterNo-3 {
-  left: 195px;
-  top:223px;
+  left: 346px;
+  top:212px;
 }
 .meterNo-4 {
-  left: 268px;
-  top:223px;
+  left: 404Px;
+  top:213px;
 }
 .meterNo-5 {
-  left: 367px;
-  top:223px;
+  left: 478px;
+  top:211px;
 }
 .meterNo-6 {
-  left: 439px;
-  top:223px;
+  left: 536px;
+  top:210px;
 }
 .meterNo-7 {
-  left: 540px;
-  top:223px;
+  left: 610px;
+  top:210px;
 }
 .meterNo-8 {
-  left: 612px;
-  top:223px;
+  left: 668px;
+  top:210px;
 }
 .meterNo-9 {
-  left: 709px;
-  top:223px;
+  left: 740px;
+  top:212px;
 }
 .meterNo-10 {
-  left: 780px;
-  top:223px;
+  left: 798px;
+  top:212px;
 }
 .meterNo-11 {
-  right: 784px;
-  top:223px;
+  right: 798px;
+  top:210px;
 }
 .meterNo-12 {
-  right: 710px;
-  top:223px;
+  right: 740px;
+  top:210px;
 }
 .meterNo-13 {
-  right: 608px;
-  top:223px;
+  right: 665px;
+  top:210px;
 }
 .meterNo-14 {
-  right: 536px;
-  top:223px;
+  right: 606px;
+  top:210px;
 }
 .meterNo-15 {
-  right: 435px;
-  top:223px;
+  right: 532px;
+  top:210px;
 }
 .meterNo-16 {
-  right: 365px;
-  top:223px;
+  right: 475px;
+  top:210px;
 }
 .meterNo-17 {
-  right: 273px;
-  top:223px;
+  right: 405px;
+  top:210px;
 }
 .meterNo-18 {
-  right: 182px;
-  top:223px;
+  right: 333px;
+  top:210px;
 }
 .meterNo-19 {
-  right: 95px;
-  top:223px;
+  right: 270px;
+  top:210px;
 }
 .meterNo-20 {
-  right: 22px;
-  top:223px;
+  right: 212px;
+  top:210px;
 }
 .meterNo-21 {
-  right: 487px;
-  top: 74px;
+  right: 616px;
+  top: 85px;
 }
 .meterNo-22 {
-  right: 412px;
-  top: 74px;
+  right: 536px;
+  top: 85px;
 }
 .meterNo-23 {
-  right: 340px;
-  top: 74px;
+  right: 477px;
+  top: 85px;
 }
 .meterNo-24 {
-  right: 262px;
-  top: 74px;
+  right: 407px;
+  top: 85px;
 }
 .meterNo-25 {
-  right: 190px;
-  top: 74px;
+  right: 333px;
+  top: 85px;
 }
 .meterNo-26 {
-  right: 109px;
-  top: 74px;
+  right: 269px;
+  top: 85px;
 }
 .meterNo-27 {
-  right: 37px;
-  top: 74px;
+  right: 211px;
+  top: 85px;
 }
 .meterNo-28 {
-  left: 345px;
-  bottom:190px;
+  left: 502px;
+  bottom:200px;
 }
 .meterNo-29 {
-  left: 417px;
-  bottom:190px;
+  left: 559px;
+  bottom:200px;
 }
 .meterNo-30 {
-  left: 517px;
-  bottom:190px;
+  left: 635px;
+  bottom:200px;
 }
 .meterNo-31 {
-  left: 589px;
-  bottom:190px;
+  left: 692px;
+  bottom:200px;
 }
 .meterNo-32 {
-  left: 688px;
-  bottom:190px;
+  left: 768px;
+  bottom:200px;
 }
 .meterNo-33 {
-  left: 760px;
-  bottom:190px;
+  left: 825px;
+  bottom:200px;
 }
 .meterNo-34 {
-  left: 858px;
-  bottom:190px;
+  left: 898px;
+  bottom:199px;
 }
 .meterNo-35 {
-  left: 930px;
-  bottom:190px;
+  left: 955px;
+  bottom:199px;
 }
 .meterNo-36 {
-  right: 786px;
-  bottom:190px;
+  right: 800px;
+  bottom:200px;
 }
 .meterNo-37 {
-  right: 714px;
-  bottom:190px;
+  right: 743px;
+  bottom:200px;
 }
 .meterNo-38 {
-  right: 610px;
-  bottom:190px;
+  right: 666px;
+  bottom:200px;
 }
 .meterNo-39 {
-  right: 538px;
-  bottom:190px;
+  right: 608px;
+  bottom:200px;
 }
 .meterNo-40 {
-  right: 430px;
-  bottom:190px;
+  right: 530px;
+  bottom:200px;
 }
 .meterNo-41 {
-  right: 358px;
-  bottom:190px;
+  right: 472px;
+  bottom:200px;
 }
 .meterNo-42 {
-  right: 257px;
-  bottom:190px;
+  right: 400px;
+  bottom:200px;
 }
 .meterNo-43 {
-  right: 172px;
-  bottom:190px;
+  right: 333px;
+  bottom:200px;
 }
 .meterNo-44 {
-  right: 88px;
-  bottom:190px;
+  right: 267px;
+  bottom:200px;
 }
 .meterNo-45 {
-  right: 16px;
-  bottom:190px;
+  right: 210px;
+  bottom:200px;
 }
 .meterNo-46 {
-  right: 582px;
-  bottom: -5px;
+  right: 572px;
+  bottom: 4px;
 }
 .meterNo-47 {
-  right: 510px;
-  bottom: -5px;
+  right: 514px;
+  bottom: 4px;
 }
 .meterNo-48 {
-  left: 960px;
-  top: 260px;
+  left: 950px;
+  top: 250px;
 }
 .meterNo-49 {
-  right: 966px;
+  right: 960px;
   top: 300px;
 }
 .meterNo-50 {
-  left: 976px;
+  left: 966px;
   top: 300px;
 }
 </style>

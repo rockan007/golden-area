@@ -78,10 +78,6 @@ export default {
               title: "低压用户数",
               info: "304"
             },
-            {
-              title: "实时温度",
-              info: "36℃"
-            }
           ],
           isEle: 1
         },
