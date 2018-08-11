@@ -2,8 +2,8 @@
      <div class="com-eng maps-container d-flex flex-column flex-shrink-1">
         <div class="energy-header" style="text-align:left;">
           <div>
-            <span v-on:click="setSelectEnergy(0)" v-bind:class="{'active':selectEnergy==0}">分布式光能和储能管理</span>|
-            <span v-on:click="setSelectEnergy(1)" v-bind:class="{'active':selectEnergy==1}">电、水、煤气相关性分析</span>
+            <span v-on:click="setSelectEnergy(0)" style="cursor:pointer;" v-bind:class="{'active':selectEnergy==0}">分布式光能和储能管理</span>|
+            <span v-on:click="setSelectEnergy(1)" style="cursor:pointer;" v-bind:class="{'active':selectEnergy==1}">电、水、气相关性分析</span>
           </div>
         </div>
         <router-view></router-view>

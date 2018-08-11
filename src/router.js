@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import areaHome from '@/views/area/area-home';
+import areaProfileDetail from '@/views/details/area-profile-detail'
 import detailMain from '@/views/details/detail-main'
 import sampleGraph from '@/views/details/sample-graph'
 import GISMap from '@/views/details/GIS-map'
@@ -11,9 +12,9 @@ import comprehensiveEnergy from '@/views/details/comprehensive-energy'
 import comprehensiveEGW from '@/views/details/comprehensive-EGW'
 import eleAnalysis from '@/views/details/ele-analysis';
 import videoSurveillance from '@/views/details/video-surveillance'
-import lineLoss from '@/views/details/line-loss'
 import eventAlert from '@/views/details/event-alert'
-import lineLoss1 from '@/views/details/LineLoss'
+import lineLoss from '@/views/details/LineLoss'
+import faultStatisticsDetail from '@/views/details/fault-statistics-detail'
 Vue.use(Router)
 export default new Router({
   routes: [{
@@ -25,6 +26,10 @@ export default new Router({
     name: 'detail-main',
     component: detailMain,
     children: [{
+      path: 'area-profile-detail',
+      name: 'area-profile-detail',
+      component: areaProfileDetail
+    }, {
       path: 'sample-graph/:mapId',
       name: 'sample-graph',
       component: sampleGraph,
@@ -41,6 +46,10 @@ export default new Router({
         name: 'analog-line',
         component: analogLine
       }]
+    }, {
+      path: 'fault-statistics-detail',
+      name: 'fault-statistics-detail',
+      component: faultStatisticsDetail
     }, {
       path: 'com-energy/:eId',
       name: 'com-energy',
@@ -65,7 +74,7 @@ export default new Router({
     }, {
       path: 'line-loss',
       name: 'line-loss',
-      component: lineLoss1
+      component: lineLoss
     }, {
       path: 'event-alert',
       name: 'event-alert',

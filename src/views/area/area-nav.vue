@@ -1,7 +1,7 @@
 <template>
     <nav class="area-nav navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand d-flex" href="#">
-            <img class="logo-img" src="../../assets/imgs/logo.png" alt="">
+            <img class="logo-img" src="http://wx.dianliangliang.com/sucai/logo.302273b8.png" alt="">
             <div class="title-container d-flex flex-column justify-content-center ">
                 <div class="title">
                       精品台区智能管理系统

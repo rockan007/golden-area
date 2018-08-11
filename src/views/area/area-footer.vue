@@ -1,5 +1,5 @@
 <template>
-    <div class="area-footer" style="overflow-x:hidden;" v-on:click="routerToDetail(5)"></div>
+    <div class="area-footer" style="overflow-x:hidden;cursor:pointer;" v-on:click="routerToDetail(5)"></div>
 </template>
 <script>
 import scroxt from "scroxt";

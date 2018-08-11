@@ -1,10 +1,10 @@
 <template>
-     <div id="echarts-container" class="echarts-container flex-grow-1"></div>
+     <div id="lineCharts-container"  class="echarts-container flex-grow-1"></div>
 </template>
 <script>
-import echarts from "echarts/dist/echarts.min.js";
+import echarts from "echarts";
 export default {
-  name: "e-charts",
+  name: "line-charts",
   props: {
     chartsData: {
       type: Object,
@@ -15,7 +15,7 @@ export default {
   },
   data: function() {
     return {
-      eCharts: "",
+      lineCharts: "",
       monthData: {
         xLine: [
           "一月",
@@ -53,8 +53,8 @@ export default {
   },
   methods: {
     initECharts: function() {
-      this.eCharts = echarts.init(
-        document.getElementById("echarts-container"),
+      this.lineCharts = echarts.init(
+        document.getElementById("lineCharts-container"),
         "light"
       );
       this.setOptions(this.monthData);
@@ -95,13 +95,14 @@ export default {
         series: [
           {
             data: optionData.yLine,
-            type: "line"
+            type: "line",
+            areaStyle: {}
           }
         ],
         color: ["#9ccac8"]
       };
       // 使用刚指定的配置项和数据显示图表。
-      this.eCharts.setOption(option);
+      this.lineCharts.setOption(option);
     }
   }
 };

@@ -44,9 +44,9 @@
                 <thead>
                   <tr>
                     <th scope="col">线路名称</th>
-                    <th scope="col">实际用电量</th>
-                    <th scope="col">损耗电量</th>
-                    <th scope="col">总电量</th>
+                    <th scope="col">实际用电量(kWh)</th>
+                    <th scope="col">损耗电量(kWh)</th>
+                    <th scope="col">总电量(kWh)</th>
                     <th scope="col">损耗百分比</th>
                   </tr>
                 </thead>

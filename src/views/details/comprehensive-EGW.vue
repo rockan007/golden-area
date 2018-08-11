@@ -1,24 +1,31 @@
 <template>
 <div class="flex-grow-1 d-flex flex-column" style="overflow-y:auto">
   <!-- <div class="comprehensive_box"> -->
+    <div class="flex-grow-1 d-flex flex-column">
+      <!-- <p  style="margin-bottom:0">
+              <span v-on:click="period=0" v-bind:class='{"chose-period":period==0}'>日</span>
+              <span style="color:white;">/</span>
+              <span v-on:click="period=1" v-bind:class='{"chose-period":period==1}'>周</span>
+               <span style="color:white;">/</span>
+              <span v-on:click="period=2" v-bind:class='{"chose-period":period==2}'>月</span>
+       </p> -->
+    </div>
     <div class="row comprehensive_body" style=" margin: 0px;">
-      <div class="col-lg-7 comprehensive_echarts">
-        <div class="row comprehensive_echarts_text">用电量-用水量相关分析</div>
-        <div id="water" class="row"></div>
+       <!-- <div class="row comprehensive_echarts_text">用电量-用水量相关分析</div> -->
+      <div class="col-lg-6 comprehensive_echarts">
+        <div id="lwater" class="row"></div>
       </div>
-      <div class="col-lg-5 comprehensive_echarts_text">
-        <h4 class="row">用电量-用水量相关系数</h4>
-        <h1 class="row">7.89%</h1>
+      <div class="col-lg-6 comprehensive_echarts">
+       <div id="rwater" class="row"></div>  
       </div>
     </div>
     <div class="row comprehensive_tow">
-      <div class="col-lg-7 comprehensive_echarts">
-        <div class="row comprehensive_echarts_text">用电量-燃气量相关分析</div>
-        <div id="gas" class="row"></div>
+      <!-- <div class="row comprehensive_echarts_text">用电量-燃气量相关分析</div> -->
+      <div class="col-lg-6 comprehensive_echarts"> 
+        <div id="lgas" class="row"></div>
       </div>
-      <div class="col-lg-5 comprehensive_echarts_text">
-        <h4 class="row">用电量-燃气量相关系数</h4>
-        <h1 class="row">7.89%</h1>
+      <div class="col-lg-6 comprehensive_echarts">
+          <div id="rgas" class="row"></div>
       </div>  
     </div>
   </div>
@@ -36,166 +43,257 @@ export default {
   components: {},
   data: function() {
     return {
-      echartwater: "",
-      echartgas: "",
-      option: {
-        xAxis: {
-          scale: true
-        },
-        yAxis: {
-          scale: true
-        },
-        series: [
-          {
-            type: "effectScatter",
-            symbolSize: 20,
-            data: [[172.7, 105.2], [153.4, 42]]
-          },
-          {
-            type: "scatter",
-            data: [
-              [161.2, 51.6],
-              [167.5, 59.0],
-              [159.5, 49.2],
-              [157.0, 63.0],
-              [155.8, 53.6],
-              [170.0, 59.0],
-              [159.1, 47.6],
-              [166.0, 69.8],
-              [176.2, 66.8],
-              [160.2, 75.2],
-              [172.5, 55.2],
-              [170.9, 54.2],
-              [172.9, 62.5],
-              [153.4, 42.0],
-              [160.0, 50.0],
-              [154.4, 46.2],
-              [162.0, 55.0],
-              [176.5, 83.0],
-              [160.0, 54.4],
-              [152.0, 45.8],
-              [162.1, 53.6],
-              [170.0, 73.2],
-              [160.2, 52.1],
-              [161.3, 67.9],
-              [166.4, 56.6],
-              [170.0, 69.4],
-              [162.5, 58.2],
-              [170.3, 64.8],
-              [164.1, 71.6],
-              [169.5, 52.8],
-              [163.2, 59.8],
-              [154.5, 49.0],
-              [159.8, 50.0],
-              [173.2, 69.2],
-              [170.0, 55.9],
-              [175.3, 63.6],
-              [171.4, 53.4],
-              [157.5, 54.5],
-              [165.1, 53.6],
-              [160.0, 60.0],
-              [174.0, 73.6],
-              [162.6, 61.4],
-              [174.0, 55.5],
-              [162.6, 63.6],
-              [161.3, 60.9],
-              [156.2, 60.0],
-              [149.9, 46.8],
-              [169.5, 57.3],
-              [160.0, 64.1],
-              [175.3, 63.6],
-              [169.5, 67.3],
-              [160.0, 75.5],
-              [172.7, 68.2],
-              [162.6, 61.4],
-              [157.5, 76.8],
-              [176.5, 71.8],
-              [164.4, 55.5],
-              [160.7, 48.6],
-              [174.0, 66.4],
-              [163.8, 67.3]
-            ]
-          }
-        ]
-      },
-      optiona: {
-        xAxis: {
-          scale: true
-        },
-        yAxis: {
-          scale: true
-        },
-        series: [
-          {
-            type: "effectScatter",
-            symbolSize: 20,
-            data: [[172.7, 105.2], [153.4, 42]]
-          },
-          {
-            type: "scatter",
-            data: [
-              [161.2, 51.6],
-              [167.5, 59.0],
-              [159.5, 49.2],
-              [157.0, 63.0],
-              [155.8, 53.6],
-              [172.5, 55.2],
-              [170.9, 54.2],
-              [172.9, 62.5],
-              [153.4, 42.0],
-              [160.0, 50.0],
-              [154.4, 46.2],
-              [162.0, 55.0],
-              [176.5, 83.0],
-              [160.0, 54.4],
-              [152.0, 45.8],
-              [170.0, 69.4],
-              [162.5, 58.2],
-              [170.3, 64.8],
-              [164.1, 71.6],
-              [169.5, 52.8],
-              [161.4, 63.4],
-              [169.0, 58.2],
-              [166.2, 58.6],
-              [159.4, 45.7],
-              [162.5, 52.2],
-              [172.7, 75.9],
-              [168.9, 55.0],
-              [161.3, 57.3],
-              [167.6, 55.0],
-              [165.1, 65.5],
-              [175.3, 65.5],
-              [157.5, 48.6],
-              [163.8, 58.6],
-              [167.6, 63.6],
-              [165.1, 55.2],
-              [176.5, 71.8],
-              [164.4, 55.5],
-              [160.7, 48.6],
-              [174.0, 66.4],
-              [163.8, 67.3]
-            ]
-          }
-        ]
-      }
-    };
+      period: 0,
+      rbarCharts: "",
+      lbarCharts: "",
+      rechartgas: "",
+      lechartgas: "",
+      towdata: {
+                title:'用电量-用水量(周)相关分析',
+                data: ["平均用电", "平均用水"],
+                pw:"平均用水",
+                lmax:6,
+                rmin:0,
+                rmax:0.05,
+                xLine:  [ "0:00","2:00","4:00","6:00","8:00","10:00","12:00","14:00","16:00","18:00","20:00","22:00"],
+                lyline: [1.2,1,1.4,1.2,1.7,1.5,1.9,1.4,1.8,2.8,2.9,1.7],
+                ryLine:[ 0.01,0.01,0.024,0.017,0.008,0.004,0.031,0.019,0.022,0.044,0.022,0.008],
+                tabledata: [{ photographtime: "周一",photographlong: "15466kw/h", updatetime: "2014-5-6 11:26:30"},
+                            {photographtime: "周二",photographlong: "15466kw/h",updatetime: "2014-5-6 12:53:30"},
+                            {photographtime: "周三",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "周四",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "周五",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "周六", photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "周日",photographlong: "15466kw/h",updatetime: "2014-5-6 12:56:30"}],
+                },
+      fourdata: {
+                title:'用电量-用气量(周)相关分析',
+                data: ["平均用电", "平均用气"],
+                pw:"平均用气",
+                lmax:6,
+                rmin:0,
+                rmax:0.3,
+                 xLine:  [ "0:00","2:00","4:00","6:00","8:00","10:00","12:00","14:00","16:00","18:00","20:00","22:00"],
+                lyline: [1.2,1,1.4,1.2,1.7,1.5,1.9,1.4,1.8,2.8,2.9,1.7],
+                ryLine:[ 0.0,0.0,0.0,0.18,0.0,0.02,0.09,0.0,0.25,0.0,0.0,0.0],
+                tabledata: [{ photographtime: "周一",photographlong: "15466kw/h", updatetime: "2014-5-6 11:26:30"},
+                            { photographtime: "周二",photographlong: "15466kw/h",updatetime: "2014-5-6 12:53:30"},
+                            { photographtime: "周三",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "周四",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "周五",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "周六", photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "周日",photographlong: "15466kw/h",updatetime: "2014-5-6 12:56:30"}],
+                },
+        threedata: {
+                title:'用电量-用水量(年))相关分析',
+                data: ["平均用电", "平均用水"],
+                pw:"平均用水",
+                lmax:50,
+                rmin:0,
+                rmax:0.3,
+                xLine: ["1号","2号","3号","4号","5号","6号","7号","8号","9号","10号","11号","12号",
+                      "13号","14号","15号","16号","17号","18号","19号","20号","21号",
+                     "22号","23号","24号","25号","26号","27号","28号","29号","30号"],
+                lyline: [20.5,21.5,23.4,22.5,19.7,25.5,20.5,27.3,20.5,21.5,23.4,19.7,24.6,19.7,23.4,21.5,24.6,23.4,2.5,2.4,3.7,25.3,21.5,26.7,22.4,27.3,19.7,21.5,24.6,23.4],
+                ryLine:[0.201,0.241,0.198,0.266,0.222,0.217,0.214,0.237,0.213,0.249,0.243,0.253,0.201,0.222,0.207,0.255,0.201,0.244,0,0,0.096,0.273,0.266,0.222,0.201,0.237,0.255,0.232,0.208,0.242],
+                tabledata: [{ photographtime: "一月",photographlong: "15466kw/h", updatetime: "2014-5-6 11:26:30"},
+                            {photographtime: "二月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:53:30"},
+                            {photographtime: "三月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "四月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "五月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "六月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "七月",photographlong: "15466kw/h", updatetime: "2014-5-6 12:56:30"},
+                            {photographtime: "八月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:24:30"},
+                            {photographtime: "九月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:24:30"},
+                            {photographtime: "十月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:24:30"},
+                            {photographtime: "十一月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:24:30"},
+                            {photographtime: "十二月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:24:30"}],
+                    },
+         fifdata: {
+                title:'用电量-用气量(年)相关分析',
+                 data: ["平均用电", "平均用气"],
+                 pw:"平均用气",
+                lmax:50,
+                rmin:0,
+                rmax:0.7,
+                xLine: ["1号","2号","3号","4号","5号","6号","7号","8号","9号","10号","11号","12号",
+                      "13号","14号","15号","16号","17号","18号","19号","20号","21号",
+                     "22号","23号","24号","25号","26号","27号","28号","29号","30号"],
+                 lyline: [20.5,21.5,23.4,22.5,19.7,25.5,20.5,27.3,20.5,21.5,23.4,19.7,24.6,19.7,23.4,21.5,24.6,23.4,2.5,2.4,3.7,25.3,21.5,26.7,22.4,27.3,19.7,21.5,24.6,23.4],
+                 ryLine: [0.54,0.48,0.52,0.44,0.38,0.41,0.39,0.57,0.21,0.47,0.51,0.46,0.44,0.57,0.24,0.45,0.48,0.56,0,0,0,0.21,0.54,0.49,0.47,0.53,0.42,0.55,0.58,0.53],
+                 tabledata: [{ photographtime: "一月",photographlong: "15466kw/h", updatetime: "2014-5-6 11:26:30"},
+                            {photographtime: "二月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:53:30"},
+                            {photographtime: "三月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "四月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "五月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "六月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:43:30"},
+                            {photographtime: "七月",photographlong: "15466kw/h", updatetime: "2014-5-6 12:56:30"},
+                            {photographtime: "八月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:24:30"},
+                            {photographtime: "九月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:24:30"},
+                            {photographtime: "十月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:24:30"},
+                            {photographtime: "十一月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:24:30"},
+                            {photographtime: "十二月",photographlong: "15466kw/h",updatetime: "2014-5-6 12:24:30"}],
+                },
+    }
   },
   mounted: function() {
-    this.water();
-    this.gas();
+    this.setecharts();
+    // this.gas();
   },
-  watch: {},
+  watch:{
+        period: function(newVal) {
+            let optionData = "";
+            switch (parseInt(newVal)) {
+              case 0:
+              optionData = this.monthData;
+                break;
+              case 1:
+               optionData = this.dayData;
+                break;
+              case 2:
+                optionData = this.weekData; 
+                break;
+              default:
+                break;
+            }
+            this.setwaterChartsOptions(optionData);
+            this.setgasChartsOptions(optionData);
+          }
+  },
   methods: {
-    water: function() {
-      this.echartwater = echarts.init(document.getElementById("water"));
-      this.echartwater.setOption(this.option);
+    
+    setecharts: function() {
+      this.lbarCharts = echarts.init(
+        document.getElementById("lwater"),
+        "light"
+      );
+      this.rbarCharts = echarts.init(
+        document.getElementById("rwater"),
+        "light"
+      );
+      this.rechartgas = echarts.init(
+        document.getElementById("rgas"),
+        "light"
+      );
+      this.lechartgas = echarts.init(
+        document.getElementById("lgas"),
+        "light"
+      );
+      this.setlwaterChartsOptions(this.lbarCharts,this.towdata);
+      this.setlwaterChartsOptions(this.rbarCharts,this.threedata);
+      this.setlwaterChartsOptions(this.rechartgas,this.fifdata);
+      this.setlwaterChartsOptions(this.lechartgas,this.fourdata);
+      console.log("你奶奶的")
     },
-    gas: function() {
-      this.echartgas = echarts.init(document.getElementById("gas"));
-      this.echartgas.setOption(this.optiona);
-    }
+    // gas: function() {
+      
+     
+    // },
+    setlwaterChartsOptions: function(echarts,optionData) {
+       console.log("你奶奶的1"+JSON.stringify(optionData));
+      let option = {
+        title: {
+          text: optionData.title,
+          x: "center",
+          textStyle: {
+            //标题内容的样式
+            color: "#00706b", //京东红
+            fontStyle: "normal", //主标题文字字体风格，默认normal，有italic(斜体),oblique(斜体)
+            fontWeight: "bold", //可选normal(正常)，bold(加粗)，bolder(加粗)，lighter(变细)，100|200|300|400|500...
+            fontFamily: "san-serif", //主题文字字体，默认微软雅黑
+            fontSize: 18 //主题文字字体大小，默认为18px
+          }
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "cross",
+            crossStyle: {
+              color: "#999"
+            }
+          }
+        },
+        legend: {
+          data:optionData.data,
+          top: "30px"
+        },
+        xAxis: [
+          {
+            type: "category",
+            data: optionData.xLine,
+            axisPointer: {
+              type: "shadow"
+            },
+            splitLine: {
+              show: false
+            },
+            axisLine: {
+              lineStyle: {
+                color: "#00706b" //坐标轴线颜色
+              }
+            }
+          }
+        ],
+        yAxis: [
+          {
+            type: "value",
+            name: "kWh",
+            min: 0,
+            max:optionData.lmax,
+            interval: 50,
+            axisLabel: {
+              formatter: "{value}"
+            },
+            splitLine: {
+              show: false
+            },
+            axisLine: {
+              lineStyle: {
+                color: "#00706b" //坐标轴线颜色
+              }
+            }
+          },
+          {
+            type: "value",
+            name: "m³",
+            min: optionData.rmin,
+            max: optionData.rmax,
+            interval: 5,
+            axisLabel: {
+              formatter: "{value} "
+            },
+            splitLine: {
+              show: false
+            },
+            axisLine: {
+              lineStyle: {
+                color: "#00706b" //坐标轴线颜色
+              }
+            }
+          }
+        ],
+        color: ["#4da29e", "rgba(255,0,0,0.5)"],
+        series: [
+         {
+            name: "平均用电",
+            type: "line",
+            areaStyle: {normal: {}},
+            data:optionData.lyline
+          },
+          {
+            name: optionData.pw,
+            type: "line",
+            yAxisIndex: 1,
+            areaStyle: {normal: {}},
+            data: optionData.ryLine
+          }
+        ]
+      };
+      console.log("你奶奶的11"+optionData.ryline)
+      echarts.setOption(option);
+    },
   }
-};
+}
 </script>
 <style scoped>
 
@@ -207,8 +305,8 @@ export default {
 #sel1 {
   padding: 0px;
 }
-#water,
-#gas {
+#lwater,#rwater,#lgas,#rgas
+ {
   height: 400px;
 }
 .form-control {
@@ -233,6 +331,7 @@ export default {
   padding: 70px 90px;
 }
 .comprehensive_echarts_text {
+  text-align: center !important;
   color: #016f6c;
 }
 h1,

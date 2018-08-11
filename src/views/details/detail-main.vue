@@ -2,7 +2,7 @@
     <div class="detail-main flex-grow-1 d-flex flex-column">
         <div class="detail-header d-flex">
             <div class="header-title">{{title}} <span class="iconfont icon-shuangjiantou3-copy"></span> </div>
-            <div class="back-home ml-auto" v-on:click="$router.push('\/')"><span class="iconfont icon-fanhui1"></span> 返回台区首页</div>
+            <div class="back-home ml-auto" v-on:click="$router.push('\/')" style="cursor:pointer"><span class="iconfont icon-fanhui1"></span> 返回台区首页</div>
         </div>
         <div class="detail-body flex-grow-1 d-flex">
             <router-view ></router-view>
@@ -34,7 +34,7 @@ export default {
     getTitle: function(style) {
       switch (parseInt(style)) {
         case 0:
-          this.title = "用电分析";
+          this.title = "台区概况";
           break;
         case 1:
           this.title = "示意图";
@@ -43,13 +43,16 @@ export default {
           this.title = "线损分析";
           break;
         case 3:
-          this.title = "综合能源分析";
+          this.title = "用电分析";
           break;
         case 4:
-          this.title = "视频监控";
+          this.title = "故障统计";
           break;
         case 5:
-          this.title = "事件预警";
+          this.title = "综合能源分析";
+          break;
+        case 6:
+          this.title = "视频监控";
           break;
         default:
           this.title = "用电分析";
@@ -63,7 +66,6 @@ export default {
 .detail-header {
   min-height: 58px;
   padding: 8px 24px 0;
-  
 }
 .back-home {
   line-height: 50px;

@@ -5,8 +5,21 @@
 </template>
 <script>
 import echarts from "echarts/dist/echarts.min.js";
+import { events } from "@/assets/scripts/events.js";
 export default {
   name: "pie-charts",
+  props: {
+    startDate: {
+      default: events.formatDate(
+        new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 60 * 1000),
+        "yyyy-MM-dd"
+      ),
+      type: String
+    },
+    endDate: {
+      default: events.formatDate(new Date(), "yyyy-MM-dd")
+    }
+  },
   data: function() {
     return {
       pieCharts: "",
@@ -19,10 +32,25 @@ export default {
       }
     };
   },
+  created: function() {},
   mounted: function() {
     this.initCharts(this.areaData);
   },
   methods: {
+    requestDate: function() {
+      events.TQ_request(
+        events.LINE_LOSS,
+        {
+          UIDstr: events.USER_ID,
+          TaskIDstr: events.AREA_ID,
+          DT_Begin: this.startDate,
+          DT_End: this.endDate
+        },
+        function(response) {
+          console.log("获取的台区线损数据：" + JSON.stringify(response));
+        }
+      );
+    },
     initCharts: function(optionData) {
       this.pieCharts = echarts.init(document.getElementById("pie-charts"));
       this.setOptions(optionData);

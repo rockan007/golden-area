@@ -5,7 +5,7 @@
         </home-item-container>
       </div>
       <div  class="home-row-1 flex-grow-1 d-flex" >
-        <home-item-container v-for="item in row1List" v-bind:key="item.order" v-bind:item="item" class="col-2" v-bind:class="{'col-10':item.order==3}">
+        <home-item-container v-for="item in row1List" v-bind:key="item.order" v-bind:item="item" class="col-3" v-bind:class="{'flex-grow-1':item.order!=6}">
         </home-item-container>
       </div>
     </div>
@@ -21,7 +21,7 @@ export default {
     return {
       row0List: [
         {
-          title: "用电分析",
+          title: "台区概况",
           order: 0
         },
         {
@@ -35,30 +35,36 @@ export default {
       ],
       row1List: [
         {
-          title: "综合能源分析",
+          title: "用电分析",
           order: 3
         },
         {
+          title:'故障统计',
+          order:4
+        },
+        {
+          title: "综合能源分析",
+          order: 5
+        },
+        {
           title: "视频监控",
-          order: 4
+          order: 6
         }
       ]
     };
   },
-  methods: {
-  
-  }
+  methods: {}
 };
 </script>
 <style scoped>
-.home-row-0{
+.home-row-0 {
   height: 100px;
 }
 .home-row-1 {
   height: 0;
 }
 .home-row-0,
-.home-row-1{
+.home-row-1 {
   padding: 8px 16px;
 }
 </style>

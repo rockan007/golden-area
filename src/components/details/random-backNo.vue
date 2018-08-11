@@ -65,6 +65,7 @@ export default {
 <style scoped>
 .back-no {
   position: absolute;
+  z-index: 500;
 }
 .back {
   width: 56px;

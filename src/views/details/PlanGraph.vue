@@ -1,5 +1,8 @@
 <template>
     <div class="plan-container flex-grow-1 d-flex flex-column align-items-center position-relative " >
+        <div class="plan-header">
+          何庄一号平面图
+        </div>
         <div id="plan-body" class="plan-body flex-grow-1 flex-shrink-1 d-flex align-items-center justify-content-center"  data-spy="scroll" style="overflow-x: scroll">
                 <div id="plan-img"   style="padding:50px" class="flex-grow-1 flex-shrink-1 d-flex" >
                 <img  class="flex-grow-1" style="width:50%;height:100%;" src="http://wx.dianliangliang.com/sucai/pmt.png" alt="">
@@ -63,7 +66,8 @@ export default {
 }
 .plan-header {
   font-size: 24px;
-  color: white;
+  font-weight: bold;
+  color: #00706b;
 }
 .plan-body {
   top: 60px;

@@ -1,13 +1,13 @@
 <template>
     <div class="analog-line-container flex-grow-1 d-flex flex-column">
         <div class="analog-body flex-grow-1 d-flex flex-column  justify-content-center">
-          <div class="charts-select btn-group ml-auto" role="group">
-            <button type="button" class="btn btn-secondary" v-on:click="selectType=0" v-bind:class='{"active":selectType==0}'>图表</button>
-            <button type="button" class="btn btn-secondary" v-on:click="selectType=1" v-bind:class='{"active":selectType==1}'>表格</button>
+          <div class="map-title" >
+            何庄一号模拟图
           </div>
           <div v-if="selectType==0" style="height:0;padding:16px 16px 32px 16px;" class="flex-grow-1 flex-shrink-1 d-flex align-items-stretch position-relative">
             <template v-if="id==1">  
               <img src="http://wx.dianliangliang.com/sucai/analog-map.png" class="analog-image flex-grow-1" alt="">
+              <tower-info v-for="order in 30" v-bind:key="'tower-'+order"  v-bind:order="order" v-bind:no="towerList[order-1]" v-bind:class='"tower-"+order'></tower-info>
               <back-no v-bind:showBack='meterNo<48' v-for="meterNo in 50" v-bind:meterBoxNo="meterNo" :key="meterNo" v-on:dialogShow="getDialogShow" v-bind:class="['meterNo-'+meterNo,{'flex-column-reverse':meterNo<21}]"></back-no>
             </template>
             <template v-else>
@@ -33,6 +33,7 @@ import DynamicNo from "@/components/details/DynamicNo";
 import BackNo from "@/components/details/random-backNo";
 import MeterItem from "@/components/details/Meter-Item";
 import opertionalParameters from "@/views/details/operational-parameters";
+import towerInfo from "@/components/details/tower-info";
 import { meterNoMap, meterBoxes } from "@/assets/scripts/meters-data.js";
 export default {
   name: "analog-line",
@@ -40,7 +41,8 @@ export default {
     "dynamic-no": DynamicNo,
     "back-no": BackNo,
     "meter-item": MeterItem,
-    opertionalParameters
+    opertionalParameters,
+    towerInfo
   },
   data: function() {
     return {
@@ -50,7 +52,39 @@ export default {
       selectMap: 0,
       selectMeterBoxNo: 0,
       meterBoxList: "",
-      selectMeterBox: ""
+      selectMeterBox: "",
+      towerList: [
+        "06",
+        "05",
+        "04",
+        "03",
+        "02",
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "04-05",
+        "04-04",
+        "04-03",
+        "04-03-01",
+        "04-02",
+        "04-01",
+        "01-01-05",
+        "01-01-04",
+        "01-01-03",
+        "01-01-02",
+        "01-01-01",
+        "01-01",
+        "01-01-01",
+        "01-01-02",
+        "01-01-03",
+        "01-01-04",
+        "01-01-03-01",
+        "01-01-03-02",
+        "无",
+        "无"
+      ]
     };
   },
   mounted: function() {
@@ -122,6 +156,12 @@ export default {
   margin: 8px 16px 0 0;
   min-height: 36px;
 }
+.map-title{
+  font-size: 24px;
+  font-weight: bold;
+  color: #00706b;
+  height: 38px;
+}
 .btn-secondary.active {
   background-color: #00706b !important;
   border-color: #00706b !important;
@@ -163,6 +203,126 @@ export default {
 .analog-image {
   width: 100%;
 }
+.tower-1 {
+  left: 234px;
+  top: 323px;
+}
+.tower-2 {
+  left: 367px;
+  top: 323px;
+}
+.tower-3 {
+  left: 499px;
+  top: 323px;
+}
+.tower-4 {
+  left: 633px;
+  top: 323px;
+}
+.tower-5 {
+  left: 766px;
+  top: 323px;
+}
+.tower-6 {
+  right: 761px;
+  top: 323px;
+}
+.tower-7 {
+  right: 627px;
+  top: 323px;
+}
+.tower-8 {
+  right: 495px;
+  top: 323px;
+}
+.tower-9 {
+  right: 362px;
+  top: 323px;
+}
+.tower-10 {
+  right: 229px;
+  top: 323px;
+}
+.tower-11 {
+  right: 631px;
+  bottom: 754px;
+}
+.tower-12 {
+  right: 497px;
+  bottom: 754px;
+}
+.tower-13 {
+  right: 364px;
+  bottom: 754px;
+}
+.tower-14 {
+  right: 232px;
+  bottom: 754px;
+}
+.tower-15 {
+  right: 363px;
+  bottom: 660px;
+}
+.tower-16 {
+  right: 363px;
+  bottom: 573px;
+}
+.tower-17 {
+  left: 388px;
+  bottom: 301px;
+}
+.tower-18 {
+  left: 522px;
+  bottom: 301px;
+}
+.tower-19 {
+  left: 654px;
+  bottom: 301px;
+}
+.tower-20 {
+  left: 788px;
+  bottom: 301px;
+}
+.tower-21 {
+  left: 920px;
+  bottom: 301px;
+}
+.tower-22 {
+  right: 761px;
+  bottom: 301px;
+}
+.tower-23 {
+  right: 627px;
+  bottom: 301px;
+}
+.tower-24 {
+  right: 495px;
+  bottom: 301px;
+}
+.tower-25 {
+  right: 362px;
+  bottom: 301px;
+}
+.tower-26 {
+  right: 229px;
+  bottom: 301px;
+}
+.tower-27 {
+  right: 361px;
+  bottom: 204px;
+}
+.tower-28 {
+  right: 361px;
+  bottom: 120px;
+}
+.tower-29 {
+  right: 450px;
+  bottom: 120px;
+}
+.tower-30 {
+  right: 533px;
+  bottom: 120px;
+}
 .dynamic-bottom-1 {
   left: 100px;
   top: 500px;
@@ -189,83 +349,83 @@ export default {
 }
 .meterNo-1 {
   left: 210px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-2 {
   left: 268px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-3 {
   left: 346px;
-  top:212px;
+  top: 212px;
 }
 .meterNo-4 {
-  left: 404Px;
-  top:213px;
+  left: 404px;
+  top: 213px;
 }
 .meterNo-5 {
   left: 478px;
-  top:211px;
+  top: 211px;
 }
 .meterNo-6 {
   left: 536px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-7 {
   left: 610px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-8 {
   left: 668px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-9 {
   left: 740px;
-  top:212px;
+  top: 212px;
 }
 .meterNo-10 {
   left: 798px;
-  top:212px;
+  top: 212px;
 }
 .meterNo-11 {
   right: 798px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-12 {
   right: 740px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-13 {
   right: 665px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-14 {
   right: 606px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-15 {
   right: 532px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-16 {
   right: 475px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-17 {
   right: 405px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-18 {
   right: 333px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-19 {
   right: 270px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-20 {
   right: 212px;
-  top:210px;
+  top: 210px;
 }
 .meterNo-21 {
   right: 616px;
@@ -297,75 +457,75 @@ export default {
 }
 .meterNo-28 {
   left: 502px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-29 {
   left: 559px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-30 {
   left: 635px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-31 {
   left: 692px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-32 {
   left: 768px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-33 {
   left: 825px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-34 {
   left: 898px;
-  bottom:199px;
+  bottom: 199px;
 }
 .meterNo-35 {
   left: 955px;
-  bottom:199px;
+  bottom: 199px;
 }
 .meterNo-36 {
   right: 800px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-37 {
   right: 743px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-38 {
   right: 666px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-39 {
   right: 608px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-40 {
   right: 530px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-41 {
   right: 472px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-42 {
   right: 400px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-43 {
   right: 333px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-44 {
   right: 267px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-45 {
   right: 210px;
-  bottom:200px;
+  bottom: 200px;
 }
 .meterNo-46 {
   right: 572px;

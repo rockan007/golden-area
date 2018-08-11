@@ -55,9 +55,8 @@
                         <tr>
                             <th>编号</th>
                             <th>时间</th>
-                            <th>用电量</th>
+                            <th>用电量(kWh)</th>
                             <th>更新时间</th>
-                            <th>查看</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -66,7 +65,6 @@
                             <td>{{nav.photographtime}}</td>
                             <td>{{nav.photographlong}}</td>
                             <td>{{nav.updatetime}}</td>
-                            <td style="color:#016f6c">查看图片</td>
                         </tr>
                         </tbody>
                     </table>
@@ -88,14 +86,10 @@ export default {
   components: {},
   data: function() {
     return {
-      tabledata:0,
-      timedata:[
-        {name:"日"},
-        {name:"周"},
-        {name:"月"}
-      ],
-      timeIndex:0,
-       lines: [
+      tabledata: 0,
+      timedata: [{ name: "日" }, { name: "周" }, { name: "月" }],
+      timeIndex: 0,
+      lines: [
         {
           name: "东线",
           meters: [
@@ -216,7 +210,7 @@ export default {
           ]
         }
       ],
-       
+
       selectLineIndex: 0,
       selectMeterIndex: 0,
       selectLine: {},
@@ -240,114 +234,114 @@ export default {
           "24:00"
         ],
         yLine: [100, 80, 90, 70, 150, 200, 150, 251, 340, 360, 380, 270, 200],
-         tabledata: [
-        {
-          photographtime: "0:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 11:26:30"
-        },
-        {
-          photographtime: "2:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:53:30"
-        },
-        {
-          photographtime: "4:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "6:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "8:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "10:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "12:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:56:30"
-        },
-        {
-          photographtime: "14:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:24:30"
-        },
-        {
-          photographtime: "16:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:24:30"
-        },
-        {
-          photographtime: "18:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:24:30"
-        },
-        {
-          photographtime: "20:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:24:30"
-        },
-        {
-          photographtime: "12:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:24:30"
-        },
-        {
-          photographtime: "24:00",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:24:30"
-        }
-      ],
+        tabledata: [
+          {
+            photographtime: "0:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 11:26:30"
+          },
+          {
+            photographtime: "2:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:53:30"
+          },
+          {
+            photographtime: "4:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "6:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "8:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "10:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "12:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:56:30"
+          },
+          {
+            photographtime: "14:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:24:30"
+          },
+          {
+            photographtime: "16:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:24:30"
+          },
+          {
+            photographtime: "18:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:24:30"
+          },
+          {
+            photographtime: "20:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:24:30"
+          },
+          {
+            photographtime: "12:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:24:30"
+          },
+          {
+            photographtime: "24:00",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:24:30"
+          }
+        ]
       },
       weekData: {
         xLine: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
         yLine: [800, 700, 350, 600, 420, 790, 900],
-         tabledata: [
-        {
-          photographtime: "周一",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 11:26:30"
-        },
-        {
-          photographtime: "周二",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:53:30"
-        },
-        {
-          photographtime: "周三",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "周四",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "周五",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "周六",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "周日",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:56:30"
-        }
-      ],
+        tabledata: [
+          {
+            photographtime: "周一",
+            photographlong: "15466",
+            updatetime: "2014-5-6 11:26:30"
+          },
+          {
+            photographtime: "周二",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:53:30"
+          },
+          {
+            photographtime: "周三",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "周四",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "周五",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "周六",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "周日",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:56:30"
+          }
+        ]
       },
       monthData: {
         xLine: [
@@ -378,133 +372,133 @@ export default {
           3800,
           4200
         ],
-         tabledata: [
-        {
-          photographtime: "一月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 11:26:30"
-        },
-        {
-          photographtime: "二月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:53:30"
-        },
-        {
-          photographtime: "三月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "四月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "五月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "六月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:43:30"
-        },
-        {
-          photographtime: "七月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:56:30"
-        },
-        {
-          photographtime: "八月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:24:30"
-        },
-        {
-          photographtime: "九月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:24:30"
-        },
-        {
-          photographtime: "十月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:24:30"
-        },
-        {
-          photographtime: "十一月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:24:30"
-        },
-        {
-          photographtime: "十二月",
-          photographlong: "15466kw/h",
-          updatetime: "2014-5-6 12:24:30"
-        }
-      ],
-      },
         tabledata: [
+          {
+            photographtime: "一月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 11:26:30"
+          },
+          {
+            photographtime: "二月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:53:30"
+          },
+          {
+            photographtime: "三月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "四月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "五月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "六月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:43:30"
+          },
+          {
+            photographtime: "七月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:56:30"
+          },
+          {
+            photographtime: "八月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:24:30"
+          },
+          {
+            photographtime: "九月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:24:30"
+          },
+          {
+            photographtime: "十月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:24:30"
+          },
+          {
+            photographtime: "十一月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:24:30"
+          },
+          {
+            photographtime: "十二月",
+            photographlong: "15466",
+            updatetime: "2014-5-6 12:24:30"
+          }
+        ]
+      },
+      tabledata: [
         {
           photographtime: "0:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 11:26:30"
         },
         {
           photographtime: "2:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:53:30"
         },
         {
           photographtime: "4:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:43:30"
         },
         {
           photographtime: "6:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:43:30"
         },
         {
           photographtime: "8:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:43:30"
         },
         {
           photographtime: "10:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:43:30"
         },
         {
           photographtime: "12:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:56:30"
         },
         {
           photographtime: "14:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:24:30"
         },
         {
           photographtime: "16:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:24:30"
         },
         {
           photographtime: "18:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:24:30"
         },
         {
           photographtime: "20:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:24:30"
         },
         {
           photographtime: "12:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:24:30"
         },
         {
           photographtime: "24:00",
-          photographlong: "15466kw/h",
+          photographlong: "15466",
           updatetime: "2014-5-6 12:24:30"
         }
       ],
@@ -555,39 +549,30 @@ export default {
   watch: {
     selectLineIndex: function(newVal) {
       console.log("******选择的：" + newVal);
-      if (newVal == 0) {
-        this.selectLine = {};
-        return;
-      }
       this.selectMeterIndex = 0;
-      this.selectLine = this.lines[newVal-1];
+      this.selectLine = this.lines[newVal];
       console.log("this.selectLine:" + JSON.stringify(this.selectLine));
     },
-    timeIndex:function(newVal){
-       
-    },
+    timeIndex: function(newVal) {},
     selectMeterIndex: function() {},
     period: function(newVal) {
       let optionData = "";
       switch (parseInt(newVal)) {
         case 0:
-        optionData = this.monthData;
-         this.tabledata = this.monthData.tabledata;
-          
-          console.log("日"+this.tabledata);
+          optionData = this.dayData;
+          this.tabledata = this.dayData.tabledata;
+          console.log("日" + this.tabledata);
           break;
         case 1:
-         optionData = this.dayData;
-        
-          this.tabledata = this.dayData.tabledata;
-         
-          console.log("周"+this.tabledata);
+          optionData = this.weekData;
+          this.tabledata = this.weekData.tabledata;
+          console.log("周" + this.tabledata);
           break;
         case 2:
-          optionData = this.weekData;
-          
-           this.tabledata = this.weekData.tabledata;
-          console.log("月"+this.tabledata);
+          optionData = this.monthData;
+
+          this.tabledata = this.monthData.tabledata;
+          console.log("月" + this.tabledata);
           break;
         default:
           break;
@@ -596,8 +581,10 @@ export default {
     }
   },
   methods: {
-    exportAnaly:function(){
-         window.open('http://wx.dianliangliang.com/sucai/courts-manage/courts-manage/用电分析(周).xlsx')
+    exportAnaly: function() {
+      window.open(
+        "http://wx.dianliangliang.com/sucai/courts-manage/courts-manage/用电分析(周).xlsx"
+      );
     },
     initCharts: function() {
       this.myChart = echarts.init(
@@ -619,7 +606,7 @@ export default {
         },
         yAxis: {
           type: "value",
-          axisLabel:{formatter:'{value} kWh'},
+          axisLabel: { formatter: "{value} kWh" },
           axisLine: {
             lineStyle: {
               color: "#2c8185" //坐标轴线颜色
@@ -629,9 +616,11 @@ export default {
         series: [
           {
             data: optionData.yLine,
-            type: "line"
+            type: "line",
+            areaStyle: {}
           }
-        ]
+        ],
+        color: ["#4da29e"]
       };
       // 使用刚指定的配置项和数据显示图表。
       this.myChart.setOption(option);
@@ -660,10 +649,10 @@ tr {
   min-height: 900px;
 }
 .comprehensive_top {
-    font-size: 20px;
-    background-color: #00706b;
-    color: #4da29e;
-    min-height: 40px;
+  font-size: 20px;
+  background-color: #00706b;
+  color: #4da29e;
+  min-height: 40px;
 }
 .comprehensive_top_first {
   margin-top: 4px;
@@ -684,7 +673,7 @@ tr {
 }
 .comprehensive_r_text {
   font-size: 24px;
-  font-weight:bold;
+  font-weight: bold;
   margin-top: 75px;
   color: #016f6c;
 }
@@ -712,6 +701,5 @@ tr {
   padding-left: 20px;
   text-align: left;
 }
-
 </style>
 
