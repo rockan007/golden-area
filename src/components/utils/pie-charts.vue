@@ -24,17 +24,24 @@ export default {
     return {
       pieCharts: "",
       areaData: {
-        title: "台区线损统计",
-        data: [
-          { value: 3500, name: "实际用电量" },
-          { value: 300, name: "线损电量" }
-        ]
+        title: "台区线损统计"
       }
     };
   },
-  created: function() {},
+  created: function() {
+    this.requestDate();
+  },
   mounted: function() {
-    this.initCharts(this.areaData);
+    this.initCharts();
+  },
+  watch:{
+    areaData:{
+      deep:true,
+      handler:function(newVal){
+        console.log("台区线损信息有新值啦："+JSON.stringify(newVal))
+        this.setOptions(newVal);
+      }
+    }
   },
   methods: {
     requestDate: function() {
@@ -46,14 +53,20 @@ export default {
           DT_Begin: this.startDate,
           DT_End: this.endDate
         },
-        function(response) {
-          console.log("获取的台区线损数据：" + JSON.stringify(response));
-        }
+        function(responseData) {
+          let changedData = this.changeData(responseData[0]);
+          this.areaData=Object.assign({},this.areaData, changedData);
+        }.bind(this)
       );
     },
-    initCharts: function(optionData) {
+    changeData: function(pieData) {
+      pieData.Series.forEach(serie => {
+        serie.value = Math.abs(Math.round(serie.value));
+      });
+      return pieData;
+    },
+    initCharts: function() {
       this.pieCharts = echarts.init(document.getElementById("pie-charts"));
-      this.setOptions(optionData);
     },
     setOptions: function(optionData) {
       let option = {
@@ -76,7 +89,7 @@ export default {
         legend: {
           orient: "vertical",
           right: "right",
-          data: ["实际用电量", "线损电量"],
+          data: this.areaData.Legend,
           textStyle: {
             color: "rgba(0, 0, 0, 0.8)"
           }
@@ -87,10 +100,10 @@ export default {
             type: "pie",
             radius: "60%",
             center: ["50%", "50%"],
-            data: optionData.data,
+            data: this.areaData.Series,
             label: {
               normal: {
-                formatter: "{b}\n{c}({d}%)",
+                formatter: "{b}\n{c}\n{d}%",
                 textStyle: {
                   fontWeight: "normal",
                   fontSize: 14

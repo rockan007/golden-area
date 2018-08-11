@@ -13,32 +13,30 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="">开始时间</span>
                   </div>
-                  <input type="date" class="form-control" v-model="startLLDate">
+                  <input type="date" class="form-control" v-model="startDate">
                 </div>
                  <div class="input-group mb-3 col-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="">结束时间</span>
                   </div>
-                  <input type="date" class="form-control" v-model="endLLDate">
+                  <input type="date" class="form-control" v-model="endDate">
                 </div>
             </div>
             <div  class="lineLoss-echarts flex-grow-1 d-flex flex-column" style="overflow-y:auto;">
               <div style="min-height:300px"  class="d-flex">
-                  <div id="lineLoss-echarts" style="width:0;" class="flex-grow-1 border border-info"></div>
+                  <div id="lineLoss-echarts" style="width:0;" class="echarts-container flex-grow-1 border border-info"></div>
                   <div id="select-line-container" style="width:0;" class="flex-grow-1 border border-info d-flex align-items-stretch">
                     <div class="select-container">
                       <select name="" id="" v-model="selectMeterBoxNo">
-                        <option v-for="no in 34" v-bind:key="no" :value="no">表箱{{no}}#</option>
+                        <option v-for="(box,index) in areaBoxes" v-bind:key="index" :value="index">{{box.Text}}#表箱</option>
                       </select>
                     </div>
-                    <div id="select-line" class="flex-grow-1"></div>
+                    <div id="box-charts" class="echarts-container flex-grow-1"></div>
                   </div>
               </div>
               <div style="min-height:300px;" class="d-flex ">
-                <div id="line-1" style="width:0;" class="flex-grow-1 border border-info"></div>
-                <div id="line-2" style="width:0;" class="flex-grow-1 border border-info"></div>
-                <div id="line-3" style="width:0;" class="flex-grow-1 border border-info"></div>
-                <div id="line-4" style="width:0;" class="flex-grow-1 border border-info"></div>
+                <div id="line-D" style="width:0;" class="echarts-container flex-grow-1 border border-info"></div>
+                <div id="line-X" style="width:0;" class="echarts-container flex-grow-1 border border-info"></div>
               </div>
               <table class="table-container table table-striped table-light">
                 <thead>
@@ -52,11 +50,11 @@
                 </thead>
                 <tbody style="overflow-y:auto;">
                   <tr v-for="(loss,index) in lossData" v-bind:key="index">
-                    <th scope="row">{{loss.title}}</th>
-                    <td>{{loss.useData}}</td>
-                    <td>{{loss.loseData}}</td>
-                    <td>{{loss.useData+loss.loseData}}</td>
-                    <td>{{(loss.loseData/(loss.useData+loss.loseData)*100).toFixed(2)}}%</td>
+                    <th scope="row">{{loss.Name}}</th>
+                    <td>{{loss.Series[0].value}}</td>
+                    <td>{{loss.Series[1].value}}</td>
+                    <td>{{loss|totalEleNo}}</td>
+                    <td>{{loss|filterLosePersent}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -65,120 +63,168 @@
     </div>
 </template>
 <script>
-import echarts from "echarts/dist/echarts.min.js";
+import echarts from "echarts";
+import { events } from "@/assets/scripts/events.js";
 export default {
   name: "line-loss",
   data: function() {
     return {
-      selectMeterBoxNo: 1,
-      startLLDate: "2018-08-01",
-      endLLDate: "2018-08-07",
-      lineCharts: "",
-      line1Charts: "",
-      line2Charts: "",
-      line3Charts: "",
-      line4Charts: "",
-      selectCharts: "",
+      selectMeterBoxNo: 0,
+      selectBox: {},
+      startDate: events.formatDate(
+        new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000),
+        "yyyy-MM-dd"
+      ),
+      endDate: events.formatDate(new Date(), "yyyy-MM-dd"),
+      lineCharts: {},
+      DXCharts: {},
+      XXCharts: {},
+      boxCharts: {},
       line1: "",
       line: "",
-      lineData: {
-        title: "台区",
-        data: [
-          { value: 3500, name: "实际用电量" },
-          { value: 300, name: "线损电量" }
-        ]
+      lineLoss: "",
+      boxLoss: {
+        title: ""
       },
-      line1Data: {
-        title: "东线",
-        data: [
-          { value: 2000, name: "实际用电量" },
-          { value: 200, name: "线损电量" }
-        ]
-      },
-      line2Data: {
-        title: "西线",
-        data: [
-          { value: 1500, name: "实际用电量" },
-          { value: 100, name: "线损电量" }
-        ]
-      },
-      line3Data: {
-        title: "东线东支",
-        data: [
-          { value: 1500, name: "实际用电量" },
-          { value: 100, name: "线损电量" }
-        ]
-      },
-      line4Data: {
-        title: "东线西支",
-        data: [
-          { value: 1500, name: "实际用电量" },
-          { value: 100, name: "线损电量" }
-        ]
-      },
-      lineSelect: {
-        title: "",
-        data: [
-          { value: 1500, name: "实际用电量" },
-          { value: 100, name: "线损电量" }
-        ]
-      },
-      lossData: [
-        {
-          title: "台区",
-          useData: 3500,
-          loseData: 300
-        },
-        {
-          title: "东线",
-          useData: 2000,
-          loseData: 200
-        },
-        {
-          title: "西线",
-          useData: 1500,
-          loseData: 100
-        },
-        {
-          title: "东线东支",
-          useData: 800,
-          loseData: 60
-        },
-        {
-          title: "东线西支",
-          useData: 500,
-          loseData: 40
-        },
-        {
-          title: "表箱1#",
-          useData: 150,
-          loseData: 12
-        }
-      ]
+      areaBoxes: [],
+      lossData: [] //表格数据
     };
   },
+  created: function() {
+    this.getAreaBoxes();
+  },
   mounted: function() {
-    this.initCharts(this.lineCharts, "lineLoss-echarts", this.lineData);
-    this.initCharts(this.selectCharts, "select-line", this.lineSelect);
-    this.initCharts(this.line1Charts, "line-1", this.line1Data);
-    this.initCharts(this.line2Charts, "line-2", this.line2Data);
-    this.initCharts(this.line3Charts, "line-3", this.line3Data);
-    this.initCharts(this.line4Charts, "line-4", this.line4Data);
+    this.lineCharts = this.initCharts("lineLoss-echarts");
+
+    this.DXCharts = this.initCharts("line-D");
+    this.XXCharts = this.initCharts("line-X");
+    this.getAreaLoss();
+  },
+  watch: {
+    lineLoss: {
+      //线路线损
+      deep: true,
+      handler: function(newVal) {
+        this.setOptions(this.lineCharts, newVal[0]);
+        this.setOptions(this.DXCharts, newVal[1]);
+        this.setOptions(this.XXCharts, newVal[2]);
+        this.lossData = newVal.concat(this.boxLoss);
+      }
+    },
+    startDate: function() {
+      this.getAreaLoss();
+    },
+    endDate: function() {
+      this.getAreaLoss();
+    },
+    areaBoxes: {
+      deep: true,
+      handler: function(newVal, oldVal) {
+        if (oldVal.length == 0) {
+          this.$nextTick(function() {
+            this.boxCharts = this.initCharts("box-charts");
+          });
+        }
+        this.selectBox = newVal[this.selectMeterBoxNo];
+      }
+    },
+    selectMeterBoxNo: function(newVal) {
+      this.selectBox = this.areaBoxes[newVal] ? this.areaBoxes[newVal] : {};
+    },
+    selectBox: function(newVal) {
+      console.log("****新选择的表箱：" + JSON.stringify(newVal));
+      this.getBoxLoss(newVal.Value);
+    },
+    boxLoss: function(newVal) {
+      //电表线损
+      this.setOptions(this.boxCharts, newVal);
+      if (this.lineLoss.length > 0) {
+        this.lossData = this.lineLoss.concat(newVal);
+      } else {
+        this.lossData = [newVal];
+      }
+    },
+    lossData: {
+      deep: true,
+      handler: function(newVal) {
+        console.log("列表信息数据：" + JSON.stringify(newVal));
+      }
+    }
+  },
+  filters: {
+    totalEleNo: function(loss) {
+      return parseInt(loss.Series[0].value) + parseInt(loss.Series[1].value);
+    },
+    filterLosePersent: function(loss) {
+      let useNo = parseInt(loss.Series[0].value);
+      let loseNo = parseInt(loss.Series[1].value);
+      let totalNo = useNo + loseNo;
+      if (totalNo == 0) {
+        return "0%";
+      }
+      return loseNo / totalNo * 100 + "%";
+    }
   },
   methods: {
+    getBoxLoss: function(boxId) {
+      events.TQ_request(
+        events.METER_BOX_LINELOSS,
+        {
+          UIDstr: events.USER_ID,
+          TaskIDstr: events.AREA_ID,
+          BXIDstr: boxId,
+          DT_Begin: this.startDate,
+          DT_End: this.endDate
+        },
+        function(responseData) {
+          console.log("获取的电表箱线损：" + JSON.stringify(responseData));
+          this.boxLoss = Object.assign({}, this.boxLoss, responseData, {
+            Name: this.selectBox.Text + "#表箱"
+          });
+        }.bind(this)
+      );
+    },
+    getAreaLoss: function() {
+      events.TQ_request(
+        events.LINE_LOSS,
+        {
+          UIDstr: events.USER_ID,
+          TaskIDstr: events.AREA_ID,
+          DT_Begin: this.startDate,
+          DT_End: this.endDate
+        },
+        function(responseData) {
+          console.log("获取的线路信息：" + JSON.stringify(responseData));
+          this.lineLoss = responseData;
+        }.bind(this)
+      );
+    },
+    getAreaBoxes: function() {
+      events.TQ_request(
+        events.AREA_BOXES,
+        {
+          UIDstr: events.USER_ID,
+          TaskIDstr: events.AREA_ID
+        },
+        function(responseData) {
+          console.log("获取的台区表箱数据：" + JSON.stringify(responseData));
+          this.areaBoxes = responseData;
+        }.bind(this)
+      );
+    },
     exportLineLoss: function() {
       window.open(
         "http://wx.dianliangliang.com/sucai/courts-manage/courts-manage/%E7%BA%BF%E6%8D%9F%E5%88%86%E6%9E%90.xlsx"
       );
     },
-    initCharts: function(charts, id, optionData) {
-      charts = echarts.init(document.getElementById(id));
-      this.setOptions(charts, optionData);
+    initCharts: function(id) {
+      let charts = echarts.init(document.getElementById(id));
+      return charts;
     },
     setOptions: function(charts, optionData) {
       let option = {
         title: {
-          text: optionData.title,
+          text: optionData.Name ? optionData.Name : "",
           x: "center",
           textStyle: {
             //标题内容的样式
@@ -193,18 +239,18 @@ export default {
           trigger: "item",
           formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
-        toolbox: {
-          feature: {
-            dataView: { show: true, readOnly: false },
-            restore: { show: true },
-            saveAsImage: { show: true }
-          }
-        },
+        // toolbox: {
+        //   feature: {
+        //     dataView: { show: true, readOnly: false },
+        //     restore: { show: true },
+        //     saveAsImage: { show: true }
+        //   }
+        // },
         legend: {
           orient: "vertical",
           right: "right",
           bottom: "middle",
-          data: ["实际用电量", "线损电量"],
+          data: optionData.Legend,
           textStyle: {
             // color: "rgba(255, 255, 255, 0.8)"
           }
@@ -215,7 +261,7 @@ export default {
             type: "pie",
             radius: "70%",
             center: ["50%", "60%"],
-            data: optionData.data,
+            data: optionData.Series,
             itemStyle: {
               emphasis: {
                 shadowBlur: 10,
@@ -223,20 +269,21 @@ export default {
                 shadowColor: "rgba(0, 0, 0, 0.5)"
               }
             },
-             label: {
+            label: {
               normal: {
-                formatter: "{b}\n{c}({d}%)",
+                formatter: "{b}\n{c}\n{d}%",
                 textStyle: {
                   fontWeight: "normal",
                   fontSize: 15
                 }
               }
-            },
+            }
           }
         ],
         color: ["#2c8185", "#ff7171", "#9ccac8"]
       };
-
+      console.log(charts);
+      console.log("*******" + JSON.stringify(optionData));
       // 使用刚指定的配置项和数据显示图表。
       charts.setOption(option);
     }
@@ -244,7 +291,7 @@ export default {
 };
 </script>
 <style scoped>
-.date-select{
+.date-select {
   margin-bottom: 16px;
 }
 .lineLoss-header {
@@ -268,7 +315,7 @@ export default {
   margin-top: 16px;
   padding: 8px 16px;
 }
-.table-container{
+.table-container {
   margin-top: 32px;
 }
 </style>

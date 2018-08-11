@@ -7,14 +7,14 @@ export const events = {
     METER_BOX_PROPERTIES: 'JPTQ_BX_By_TaskID', //表箱数据接口
     POWER_CABINET: 'JPTQ_PDG_By_TaskID', //配电箱数据接口
     METER_PROPERTIES: 'JPTQ_Get_DB_By_BXID', //电表数据接口
-    LINES_PROPERTIES: 'JPTQ_Get_XL_By_TaskID', //线路属性接口
     LINE_LIST: 'JPTQ_Get_XL_By_TaskID', //台区线路
     LINE_METERS: 'JPTQ_Get_XL_BX_BY_TaskID', //级联关系
     ELE_ANALYSIS: 'JPTQ_Get_Data_By_Task_XL_BX', //用电分析
     LINE_LOSS: 'JPTQ_Get_XianSun_Ini', //台区线损
     METER_BOX_LINELOSS: 'JPTQ_Get_XianSun_BX', //表箱线损
+    AREA_BOXES:'JPTQ_Get_BX_By_TaskID',//台区表箱列表
     AREA_ID: 'NkQzMjJFQThFQ0REOEY0Qg', //台区ID
-    USER_ID: 'OTVCREZENjRCMkYzRDMxMQ',//用户id
+    USER_ID: 'OTVCREZENjRCMkYzRDMxMQ', //用户id
     FACILITY_MAP: new Map([
         ['MjhCOTY0Qjc5Q0EyMjA1Ng', '变电站'],
         ['NjFENjcwQTUyODUxMTU0MQ', '变压器'],
@@ -38,6 +38,8 @@ export const events = {
             dataType: 'jsonp'
         }).done(function (response) {
             callback(response);
+        }).fail(function (err) {
+            console.log(err)
         })
     },
     //台区请求
@@ -47,29 +49,36 @@ export const events = {
             data: params,
             dataType: 'jsonp'
         }).done(function (response) {
-            callback(response);
+            if (response.ResultCode == 200) {
+                callback(response.Data_Obj);
+            } else {
+                console.log("接口" + url + "返回数据错误：" + response.ResultDesc);
+            }
+
+        }).fail(function (err) {
+            console.log("接口" + url + "错误：" + JSON.stringify(err));
         })
     },
-    formatDate:function(date,format){
-        console.log("日期："+date+';格式：'+format)
-        let o = { 
-            "M+" : date.getMonth()+1,                 //月份 
-            "d+" : date.getDate(),                    //日 
-            "H+" : date.getHours(),                   //小时 
-            "m+" : date.getMinutes(),                 //分 
-            "s+" : date.getSeconds(),                 //秒 
-            "q+" : Math.floor((date.getMonth()+3)/3), //季度 
-            "S"  : date.getMilliseconds()             //毫秒 
-        }; 
-        if(/(y+)/.test(format)) {
-                format=format.replace(RegExp.$1, (date.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+    formatDate: function (date, format) {
+        console.log("日期：" + date + ';格式：' + format)
+        let o = {
+            "M+": date.getMonth() + 1, //月份 
+            "d+": date.getDate(), //日 
+            "H+": date.getHours(), //小时 
+            "m+": date.getMinutes(), //分 
+            "s+": date.getSeconds(), //秒 
+            "q+": Math.floor((date.getMonth() + 3) / 3), //季度 
+            "S": date.getMilliseconds() //毫秒 
+        };
+        if (/(y+)/.test(format)) {
+            format = format.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
         }
-         for(let k in o) {
-            if(new RegExp("("+ k +")").test(format)){
-                 format = format.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
-             }
-         }
-        return format; 
+        for (let k in o) {
+            if (new RegExp("(" + k + ")").test(format)) {
+                format = format.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            }
+        }
+        return format;
     }
 
 }

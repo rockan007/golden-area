@@ -35,6 +35,7 @@ import MeterItem from "@/components/details/Meter-Item";
 import opertionalParameters from "@/views/details/operational-parameters";
 import towerInfo from "@/components/details/tower-info";
 import { meterNoMap, meterBoxes } from "@/assets/scripts/meters-data.js";
+import { events } from "@/assets/scripts/events";
 export default {
   name: "analog-line",
   components: {
@@ -84,8 +85,12 @@ export default {
         "01-01-03-02",
         "无",
         "无"
-      ]
+      ],
+      areaBoxes: []
     };
+  },
+  created: function() {
+    this.getAreaBoxes();
   },
   mounted: function() {
     this.id = this.$route.params.id;
@@ -111,6 +116,18 @@ export default {
     }
   },
   methods: {
+    getAreaBoxes: function() {
+      events.TQ_request(
+        events.METER_BOX_PROPERTIES,
+        {
+          UIDStr: events.USER_ID,
+          TaskIDstr: events.AREA_ID
+        },
+        function(responseData) {
+          console.log("获取的台区表象数据：" + JSON.stringify(responseData));
+        }
+      );
+    },
     getMeterBoxList: function() {
       meterBoxes.forEach(meterBox => {
         meterBox.order = meterNoMap.get(meterBox.JLXBH);
@@ -156,7 +173,7 @@ export default {
   margin: 8px 16px 0 0;
   min-height: 36px;
 }
-.map-title{
+.map-title {
   font-size: 24px;
   font-weight: bold;
   color: #00706b;

@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     routerToDetail: function(item) {
+      console.log("**********************" + item.order);
       let routerPath = "/detail-main/" + item.order;
       switch (item.order) {
         case 0:
@@ -63,7 +64,7 @@ export default {
           routerPath += "/ele-analysis";
           break;
         case 4:
-          routerPath += "/fault-statistics-detail";
+          routerPath += "/fault-statistics-detail/0";
           break;
         case 5:
           routerPath += "/com-energy/0";
@@ -74,6 +75,7 @@ export default {
         default:
           break;
       }
+      console.log(routerPath);
       this.$router.push(routerPath);
     }
   }

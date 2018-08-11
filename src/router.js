@@ -15,6 +15,10 @@ import videoSurveillance from '@/views/details/video-surveillance'
 import eventAlert from '@/views/details/event-alert'
 import lineLoss from '@/views/details/LineLoss'
 import faultStatisticsDetail from '@/views/details/fault-statistics-detail'
+import Faultlevel from '@/views/details/Fault-level'
+import faulttype from '@/views/details/fault-type'
+import faultyline from '@/views/details/faulty-line'
+import Metaanalysis from '@/views/details/Meta-analysis'
 Vue.use(Router)
 export default new Router({
   routes: [{
@@ -47,9 +51,26 @@ export default new Router({
         component: analogLine
       }]
     }, {
-      path: 'fault-statistics-detail',
+      path: 'fault-statistics-detail/:fid',
       name: 'fault-statistics-detail',
-      component: faultStatisticsDetail
+      component: faultStatisticsDetail,
+      children: [{
+        path: '',
+        name: 'Fault-level',
+        component: Faultlevel
+      }, {
+        path: 'fault-type',
+        name: 'fault-type',
+        component: faulttype
+      }, {
+        path: 'faulty-line',
+        name: 'faulty-line',
+        component: faultyline
+      }, {
+        path: 'Meta-analysis',
+        name: 'Meta-analysis',
+        component: Metaanalysis
+      }]
     }, {
       path: 'com-energy/:eId',
       name: 'com-energy',

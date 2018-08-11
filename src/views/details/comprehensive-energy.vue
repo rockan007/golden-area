@@ -23,7 +23,7 @@ export default {
   watch: {
     selectEnergy: function(newVal) {
       console.log(newVal);
-      let routerPath = "/detail-main/3/com-energy/" + this.selectEnergy;
+      let routerPath = "/detail-main/5/com-energy/" + this.selectEnergy;
       switch (parseInt(newVal)) {
         case 0:
           routerPath += "/";
