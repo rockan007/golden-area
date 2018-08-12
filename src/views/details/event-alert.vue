@@ -5,40 +5,23 @@
             <button class="btn btn-outline-info" v-on:click="exportAlert">导出表格</button>
         </div>
         <div class="eventAlert-body flex-grow-1 flex-shrink-1" style="overflow-y:auto">
-            <table class="table table-striped table-light">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">事件名称</th>
-                  <th scope="col">故障级别</th>
-                  <th scope="col">故障设备</th>
-                  <th scope="col">故障原因</th>
-                  <th scope="col">故障时间</th>
-                  <th scope="col">修复时间</th>
-                  <th scope="col">处理时间</th>
-                </tr>
-              </thead>
-              <tbody style="overflow-y:auto;">
-                <tr v-for="(alert,index) in alertList" v-bind:key="index" v-bind:class='{"event-severity":alert.level>5}'>
-                  <th scope="row">{{index+1}}</th>
-                  <td>{{alert.title}}</td>
-                  <td>{{alert.level>5?'严重':'一般'}}</td>
-                  <td>{{alert.equipment}}</td>
-                  <td>{{alert.reason}}</td>
-                  <td>{{alert.errTime}}</td>
-                  <td>{{alert.repairTime}}</td>
-                  <td>{{alert.repairDuration}}</td>
-                </tr>
-              </tbody>
-            </table>
+            <data-table tabId="alert-table" v-bind:tableData="tableData"></data-table>
         </div>
     </div>
 </template>
 <script>
+import $ from "jquery";
+import "datatables.net/js/jquery.dataTables.min";
+import "datatables.net-dt/css/jquery.dataTables.min.css";
+import dataTable from "@/components/utils/data-table";
 export default {
   name: "event-alert",
+  components:{
+    dataTable
+  },
   data: function() {
     return {
+      tableData: "",
       alertList: [
         {
           title: "故障警报",
@@ -268,7 +251,40 @@ export default {
       ]
     };
   },
+  mounted: function() {
+    this.getTableData();
+  },
   methods: {
+    getTableData: function() {
+      let rows = [];
+      this.alertList.forEach((alert, index) => {
+        let row = [
+          index + 1,
+          alert.title,
+          alert.level > 5 ? "严重" : "一般",
+          alert.equipment,
+          alert.reason,
+          alert.errTime,
+          alert.repairTime,
+          alert.repairDuration
+        ];
+        rows.push(row);
+      });
+      let cols = [
+        "#",
+        "事件名称",
+        "故障级别",
+        "故障设备",
+        "故障原因",
+        "故障时间",
+        "修复时间",
+        "处理时间"
+      ];
+      this.tableData = {
+        cols: cols,
+        rows: rows
+      };
+    },
     exportAlert: function() {
       window.open(
         "http://wx.dianliangliang.com/sucai/courts-manage/courts-manage/事件警报.xlsx"

@@ -13,6 +13,7 @@ export const events = {
     LINE_LOSS: 'JPTQ_Get_XianSun_Ini', //台区线损
     METER_BOX_LINELOSS: 'JPTQ_Get_XianSun_BX', //表箱线损
     AREA_BOXES:'JPTQ_Get_BX_By_TaskID',//台区表箱列表
+    BOXES_LINELOSS:'JPTQ_Get_XianSun_BXList_Ini',//台区内表箱线损
     AREA_ID: 'NkQzMjJFQThFQ0REOEY0Qg', //台区ID
     USER_ID: 'OTVCREZENjRCMkYzRDMxMQ', //用户id
     FACILITY_MAP: new Map([

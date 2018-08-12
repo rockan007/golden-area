@@ -45,8 +45,8 @@ export default {
 };
 </script>
 <style scoped>
-.area-profile{
-    padding: 16px 32px;
+.area-profile {
+  padding: 16px 32px;
 }
 .profile-icon-container {
   background-color: #00706b;
@@ -60,12 +60,14 @@ export default {
   font-weight: bold;
   line-height: 40px;
 }
-.profile-title{
-    font-size: 18px;
-    line-height: 50px;
-    margin-left: 8px;
+.profile-title {
+  color: #00706b;
+  font-size: 18px;
+  line-height: 50px;
+  margin-left: 8px;
 }
-.profile-info{
-    font-size: 24px;
+.profile-info {
+  color: #00706b;
+  font-size: 24px;
 }
 </style>

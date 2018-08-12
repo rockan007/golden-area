@@ -38,26 +38,9 @@
                 <div id="line-D" style="width:0;" class="echarts-container flex-grow-1 border border-info"></div>
                 <div id="line-X" style="width:0;" class="echarts-container flex-grow-1 border border-info"></div>
               </div>
-              <table class="table-container table table-striped table-light">
-                <thead>
-                  <tr>
-                    <th scope="col">线路名称</th>
-                    <th scope="col">实际用电量(kWh)</th>
-                    <th scope="col">损耗电量(kWh)</th>
-                    <th scope="col">总电量(kWh)</th>
-                    <th scope="col">损耗百分比</th>
-                  </tr>
-                </thead>
-                <tbody style="overflow-y:auto;">
-                  <tr v-for="(loss,index) in lossData" v-bind:key="index">
-                    <th scope="row">{{loss.Name}}</th>
-                    <td>{{loss.Series[0].value}}</td>
-                    <td>{{loss.Series[1].value}}</td>
-                    <td>{{loss|totalEleNo}}</td>
-                    <td>{{loss|filterLosePersent}}</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div style="padding-top:50px;">
+                <data-table :tabId="tableID" v-bind:tableData="tableData"></data-table>
+              </div>
             </div>
         </div>
     </div>
@@ -65,10 +48,13 @@
 <script>
 import echarts from "echarts";
 import { events } from "@/assets/scripts/events.js";
+import dataTable from "@/components/utils/data-table";
 export default {
   name: "line-loss",
+  components: { dataTable },
   data: function() {
     return {
+      tableID:'line-loss',
       selectMeterBoxNo: 0,
       selectBox: {},
       startDate: events.formatDate(
@@ -87,7 +73,9 @@ export default {
         title: ""
       },
       areaBoxes: [],
-      lossData: [] //表格数据
+      boxesLoss: [],
+      lossData: [], //表格数据
+      tableData: {}
     };
   },
   created: function() {
@@ -95,10 +83,10 @@ export default {
   },
   mounted: function() {
     this.lineCharts = this.initCharts("lineLoss-echarts");
-
     this.DXCharts = this.initCharts("line-D");
     this.XXCharts = this.initCharts("line-X");
     this.getAreaLoss();
+    this.getBoxesLoss();
   },
   watch: {
     lineLoss: {
@@ -108,7 +96,7 @@ export default {
         this.setOptions(this.lineCharts, newVal[0]);
         this.setOptions(this.DXCharts, newVal[1]);
         this.setOptions(this.XXCharts, newVal[2]);
-        this.lossData = newVal.concat(this.boxLoss);
+        // this.lossData = newVal.concat(this.boxesLoss);
       }
     },
     startDate: function() {
@@ -121,7 +109,7 @@ export default {
       deep: true,
       handler: function(newVal, oldVal) {
         if (oldVal.length == 0) {
-          this.$nextTick(function() {
+          this.$nextTick(()=>{
             this.boxCharts = this.initCharts("box-charts");
           });
         }
@@ -135,9 +123,11 @@ export default {
       console.log("****新选择的表箱：" + JSON.stringify(newVal));
       this.getBoxLoss(newVal.Value);
     },
-    boxLoss: function(newVal) {
+    boxLoss:function(newVal){
+      this.setOptions(this.boxCharts,newVal)
+    },
+    boxesLoss: function(newVal) {
       //电表线损
-      this.setOptions(this.boxCharts, newVal);
       if (this.lineLoss.length > 0) {
         this.lossData = this.lineLoss.concat(newVal);
       } else {
@@ -148,10 +138,30 @@ export default {
       deep: true,
       handler: function(newVal) {
         console.log("列表信息数据：" + JSON.stringify(newVal));
+        this.changeToTableData(newVal);
       }
     }
   },
-  filters: {
+  filters: {},
+  methods: {
+    changeToTableData: function(lossData) {
+      let tableRows = [];
+      lossData.forEach(lose => {
+        let row = [
+          lose.Name,
+          lose.Series[0].value,
+          lose.Series[1].value,
+          this.totalEleNo(lose),
+          this.filterLosePersent(lose)
+        ];
+        tableRows.push(row);
+      });
+      let cols = ["线路名称", "实际用电量", "损耗电量", "总电量", "损耗百分比"];
+      this.tableData = {
+        cols: cols,
+        rows: tableRows
+      };
+    },
     totalEleNo: function(loss) {
       return parseInt(loss.Series[0].value) + parseInt(loss.Series[1].value);
     },
@@ -163,9 +173,25 @@ export default {
         return "0%";
       }
       return loseNo / totalNo * 100 + "%";
-    }
-  },
-  methods: {
+    },
+    getBoxesLoss: function() {
+      events.TQ_request(
+        events.BOXES_LINELOSS,
+        {
+          UIDstr: events.USER_ID,
+          TaskIDstr: events.AREA_ID,
+          DT_Begin: this.startDate,
+          DT_End: this.endDate
+        },
+        function(responseData) {
+          console.log("获取的表箱线损结果：" + JSON.stringify(responseData));
+          responseData.forEach(item=>{
+            item.Name=item.Name+'#表箱';
+          })
+          this.boxesLoss = responseData;
+        }.bind(this)
+      );
+    },
     getBoxLoss: function(boxId) {
       events.TQ_request(
         events.METER_BOX_LINELOSS,
@@ -253,7 +279,8 @@ export default {
           data: optionData.Legend,
           textStyle: {
             // color: "rgba(255, 255, 255, 0.8)"
-          }
+          },
+          selectedMode:false
         },
         series: [
           {

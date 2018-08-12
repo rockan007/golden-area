@@ -92,7 +92,8 @@ export default {
           data: this.areaData.Legend,
           textStyle: {
             color: "rgba(0, 0, 0, 0.8)"
-          }
+          },
+          selectedMode:false
         },
         series: [
           {

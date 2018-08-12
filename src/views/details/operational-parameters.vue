@@ -50,7 +50,7 @@ export default {
           isEle: 0
         },
         {
-          title: "变压器相关信息",
+          title: "1#变压器",
           subTitles: [
             {
               title: "A相电电压",
@@ -77,12 +77,12 @@ export default {
             {
               title: "低压用户数",
               info: "304"
-            },
+            }
           ],
           isEle: 1
         },
         {
-          title: "GP柜相关信息",
+          title: "JP柜",
           subTitles: [
             {
               title: "A相电电流",
@@ -118,7 +118,7 @@ export default {
           isEle: 1
         },
         {
-          title: "东线相关信息",
+          title: "东线",
           subTitles: [
             {
               title: "表数",
@@ -139,7 +139,79 @@ export default {
               info: "12"
             }
           ],
-           isEle: 0
+          isEle: 0
+        },
+        {
+          title: "西线",
+          subTitles: [
+            {
+              title: "表数",
+              info: "45"
+            },
+            {
+              title: "高电压用户",
+              info: "0"
+            },
+            {
+              title: "低电压用户",
+              info: "45"
+            }
+          ],
+          infoList: [
+            {
+              title: "表箱数",
+              info: "12"
+            }
+          ],
+          isEle: 0
+        },
+        {
+          title: "东线东支",
+          subTitles: [
+            {
+              title: "表数",
+              info: "45"
+            },
+            {
+              title: "高电压用户",
+              info: "0"
+            },
+            {
+              title: "低电压用户",
+              info: "45"
+            }
+          ],
+          infoList: [
+            {
+              title: "表箱数",
+              info: "8"
+            }
+          ],
+          isEle: 0
+        },
+             {
+          title: "东线西支",
+          subTitles: [
+            {
+              title: "表数",
+              info: "45"
+            },
+            {
+              title: "高电压用户",
+              info: "0"
+            },
+            {
+              title: "低电压用户",
+              info: "45"
+            }
+          ],
+          infoList: [
+            {
+              title: "表箱数",
+              info: "9"
+            }
+          ],
+          isEle: 0
         }
       ],
       tableList: [
@@ -204,7 +276,7 @@ export default {
               title: "负载率",
               param: 0.9
             }
-          ],
+          ]
         }
       ]
     };

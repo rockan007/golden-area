@@ -52,7 +52,8 @@ export default {
         },
         legend: {
           data: ["发电量", "储电量", "平均温度"],
-          top: "30px"
+          top: "30px",
+          selectedMode: false
         },
         xAxis: [
           {

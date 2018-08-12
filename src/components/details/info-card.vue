@@ -73,9 +73,13 @@ export default {
 };
 </script>
 <style scoped>
+.info-card{
+  padding: 8px 16px;
+}
 .card {
   color: #00706b;
-  min-height: 380px;
+  min-height: 400px;
+  max-height: 400px;
   padding: 8px 16px;
 }
 .card-title {
