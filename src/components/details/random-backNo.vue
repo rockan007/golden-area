@@ -1,9 +1,13 @@
 <template>
-    <div class="back-no d-flex flex-column justify-content-between isUsing" v-bind:class="{'isBreak':isUsing==0}" v-on:click='emitDiaShow'>
+    <div class="back-no d-flex flex-column justify-content-between isUsing" v-bind:class="{'isBreak':isUsing==0}" v-on:click='emitDiaShow(boxId)'>
         <div v-if="hasColor&&showBack" class="back line-using" v-bind:class="{'line-break':isUsing==0}"></div>
-        <div class="no d-flex flex-column">
-            <div style="text-align:left"  >{{dianY}}V</div>
-            <div style="text-align:left" >{{dianL}}A</div>
+        <div v-if="proList.length>0" class="no d-flex flex-column">
+            <div style="text-align:left"  >{{proList[1].name}}:{{proList[1].info}}</div>
+            <div style="text-align:left" >{{proList[0].name}}:{{proList[0].info}}</div>
+        </div>
+        <div v-else class="no d-flex flex-column">
+            <div style="text-align:left"  >0V</div>
+            <div style="text-align:left" >0A</div>
         </div>
     </div>
 </template>
@@ -19,20 +23,39 @@ export default {
     },
     showBack: {
       default: true
+    },
+    boxData: {
+      type: Object,
+      default: function() {
+        return {};
+      }
+    },
+    boxId: {
+      type: String,
+      default:'0'
     }
   },
   data: function() {
     return {
-      isUsing: 1,
-      dianY: 220.0,
-      dianL: 15.07
+      isUsing: 0,
+      proList: [],
+      boxPro: []
     };
   },
   mounted: function() {
-    this.randomIsUsing();
     console.log("…………………………是否具有：" + this.meterBoxNo + ":" + this.showBack);
   },
   watch: {
+    boxData: function(newVal) {
+      console.log("箱子的属性：" + JSON.stringify(newVal));
+      if (!newVal.JCX||newVal.JCX.length == 0) {
+        this.boxPro = [];
+        this.isUsing = 0;
+      } else {
+        this.boxPro = this.getBoxPro(newVal.JCX.slice(0, 6));
+        this.isUsing = 1;
+      }
+    },
     isUsing: function(newVal) {
       if (newVal) {
         this.dianY = this.getRandomNo(220, 230);
@@ -44,6 +67,31 @@ export default {
     }
   },
   methods: {
+    getBoxPro: function(proList) {
+      let prosList = [];
+      proList.forEach(pro => {
+        if (pro.Value) {
+          let relPro = {
+            name: this.getPro(pro),
+            info: pro.Value.toFixed(2) + pro.dw
+          };
+          prosList.push(relPro);
+        }
+      });
+      this.proList = prosList;
+    },
+    getPro: function(pro) {
+      switch (pro.id % 3) {
+        case 1:
+          return "A";
+        case 2:
+          return "B";
+        case 3:
+          return "C";
+        default:
+          return "";
+      }
+    },
     randomIsUsing: function() {
       setTimeout(
         function() {
@@ -56,8 +104,8 @@ export default {
     getRandomNo: function(min, max) {
       return (Math.random() * (max - min) + min).toFixed(2);
     },
-    emitDiaShow: function() {
-      this.$emit("dialogShow", this.meterBoxNo);
+    emitDiaShow: function(boxId) {
+      this.$emit("dialogShow", boxId);
     }
   }
 };

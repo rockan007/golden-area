@@ -8,12 +8,13 @@ export const events = {
     POWER_CABINET: 'JPTQ_PDG_By_TaskID', //配电箱数据接口
     METER_PROPERTIES: 'JPTQ_Get_DB_By_BXID', //电表数据接口
     LINE_LIST: 'JPTQ_Get_XL_By_TaskID', //台区线路
-    LINE_METERS: 'JPTQ_Get_XL_BX_BY_TaskID', //级联关系
+    LINE_BOXES_RELATION: 'JPTQ_Get_XL_BX_BY_TaskID', //级联关系
     ELE_ANALYSIS: 'JPTQ_Get_Data_By_Task_XL_BX', //用电分析
     LINE_LOSS: 'JPTQ_Get_XianSun_Ini', //台区线损
     METER_BOX_LINELOSS: 'JPTQ_Get_XianSun_BX', //表箱线损
     AREA_BOXES:'JPTQ_Get_BX_By_TaskID',//台区表箱列表
     BOXES_LINELOSS:'JPTQ_Get_XianSun_BXList_Ini',//台区内表箱线损
+    AREA_PROFILE:'JPTQ_Get_TQGK_SY',//台区概况
     AREA_ID: 'NkQzMjJFQThFQ0REOEY0Qg', //台区ID
     USER_ID: 'OTVCREZENjRCMkYzRDMxMQ', //用户id
     FACILITY_MAP: new Map([

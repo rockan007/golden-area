@@ -19,9 +19,12 @@
     "@vue/cli-service": "^3.0.0-rc.10",
     "bootstrap": "^4.1.3",
     "datatables.net": "^1.10.19",
-    "datatables.net-dt": "^1.10.19",
+    "datatables.net-bs4": "^1.10.19",
+    "datatables.net-buttons": "^1.5.3",
+    "datatables.net-buttons-dt": "^1.5.3",
     "echarts": "^4.1.0",
     "jquery": "^3.3.1",
+    "jszip": "^3.1.5",
     "popper.js": "^1.14.4",
     "scroxt": "^1.4.2",
     "vue-template-compiler": "^2.5.16"

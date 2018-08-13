@@ -11,7 +11,7 @@
               <line-charts  v-else-if="item.order==3" v-bind:item="item"></line-charts>
             <fault-analysis v-else-if="item.order==4"></fault-analysis>
             <div class="flex-grow-1 d-flex flex-column justify-content-center align-items-center" v-else>
-               <img  src="http://wx.dianliangliang.com/sucai/video-img-1.27534f14.png" style="width:50%;height:auto"/>
+               <img  src="http://wx.dianliangliang.com/sucai/video-img-1.27534f14.jpg" style="width:80%;height:auto"/>
                <div class="online-video-title">实时在线监控</div>
             </div>
            

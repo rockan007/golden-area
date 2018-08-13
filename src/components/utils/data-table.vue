@@ -6,7 +6,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="(row,index) in tableData.rows" v-bind:key='"row-"+index'>
+            <tr v-for="(row,index) in tableData.rows" v-bind:class="{'alert-severity':row[2]=='严重'}" v-bind:key='"row-"+index'>
                 <td v-for="(data,order) in row" v-bind:key="'data-'+order">
                     {{data}}
                 </td>
@@ -14,11 +14,18 @@
         </tbody>
     </table>
 </template>
+
 <script>
+import "datatables.net-buttons-dt/css/buttons.dataTables.min.css";
+import 'datatables.net-bs4/css/dataTables.bootstrap4.min.css'
 import $ from "jquery";
-import "datatables.net/js/jquery.dataTables.min";
-import "datatables.net-dt/css/jquery.dataTables.min.css";
+import jsZip from "jszip";
+import "datatables.net/js/jquery.dataTables.min.js";
+import "datatables.net-bs4/js/dataTables.bootstrap4.min"
+import "datatables.net-buttons/js/dataTables.buttons.min.js";
+import "datatables.net-buttons/js/buttons.html5.min.js";
 import { events } from "@/assets/scripts/events.js";
+window.JSZip = jsZip;
 export default {
   name: "data-table",
   props: {
@@ -61,10 +68,19 @@ export default {
     initialDataTable: function() {
       console.log("当前ID:" + this.tabId);
       if (this.dataTable) {
-        console.log("重绘页面")
+        console.log("重绘页面");
         this.dataTable.draw();
       } else {
         this.dataTable = $("#" + this.tabId).DataTable({
+          dom: "Bfrtip",
+          buttons: [
+            {
+              extend: "excelHtml5", //使用 excel扩展
+              text: "导出表格", // 显示文字
+              filename: this.tableData.name,
+              messageTop: this.tableData.name,
+            }
+          ],
           language: {
             sProcessing: "处理中...",
             sLengthMenu: "显示 _MENU_ 项结果",
@@ -97,4 +113,7 @@ export default {
 </script>
 
 <style scoped>
+.alert-severity {
+  color: red;
+}
 </style>

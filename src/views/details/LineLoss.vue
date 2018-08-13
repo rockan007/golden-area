@@ -5,7 +5,6 @@
             <div class="lineLoss-title">
               线损分析
             </div>
-            <button class="btn btn-outline-info" v-on:click="exportLineLoss()">导出表格</button>
         </div>
         <div class="lineLoss-body flex-grow-1 d-flex flex-column">
             <div class="date-select d-flex align-items-center justify-content-center ">
@@ -158,6 +157,7 @@ export default {
       });
       let cols = ["线路名称", "实际用电量", "损耗电量", "总电量", "损耗百分比"];
       this.tableData = {
+        name:'线损分析：'+this.startDate+":"+this.endDate,
         cols: cols,
         rows: tableRows
       };

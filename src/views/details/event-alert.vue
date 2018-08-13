@@ -2,7 +2,7 @@
     <div class="eventAlert-container flex-grow-1 d-flex flex-column">
         <div class="eventAlert-header d-flex justify-content-between">
             <div class="eventAlert-title ">事件预警</div> 
-            <button class="btn btn-outline-info" v-on:click="exportAlert">导出表格</button>
+            <!-- <button class="btn btn-outline-info" v-on:click="exportAlert">导出表格</button> -->
         </div>
         <div class="eventAlert-body flex-grow-1 flex-shrink-1" style="overflow-y:auto">
             <data-table tabId="alert-table" v-bind:tableData="tableData"></data-table>
@@ -14,9 +14,10 @@ import $ from "jquery";
 import "datatables.net/js/jquery.dataTables.min";
 import "datatables.net-dt/css/jquery.dataTables.min.css";
 import dataTable from "@/components/utils/data-table";
+import {events} from "@/assets/scripts/events"
 export default {
   name: "event-alert",
-  components:{
+  components: {
     dataTable
   },
   data: function() {
@@ -36,7 +37,7 @@ export default {
           title: "故障警报",
           level: 8,
           equipment: "变压器东支出线",
-          reason: "三线不平衡",
+          reason: "三相不平衡",
           errTime: "2018-07-20 12:00:53",
           repairTime: "2018-07-20 14:52:00",
           repairDuration: "1h"
@@ -81,7 +82,7 @@ export default {
           title: "故障警报",
           level: 8,
           equipment: "变压器东支出线",
-          reason: "三线不平衡",
+          reason: "三相不平衡",
           errTime: "2018-07-20 12:00:53",
           repairTime: "2018-07-20 14:52:00",
           repairDuration: "1h"
@@ -126,7 +127,7 @@ export default {
           title: "故障警报",
           level: 8,
           equipment: "变压器东支出线",
-          reason: "三线不平衡",
+          reason: "三相不平衡",
           errTime: "2018-07-20 12:00:53",
           repairTime: "2018-07-20 14:52:00",
           repairDuration: "1h"
@@ -171,7 +172,7 @@ export default {
           title: "故障警报",
           level: 8,
           equipment: "变压器东支出线",
-          reason: "三线不平衡",
+          reason: "三相不平衡",
           errTime: "2018-07-20 12:00:53",
           repairTime: "2018-07-20 14:52:00",
           repairDuration: "1h"
@@ -216,7 +217,7 @@ export default {
           title: "故障警报",
           level: 8,
           equipment: "变压器东支出线",
-          reason: "三线不平衡",
+          reason: "三相不平衡",
           errTime: "2018-07-20 12:00:53",
           repairTime: "2018-07-20 14:52:00",
           repairDuration: "1h"
@@ -281,15 +282,16 @@ export default {
         "处理时间"
       ];
       this.tableData = {
+        name: "事件预警-" +events.formatDate(new Date(),'yyyy/MM/dd') ,
         cols: cols,
         rows: rows
       };
     },
-    exportAlert: function() {
-      window.open(
-        "http://wx.dianliangliang.com/sucai/courts-manage/courts-manage/事件警报.xlsx"
-      );
-    }
+    // exportAlert: function() {
+    //   window.open(
+    //     "http://wx.dianliangliang.com/sucai/courts-manage/courts-manage/事件警报.xlsx"
+    //   );
+    // }
   }
 };
 </script>

@@ -9,6 +9,7 @@
     </div>
 </template>
 <script>
+import { events } from "@/assets/scripts/events.js";
 export default {
   name: "area-profile",
   data: function() {
@@ -41,6 +42,37 @@ export default {
         }
       ]
     };
+  },
+  created: function() {
+    this.requestProfile();
+  },
+  watch: {
+    profileList: {
+      deep: true,
+      handler: function() {}
+    }
+  },
+  methods: {
+    requestProfile: function() {
+      events.TQ_request(
+        events.AREA_PROFILE,
+        {
+          UIDstr: events.USER_ID,
+          TaskIDstr: events.AREA_ID
+        },
+        responseData => {
+          this.getProfileList(responseData);
+          setTimeout(() => {
+            this.requestProfile();
+          }, 500);
+        }
+      );
+    },
+    getProfileList: function(data) {
+      Object.keys(data).forEach((key, index) => {
+        this.profileList[index].info = data[key];
+      });
+    }
   }
 };
 </script>

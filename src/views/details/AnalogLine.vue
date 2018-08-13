@@ -5,24 +5,20 @@
             何庄一号模拟图
           </div>
           <div v-if="selectType==0" style="height:0;padding:16px 16px 32px 16px;" class="flex-grow-1 flex-shrink-1 d-flex align-items-stretch position-relative">
-            <template v-if="id==1">  
+          
               <img src="http://wx.dianliangliang.com/sucai/analog-map.png" class="analog-image flex-grow-1" alt="">
               <tower-info v-for="order in 30" v-bind:key="'tower-'+order"  v-bind:order="order" v-bind:no="towerList[order-1]" v-bind:class='"tower-"+order'></tower-info>
-              <back-no v-bind:showBack='meterNo<48' v-for="meterNo in 50" v-bind:meterBoxNo="meterNo" :key="meterNo" v-on:dialogShow="getDialogShow" v-bind:class="['meterNo-'+meterNo,{'flex-column-reverse':meterNo<21}]"></back-no>
-            </template>
-            <template v-else>
-              <img src="http://wx.dianliangliang.com/sucai/analog-line.1b8ec1ef.png" class="analog-image " alt="">
-              <dynamic-no  v-for="no in 6" v-bind:key="no" v-bind:class="'dynamic-bottom-'+no" v-bind:dynamicItem="getRandomBottom(no)"></dynamic-no>
-            </template> 
+              <back-no v-bind:showBack='meterNo<48' v-for="meterNo in 50" v-bind:boxId="getBoxIdStr( meterNo-1)" v-bind:boxData="getBoxData( meterNo-1)"
+               v-bind:meterBoxNo="meterNo" :key="meterNo" v-on:dialogShow="getDialogShow" v-bind:class="['meterNo-'+meterNo,{'flex-column-reverse':meterNo<21}]"></back-no>
+          
           </div>
-          <opertional-parameters v-else></opertional-parameters>
-            <div v-if="showDialog&&selectMeterBox" class="meter-dialog d-flex flex-column shadow-lg">
+            <div v-if="showDialog" class="meter-dialog d-flex flex-column shadow-lg">
               <div class="dia-header d-flex justify-content-center">
-                <div class="flex-grow-1">54#电表箱</div>
+                <div class="flex-grow-1">{{selectMeterBoxNo}}#电表箱</div>
                 <div class="close-icon align-self-right" v-on:click.stop="cancelDia"><span class="icon-close iconfont icon-htmal5icon21"></span></div>
               </div>
               <div class="dia-body flex-grow-1 d-flex  flex-wrap-reverse">
-                  <meter-item  v-for="m in 9" :type="getRandomType()" v-bind:meterData="selectMeterBox.C[m-1]?selectMeterBox.C[m-1]:{}" :key="m" v-bind:meterOrder="m" class="col-4"></meter-item>
+                  <meter-item  v-for="m in 9"  v-bind:meterData="selectMeters[m-1]" :key="m" v-bind:meterOrder="m" class="col-4"></meter-item>
               </div>
             </div>
         </div>
@@ -34,7 +30,11 @@ import BackNo from "@/components/details/random-backNo";
 import MeterItem from "@/components/details/Meter-Item";
 import opertionalParameters from "@/views/details/operational-parameters";
 import towerInfo from "@/components/details/tower-info";
-import { meterNoMap, meterBoxes } from "@/assets/scripts/meters-data.js";
+import {
+  meterNoMap,
+  meterBoxes,
+  boxNos
+} from "@/assets/scripts/meters-data.js";
 import { events } from "@/assets/scripts/events";
 export default {
   name: "analog-line",
@@ -47,11 +47,13 @@ export default {
   },
   data: function() {
     return {
+      boxNos: boxNos,
       selectType: 0,
       id: 0,
       showDialog: 0,
       selectMap: 0,
       selectMeterBoxNo: 0,
+      boxIdStr: "", //表箱IDstr
       meterBoxList: "",
       selectMeterBox: "",
       towerList: [
@@ -86,11 +88,15 @@ export default {
         "无",
         "无"
       ],
-      areaBoxes: []
+      areaBoxesPro: [], //属性
+      areaBoxesRel: [], //级联关系
+      relsMap: "",
+      boxesProes: new Map(),
+      selectMeters: []
     };
   },
   created: function() {
-    this.getAreaBoxes();
+    this.getAreaBoxesRelation();
   },
   mounted: function() {
     this.id = this.$route.params.id;
@@ -101,13 +107,46 @@ export default {
     $route(to) {
       this.id = to.params.id;
     },
+
     showDialog: function() {},
+    boxIdStr: function() {
+      this.getSelectMeters();
+    },
     meterBoxList: {
       deep: true,
       handler: function() {}
     },
     selectMeterBoxNo: function(newVal) {
-      this.selectMeterBox = this.meterBoxList[newVal - 1];
+      // this.selectMeterBox = this.meterBoxList[newVal - 1];
+    },
+    areaBoxesRel: {
+      deep: true,
+      handler: function(newVal) {
+        console.log("获取的表箱列表：" + JSON.stringify(newVal));
+        this.getBoxIdMap(newVal);
+      }
+    },
+    relsMap: function(newVal) {
+      this.getAreaBoxesProperties(); //获取表箱属性
+    },
+    areaBoxesPro: {
+      deep: true,
+      handler: function(newVal) {
+        let boxProes = new Map();
+        newVal.forEach(boxPro => {
+          if (this.relsMap.get(boxPro.TabIDStr)) {
+            console.log(this.relsMap.get(boxPro.TabIDStr));
+            boxProes.set(this.relsMap.get(boxPro.TabIDStr), boxPro);
+          }
+        });
+        this.boxesProes = boxProes;
+      }
+    },
+    boxesProes: {
+      deep: true,
+      handler: function(newVal) {
+        console.log("新获取的new boxesProes");
+      }
     }
   },
   filters: {
@@ -116,17 +155,75 @@ export default {
     }
   },
   methods: {
-    getAreaBoxes: function() {
+    getSelectMeters: function() {
+      events.TQ_request(
+        events.METER_PROPERTIES,
+        {
+          UIDstr: events.USER_ID,
+          BXIDstr: this.boxIdStr
+        },
+        responseData => {
+          console.log("获取的响应数据：" + JSON.stringify(responseData));
+          this.selectMeters = responseData;
+        }
+      );
+    },
+    getBoxIdStr: function(index) {
+      let boxData = this.getBoxData(index);
+
+      if (boxData && boxData.TabIDStr) {
+        return boxData.TabIDStr;
+      }
+      return "";
+    },
+    getBoxData: function(index) {
+      if (index < boxNos.length) {
+        return this.boxesProes.get(index + "");
+      }
+      return {};
+    },
+    getBoxIdMap: function(rels) {
+      let idMap = new Map();
+      rels.forEach(rel => {
+        idMap.set(rel.TabIDstr, rel.BXH);
+      });
+      this.relsMap = idMap;
+    },
+    getAreaBoxesRelation: function() {
+      events.TQ_request(
+        events.LINE_BOXES_RELATION,
+        {
+          UIDstr: events.USER_ID,
+          TaskIDstr: events.AREA_ID
+        },
+        responseData => {
+          this.changeToBoxRelList(responseData);
+        }
+      );
+    },
+    changeToBoxRelList: function(data) {
+      let relList = [];
+      data.forEach(item => {
+        relList = relList.concat(item.list_BX);
+      });
+      this.areaBoxesRel = relList;
+    },
+    getAreaBoxesProperties: function() {
+      //获取表箱属性
       events.TQ_request(
         events.METER_BOX_PROPERTIES,
         {
           UIDStr: events.USER_ID,
           TaskIDstr: events.AREA_ID
         },
-        function(responseData) {
+        responseData => {
           console.log("获取的台区表象数据：" + JSON.stringify(responseData));
+          this.areaBoxesPro = responseData;
         }
       );
+      setTimeout(() => {
+        this.getAreaBoxesProperties();
+      }, 60000);
     },
     getMeterBoxList: function() {
       meterBoxes.forEach(meterBox => {
@@ -159,7 +256,8 @@ export default {
       return (Math.random() * (maxNo - minNo) + minNo).toFixed(2);
     },
     getDialogShow: function(no) {
-      this.selectMeterBoxNo = no;
+      this.boxIdStr = no;
+      this.selectMeterBoxNo = this.relsMap.get(no);
       this.showDialog = 1;
     },
     cancelDia: function() {
@@ -366,83 +464,83 @@ export default {
 }
 .meterNo-1 {
   left: 210px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-2 {
   left: 268px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-3 {
   left: 346px;
-  top: 212px;
+  top: 214px;
 }
 .meterNo-4 {
   left: 404px;
-  top: 213px;
+  top: 215px;
 }
 .meterNo-5 {
   left: 478px;
-  top: 211px;
+  top: 213px;
 }
 .meterNo-6 {
   left: 536px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-7 {
   left: 610px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-8 {
   left: 668px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-9 {
   left: 740px;
-  top: 212px;
+  top: 214px;
 }
 .meterNo-10 {
   left: 798px;
-  top: 212px;
+  top: 214px;
 }
 .meterNo-11 {
   right: 798px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-12 {
   right: 740px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-13 {
   right: 665px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-14 {
   right: 606px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-15 {
   right: 532px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-16 {
   right: 475px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-17 {
   right: 405px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-18 {
   right: 333px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-19 {
   right: 270px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-20 {
   right: 212px;
-  top: 210px;
+  top: 213px;
 }
 .meterNo-21 {
   right: 616px;
@@ -450,7 +548,7 @@ export default {
 }
 .meterNo-22 {
   right: 536px;
-  top: 85px;
+  top: 86px;
 }
 .meterNo-23 {
   right: 477px;
@@ -466,83 +564,83 @@ export default {
 }
 .meterNo-26 {
   right: 269px;
-  top: 85px;
+  top: 86px;
 }
 .meterNo-27 {
   right: 211px;
-  top: 85px;
+  top: 86px;
 }
 .meterNo-28 {
   left: 502px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-29 {
   left: 559px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-30 {
   left: 635px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-31 {
   left: 692px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-32 {
   left: 768px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-33 {
   left: 825px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-34 {
   left: 898px;
-  bottom: 199px;
+  bottom: 201px;
 }
 .meterNo-35 {
   left: 955px;
-  bottom: 199px;
+  bottom: 201px;
 }
 .meterNo-36 {
   right: 800px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-37 {
   right: 743px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-38 {
   right: 666px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-39 {
   right: 608px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-40 {
   right: 530px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-41 {
   right: 472px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-42 {
   right: 400px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-43 {
   right: 333px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-44 {
   right: 267px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-45 {
   right: 210px;
-  bottom: 200px;
+  bottom: 202px;
 }
 .meterNo-46 {
   right: 572px;

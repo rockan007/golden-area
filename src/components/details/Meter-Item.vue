@@ -5,10 +5,10 @@
         </div>
         <div class="meter-info d-flex flex-column">
           <div class="name">
-            姓名:{{meterData.name?meterData.name:"无"}}
+            姓名:{{meterData.YHM?meterData.YHM:"无"}}
           </div>
           <div>
-            户号：{{meterData.no?meterData.no:'无'}}
+            户号：{{meterData.HH?meterData.HH:'无'}}
           </div>
           <div>
             电压：220v
@@ -41,7 +41,7 @@ export default {
     };
   },
   mounted: function() {
-    this.type=this.meterData.name?0:2;
+    this.type=this.meterData.YHM?0:2;
     this.getRandomMeterNo();
   },
   watch:{
@@ -49,7 +49,7 @@ export default {
       deep:true,
       handler:function(newVal){
         console.log(newVal)
-        this.type=newVal.name?0:2;
+        this.type=newVal.YHM?0:2;
       }
     }
   },
