@@ -1,5 +1,5 @@
 <template>
-    <div class="info-card">
+    <div class="info-card" v-on:click="emitInfo">
         <div class="card shadow d-flex flex-column">
             <div class="card-title">{{cardData.title}}</div>
             <card-content class="flex-grow-1" v-bind:cardData="cardData"></card-content>
@@ -69,7 +69,13 @@ export default {
       ]
     };
   },
-  methods: {}
+  methods: {
+    emitInfo:function(){
+        if(this.order==1){
+          this.$emit("showTrans");
+        }
+    }
+  }
 };
 </script>
 <style scoped>

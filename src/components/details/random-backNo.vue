@@ -1,9 +1,10 @@
 <template>
-    <div class="back-no d-flex flex-column justify-content-between isUsing" v-bind:class="{'isBreak':isUsing==0}" v-on:click='emitDiaShow(boxId)'>
-        <div v-if="hasColor&&showBack" class="back line-using" v-bind:class="{'line-break':isUsing==0}"></div>
+    <div  class="back-no d-flex flex-column justify-content-between isUsing" v-bind:class="{'isBreak':isUsing==0}" v-on:click='emitDiaShow'>
+        <div v-if="hasColor&&showBack" v-bind:title="proList[2].name+':'+proList[2].info" class="back line-using" v-bind:class="{'line-break':isUsing==0}"></div>
         <div v-if="proList.length>0" class="no d-flex flex-column">
             <div style="text-align:left"  >{{proList[1].name}}:{{proList[1].info}}</div>
             <div style="text-align:left" >{{proList[0].name}}:{{proList[0].info}}</div>
+            <!-- <div style="text-align:left" >{{proList[2].name}}:{{proList[2].info}}</div> -->
         </div>
         <div v-else class="no d-flex flex-column">
             <div style="text-align:left"  >0V</div>
@@ -32,7 +33,7 @@ export default {
     },
     boxId: {
       type: String,
-      default:'0'
+      default: "0"
     }
   },
   data: function() {
@@ -48,11 +49,11 @@ export default {
   watch: {
     boxData: function(newVal) {
       console.log("箱子的属性：" + JSON.stringify(newVal));
-      if (!newVal.JCX||newVal.JCX.length == 0) {
+      if (!newVal.JCX || newVal.JCX.length == 0) {
         this.boxPro = [];
         this.isUsing = 0;
       } else {
-        this.boxPro = this.getBoxPro(newVal.JCX.slice(0, 6));
+        this.boxPro = this.getBoxPro(newVal.JCX);
         this.isUsing = 1;
       }
     },
@@ -70,13 +71,20 @@ export default {
     getBoxPro: function(proList) {
       let prosList = [];
       proList.forEach(pro => {
-        if (pro.Value) {
+        if (pro.Value && pro.id <= 6) {
           let relPro = {
             name: this.getPro(pro),
             info: pro.Value.toFixed(2) + pro.dw
           };
           prosList.push(relPro);
+        } else if (pro.id == 17) {
+          let relPro = {
+            name: "功率",
+            info: pro.Value.toFixed(2) + pro.dw
+          };
+          prosList.push(relPro);
         }
+        
       });
       this.proList = prosList;
     },
@@ -105,7 +113,10 @@ export default {
       return (Math.random() * (max - min) + min).toFixed(2);
     },
     emitDiaShow: function(boxId) {
-      this.$emit("dialogShow", boxId);
+      this.$emit(
+        "dialogShow",
+        this.boxData.TabIDStr ? this.boxData.TabIDStr : ""
+      );
     }
   }
 };

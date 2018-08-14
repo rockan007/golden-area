@@ -5,12 +5,10 @@
             何庄一号模拟图
           </div>
           <div v-if="selectType==0" style="height:0;padding:16px 16px 32px 16px;" class="flex-grow-1 flex-shrink-1 d-flex align-items-stretch position-relative">
-          
               <img src="http://wx.dianliangliang.com/sucai/analog-map.png" class="analog-image flex-grow-1" alt="">
               <tower-info v-for="order in 30" v-bind:key="'tower-'+order"  v-bind:order="order" v-bind:no="towerList[order-1]" v-bind:class='"tower-"+order'></tower-info>
-              <back-no v-bind:showBack='meterNo<48' v-for="meterNo in 50" v-bind:boxId="getBoxIdStr( meterNo-1)" v-bind:boxData="getBoxData( meterNo-1)"
+              <back-no v-bind:showBack='meterNo<48' v-for="meterNo in 50"  v-bind:boxData="getBoxData(meterNo-1,boxesProes)"
                v-bind:meterBoxNo="meterNo" :key="meterNo" v-on:dialogShow="getDialogShow" v-bind:class="['meterNo-'+meterNo,{'flex-column-reverse':meterNo<21}]"></back-no>
-          
           </div>
             <div v-if="showDialog" class="meter-dialog d-flex flex-column shadow-lg">
               <div class="dia-header d-flex justify-content-center">
@@ -47,7 +45,6 @@ export default {
   },
   data: function() {
     return {
-      boxNos: boxNos,
       selectType: 0,
       id: 0,
       showDialog: 0,
@@ -97,6 +94,7 @@ export default {
   },
   created: function() {
     this.getAreaBoxesRelation();
+    this.getJPData();
   },
   mounted: function() {
     this.id = this.$route.params.id;
@@ -127,6 +125,10 @@ export default {
       }
     },
     relsMap: function(newVal) {
+      console.log(
+        "**************************************************" +
+          newVal.get("NTIzRTFEODM4NkFDREZGMg")
+      );
       this.getAreaBoxesProperties(); //获取表箱属性
     },
     areaBoxesPro: {
@@ -155,6 +157,20 @@ export default {
     }
   },
   methods: {
+    getJPData: function() {
+      events.TQ_request(
+        events.POWER_CABINET,
+        {
+          UIDstr: events.USER_ID,
+          TaskIDstr: events.AREA_ID
+        },
+        function(responseData) {
+          console.log(
+            "***********获取的JP柜数据：" + JSON.stringify(responseData)
+          );
+        }
+      );
+    },
     getSelectMeters: function() {
       events.TQ_request(
         events.METER_PROPERTIES,
@@ -168,17 +184,14 @@ export default {
         }
       );
     },
-    getBoxIdStr: function(index) {
-      let boxData = this.getBoxData(index);
-
-      if (boxData && boxData.TabIDStr) {
-        return boxData.TabIDStr;
+    getBoxData: function(index, boxesProes) {
+      if (!boxesProes || boxesProes.size == 0) {
+        return {};
       }
-      return "";
-    },
-    getBoxData: function(index) {
+      console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&1" + index);
       if (index < boxNos.length) {
-        return this.boxesProes.get(index + "");
+        console.log("XXXXXXXXXXXXXXXXXX" + boxesProes.get(boxNos[index]));
+        return boxesProes.get(boxNos[index] + "");
       }
       return {};
     },
@@ -256,6 +269,7 @@ export default {
       return (Math.random() * (maxNo - minNo) + minNo).toFixed(2);
     },
     getDialogShow: function(no) {
+      console.log("获取的电表箱：" + no);
       this.boxIdStr = no;
       this.selectMeterBoxNo = this.relsMap.get(no);
       this.showDialog = 1;

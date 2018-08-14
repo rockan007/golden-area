@@ -276,7 +276,7 @@ export default {
         series: [
          {
             name: "平均用电",
-            type: "line",
+            type: "bar",
             areaStyle: {normal: {}},
             data:optionData.lyline
           },
@@ -284,7 +284,7 @@ export default {
             name: optionData.pw,
             type: "line",
             yAxisIndex: 1,
-            areaStyle: {normal: {}},
+            // areaStyle: {normal: {}},
             data: optionData.ryLine
           }
         ]

@@ -5,6 +5,7 @@
             <div class="lineLoss-title">
               线损分析
             </div>
+            <a class="standard-words" href="#"  v-on:click="showInfo=1"> <span class="iconfont icon-info"></span>线损标准</a>
         </div>
         <div class="lineLoss-body flex-grow-1 d-flex flex-column">
             <div class="date-select d-flex align-items-center justify-content-center ">
@@ -42,18 +43,23 @@
               </div>
             </div>
         </div>
+         <info-dia v-if="showInfo" v-bind:infoHtml="infoHtml" v-bind:showInfo="showInfo" v-on:showNone="showInfo=0"></info-dia>
     </div>
 </template>
 <script>
 import echarts from "echarts";
 import { events } from "@/assets/scripts/events.js";
 import dataTable from "@/components/utils/data-table";
+import infoDia from "@/components/utils/info-dia";
 export default {
   name: "line-loss",
-  components: { dataTable },
+  components: { dataTable,infoDia },
   data: function() {
     return {
-      tableID:'line-loss',
+      tableID: "line-loss",
+      showInfo: 0,
+      infoHtml:`<h3>线损标准</h3><div style="text-align:left;"><div>线损率：0-8%属于合格范围</div><div>一级线损：变压器前线损</div>
+      <div>二级线损：变压器开关至表箱总开关的线损</div><div>三级线损：表箱总开关至分开关线损</div></div>`,
       selectMeterBoxNo: 0,
       selectBox: {},
       startDate: events.formatDate(
@@ -108,7 +114,7 @@ export default {
       deep: true,
       handler: function(newVal, oldVal) {
         if (oldVal.length == 0) {
-          this.$nextTick(()=>{
+          this.$nextTick(() => {
             this.boxCharts = this.initCharts("box-charts");
           });
         }
@@ -122,8 +128,8 @@ export default {
       console.log("****新选择的表箱：" + JSON.stringify(newVal));
       this.getBoxLoss(newVal.Value);
     },
-    boxLoss:function(newVal){
-      this.setOptions(this.boxCharts,newVal)
+    boxLoss: function(newVal) {
+      this.setOptions(this.boxCharts, newVal);
     },
     boxesLoss: function(newVal) {
       //电表线损
@@ -157,7 +163,7 @@ export default {
       });
       let cols = ["线路名称", "实际用电量", "损耗电量", "总电量", "损耗百分比"];
       this.tableData = {
-        name:'线损分析：'+this.startDate+":"+this.endDate,
+        name: "线损分析：" + this.startDate + ":" + this.endDate,
         cols: cols,
         rows: tableRows
       };
@@ -185,9 +191,9 @@ export default {
         },
         function(responseData) {
           console.log("获取的表箱线损结果：" + JSON.stringify(responseData));
-          responseData.forEach(item=>{
-            item.Name=item.Name+'#表箱';
-          })
+          responseData.forEach(item => {
+            item.Name = item.Name + "#表箱";
+          });
           this.boxesLoss = responseData;
         }.bind(this)
       );
@@ -280,7 +286,7 @@ export default {
           textStyle: {
             // color: "rgba(255, 255, 255, 0.8)"
           },
-          selectedMode:false
+          selectedMode: false
         },
         series: [
           {
@@ -326,6 +332,12 @@ export default {
   color: white;
   min-height: 40px;
   background-color: #00706b;
+}
+.standard-words {
+  font-size: 16px;
+  color: #9ccac8;
+  line-height: 40px;
+  padding-right: 16px;
 }
 .select-container {
   font-size: 20px;

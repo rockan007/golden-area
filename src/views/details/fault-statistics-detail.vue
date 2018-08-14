@@ -30,7 +30,7 @@ export default {
       this.fid = to.params.fid;
     },
     selectMap: function(newVal) {
-      let routerPath = "/detail-main/1/fault-statistics-detail/" + this.selectMap;
+      let routerPath = "/detail-main/4/fault-statistics-detail/" + this.selectMap;
       switch (parseInt(newVal)) {
         case 0:
           routerPath += "/";

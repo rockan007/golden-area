@@ -7,6 +7,12 @@
 import { events } from "@/assets/scripts/events.js";
 export default {
   name: "GIS-map",
+  props: {
+    isDetail: {
+      default: 1,
+      type: Number
+    }
+  },
   data: function() {
     return {
       GISMap: "",
@@ -102,8 +108,11 @@ export default {
     initMap: function() {
       this.GISMap = new google.maps.Map(document.getElementById("GIS-map"), {
         center: { lat: 37.393872, lng: 116.344969 },
-        zoom: 18,
-        mapTypeId: "hybrid"
+        zoom: this.isDetail ? 18 : 17,
+        mapTypeId: "hybrid",
+        zoomControl: false,
+        streetViewControl: false,
+        fullscreenControl: false
       });
     },
     requestData: function() {

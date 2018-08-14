@@ -1,20 +1,23 @@
 <template>
     <div class="meter-container d-flex justify-content-center align-items-center position-relative" v-bind:class='[{"meter-stopping":type==1},{"meter-noUsing":type==2}]'>
         <div class="meter-no-container d-flex flex-column justify-content-between align-items-stretch flex-grow-1">
-            <div class="meter-no">{{filterMeterNo}}</div>
+            <div class="meter-no">{{meterInfo.meterNo}}</div>
         </div>
         <div class="meter-info d-flex flex-column">
           <div class="name">
-            姓名:{{meterData.YHM?meterData.YHM:"无"}}
+            姓名:{{meterInfo.YHM?meterInfo.YHM:"无"}}
           </div>
           <div>
-            户号：{{meterData.HH?meterData.HH:'无'}}
+            户号:{{meterInfo.HH?meterInfo.HH:'无'}}
           </div>
-          <div>
-            电压：220v
+          <div v-if="meterInfo.dianY">
+            电压:{{meterInfo.dianY}}
           </div>
-          <div>
-            电流：15.3A
+          <div v-if="meterInfo.dianL">
+            电流:{{meterInfo.dianL}}
+          </div>
+          <div v-if="meterInfo.onOffState">
+            开关状态:{{meterInfo.onOffState}}
           </div>
         </div>
         <div class="meter-order position-absolute">{{meterOrder}}</div>
@@ -37,19 +40,25 @@ export default {
   data: function() {
     return {
       meterNo: "000000",
-      type: 0
+      type: 0,
+      meterInfo: {}
     };
   },
   mounted: function() {
-    this.type=this.meterData.YHM?0:2;
+    this.type = this.meterData.YHM ? 0 : 2;
     this.getRandomMeterNo();
   },
-  watch:{
-    meterData:{
-      deep:true,
-      handler:function(newVal){
-        console.log(newVal)
-        this.type=newVal.YHM?0:2;
+  watch: {
+    meterData: {
+      deep: true,
+      handler: function(newVal) {
+        let meterInfo = {};
+        meterInfo.TabIDStr = newVal.TabIDStr;
+        meterInfo.YHM = newVal.YHM;
+        meterInfo.HH = newVal.HH;
+        meterInfo.XH = newVal.XH;
+        this.getMeterInfo(meterInfo, newVal.JCX);
+        this.type = newVal.YHM ? 0 : 2;
       }
     }
   },
@@ -69,6 +78,36 @@ export default {
     }
   },
   methods: {
+    getMeterInfo: function(meterInfo, infoList) {
+      infoList.forEach(info => {
+        if (info.Value) {
+          if (info.id <= 3) {
+            meterInfo.dianL =
+              this.getPhase(info.id) + "-" + info.Value.toFixed(2) + info.dw;
+          } else if (info.id <= 6) {
+            meterInfo.dianY =
+              this.getPhase(info.id) + "-" + info.Value.toFixed(2) + info.dw;
+          } else if (info.id == 31) {
+            meterInfo.meterNo = this.getFixLengthNo(info.Value + "", 8);
+          } else if (info.id == 683) {
+            meterInfo.onOffState = info.Value ? "闭合" : "断开";
+          }
+        }
+      });
+      this.meterInfo = meterInfo;
+    },
+    getPhase: function(id) {
+      switch (id % 3) {
+        case 1:
+          return "A";
+        case 2:
+          return "B";
+        case 0:
+          return "C";
+        default:
+          return "";
+      }
+    },
     getRandomCCharacter: function() {
       let word = "%u" + this.getRandomIntStr(19968, 40869);
       return unescape(word);
@@ -90,6 +129,15 @@ export default {
         }.bind(this),
         2000
       );
+    },
+    getFixLengthNo: function(noStr, length) {
+      let len = noStr.length;
+      if (noStr.length < length) {
+        for (let i = 0; i < length - len; i++) {
+          noStr = "0" + noStr;
+        }
+      }
+      return noStr;
     },
     getRandomNo: function(minNo, maxNo, length) {
       let noStr = parseInt(Math.random() * (maxNo - minNo) + minNo).toString();
@@ -120,16 +168,16 @@ export default {
   color: gray;
 }
 .meter-no-container {
-  min-height: 100px;
+  min-height: 120px;
   background-image: url(../../assets/imgs/meter.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 .meter-no {
-  font-size: 26px;
-  letter-spacing: 7px;
-  margin-top: 18px;
+  font-size: 28px;
+  letter-spacing: 11px;
+  margin-top: 24px;
   margin-left: 10px;
 }
 .meter-info {

@@ -19,7 +19,7 @@
     </div>
 </template>
 <script>
-import GISMap from "./GIS-map.vue";
+import GISMap from "@/views/details/GIS-map.vue";
 import areaProfile from "@/components/area/area-profile";
 import lineCharts from "../utils/line-charts";
 import faultAnalysis from "@/components/area/fault-statistics";

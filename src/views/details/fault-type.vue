@@ -117,11 +117,11 @@ export default {
           break;
         case 1:
           optionData = this.WeekData;
-          this.tabledata = this.DayData.seriesdata;
+          this.tabledata = this.WeekData.seriesdata;
           break;
         case 2:
           optionData = this.monthData;
-          this.tabledata = this.DayData.seriesdata;
+          this.tabledata = this.monthData.seriesdata;
           break;
         default:
           optionData = this.DayData;
@@ -142,42 +142,36 @@ export default {
     },
     setOptions: function(optionData) {
       let option = {
-        tooltip: {
-          trigger: "item",
-          formatter: "{a} <br/>{b}: {c} ({d}%)"
-        },
-        legend: {
-          x: "center",
-          data: optionData.legenddata
-        },
-        series: [
-          {
-            name: "访问来源",
-            type: "pie",
-            radius: ["50%", "70%"],
-            avoidLabelOverlap: false,
-            label: {
-              normal: {
-                show: false,
-                position: "center"
-              },
-              emphasis: {
-                show: true,
-                textStyle: {
-                  fontSize: "30",
-                  fontWeight: "bold"
+         title : {
+        text: '故障类型',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: optionData.legenddata
+    },
+    series : [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:optionData.seriesdata,
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
                 }
-              }
-            },
-            labelLine: {
-              normal: {
-                show: false
-              }
-            },
-            data: optionData.seriesdata
-          }
-        ],
-        color: [
+            }
+        }
+    ],
+     color: [
           "rgb(11,58,72)",
           "rgb(11,75,94)",
           "rgb(8,101,128)",

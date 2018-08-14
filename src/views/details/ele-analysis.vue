@@ -56,7 +56,7 @@
                             <th>编号</th>
                             <th>时间</th>
                             <th>用电量(kWh)</th>
-                            <th>更新时间</th>
+                           
                         </tr>
                         </thead>
                         <tbody>
@@ -64,7 +64,7 @@
                             <td>{{index}}</td>
                             <td>{{nav.photographtime}}</td>
                             <td>{{nav.photographlong}}</td>
-                            <td>{{nav.updatetime}}</td>
+                           
                         </tr>
                         </tbody>
                     </table>
@@ -237,68 +237,68 @@ export default {
         tabledata: [
           {
             photographtime: "0:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 11:26:30"
+            photographlong: "0.412",
+            
           },
           {
             photographtime: "2:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:53:30"
+            photographlong: "0.7416",
+           
           },
           {
             photographtime: "4:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.346",
+            
           },
           {
             photographtime: "6:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.387",
+           
           },
           {
             photographtime: "8:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.3874",
+           
           },
           {
             photographtime: "10:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.36587",
+          
           },
           {
             photographtime: "12:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:56:30"
+            photographlong: "0.2355",
+           
           },
           {
             photographtime: "14:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:24:30"
+            photographlong: "0.385",
+           
           },
           {
             photographtime: "16:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:24:30"
+            photographlong: "0.235",
+           
           },
           {
             photographtime: "18:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:24:30"
+            photographlong: "0.325",
+            
           },
           {
             photographtime: "20:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:24:30"
+            photographlong: "0.36",
+           
           },
           {
             photographtime: "12:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:24:30"
+            photographlong: "0.25",
+            
           },
           {
             photographtime: "24:00",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:24:30"
+            photographlong: "0.32548",
+            
           }
         ]
       },
@@ -308,38 +308,38 @@ export default {
         tabledata: [
           {
             photographtime: "周一",
-            photographlong: "15466",
-            updatetime: "2014-5-6 11:26:30"
+            photographlong: "0.3747",
+           
           },
           {
             photographtime: "周二",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:53:30"
+            photographlong: "0.124",
+            
           },
           {
             photographtime: "周三",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.254",
+           
           },
           {
             photographtime: "周四",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.387",
+            
           },
           {
             photographtime: "周五",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.357",
+          
           },
           {
             photographtime: "周六",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.3254",
+           
           },
           {
             photographtime: "周日",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:56:30"
+            photographlong: "0.36585",
+           
           }
         ]
       },
@@ -375,131 +375,131 @@ export default {
         tabledata: [
           {
             photographtime: "一月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 11:26:30"
+            photographlong: "0.478",
+           
           },
           {
             photographtime: "二月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:53:30"
+            photographlong: "0.325465",
+           
           },
           {
             photographtime: "三月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.1354",
+           
           },
           {
             photographtime: "四月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.325",
+            
           },
           {
             photographtime: "五月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.54",
+            
           },
           {
             photographtime: "六月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:43:30"
+            photographlong: "0.235",
+           
           },
           {
             photographtime: "七月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:56:30"
+            photographlong: "0.54",
+           
           },
           {
             photographtime: "八月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:24:30"
+            photographlong: "0.4",
+           
           },
           {
             photographtime: "九月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:24:30"
+            photographlong: "0.8",
+           
           },
           {
             photographtime: "十月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:24:30"
+            photographlong: "0.6",
+           
           },
           {
             photographtime: "十一月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:24:30"
+            photographlong: "1.5",
+           
           },
           {
             photographtime: "十二月",
-            photographlong: "15466",
-            updatetime: "2014-5-6 12:24:30"
+            photographlong: "3.5",
+            
           }
         ]
       },
       tabledata: [
         {
           photographtime: "0:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 11:26:30"
+          photographlong: "0.5",
+          
         },
         {
           photographtime: "2:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:53:30"
+          photographlong: "0.24",
+         
         },
         {
           photographtime: "4:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:43:30"
+          photographlong: "0.79",
+          
         },
         {
           photographtime: "6:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:43:30"
+          photographlong: "0.24",
+          
         },
         {
           photographtime: "8:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:43:30"
+          photographlong: "0.37",
+         
         },
         {
           photographtime: "10:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:43:30"
+          photographlong: "0.337",
+         
         },
         {
           photographtime: "12:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:56:30"
+          photographlong: "0.469",
+         
         },
         {
           photographtime: "14:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:24:30"
+          photographlong: "0.378",
+         
         },
         {
           photographtime: "16:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:24:30"
+          photographlong: "0.35465",
+         
         },
         {
           photographtime: "18:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:24:30"
+          photographlong: "0.378",
+         
         },
         {
           photographtime: "20:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:24:30"
+          photographlong: "1.5",
+         
         },
         {
           photographtime: "12:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:24:30"
+          photographlong: "0.37",
+         
         },
         {
           photographtime: "24:00",
-          photographlong: "15466",
-          updatetime: "2014-5-6 12:24:30"
+          photographlong: "0.791",
+         
         }
       ],
       myChart: "",

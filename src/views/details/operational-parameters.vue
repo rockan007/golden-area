@@ -1,17 +1,22 @@
 <template>
     <div class="operational-parameters flex-grow-1 d-flex flex-wrap" style="overflow-y:auto;">
-        <info-card class="col-6" v-for="(card,index) in cardList" v-bind:cardData="card" v-bind:order="index" v-bind:key="index"></info-card>
+        <info-card class="col-6" v-for="(card,index) in cardList" v-bind:cardData="card" v-bind:order="index" v-on:showTrans="showInfo=1" v-bind:key="index"></info-card>
+        <info-dia v-if="showInfo" v-bind:infoHtml="infoHtml" v-bind:showInfo="showInfo" v-on:showNone="showInfo=0"></info-dia>
     </div>
 </template>
 <script>
 import infoCard from "../../components/details/info-card";
+import infoDia from "@/components/utils/info-dia";
 export default {
   name: "operational-parameters",
   components: {
-    infoCard
+    infoCard,
+    infoDia
   },
   data: function() {
     return {
+      showInfo: 0,
+      infoHtml: `<img src="http://wx.dianliangliang.com/sucai/byq.jpg"/>`,
       cardList: [
         {
           title: "台区基本信息",
@@ -189,7 +194,7 @@ export default {
           ],
           isEle: 0
         },
-             {
+        {
           title: "东线西支",
           subTitles: [
             {
