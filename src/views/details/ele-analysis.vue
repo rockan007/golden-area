@@ -14,8 +14,8 @@
                   <div class="col-lg-6" style="padding:0px;text-align: left;">
                     <div class="form-group">
                           <select class="form-control" id="sel1" v-model="selectLineIndex">
-                            <option value="0" key="0">全部支线</option>
-                            <option v-for="(line,index) in lines" v-bind:key="index+1" v-bind:value="index+1">{{line.name}}</option>              
+                            <option value="0" key="0">台区</option>
+                            <option v-for="(line,index) in lines" v-bind:key="index+1" v-bind:value="index+1">{{line.XLName}}</option>              
                           </select>
                         </div>
                   </div>
@@ -25,8 +25,8 @@
                   <div class="col-lg-6" style="padding:0px;text-align: left;">
                     <div class="form-group">
                           <select class="form-control" id="sel1" v-if="selectLineIndex>0" v-model="selectMeterIndex">
-                            <option value="0" key="meter-0">全部表箱</option>
-                            <option v-for="(meter,index) in selectLine.meters" v-bind:key="'meter-'+ index+1" v-bind:value="index+1">{{meter.name}}</option>
+                            <option value="0" key="meter-0">线路</option>
+                            <option v-for="(meter,index) in selectLine.list_BX" v-bind:key="'meter-'+ index+1" v-bind:value="index+1">{{meter.BXH}}</option>
                           </select>
                         </div>
                   </div>
@@ -36,13 +36,13 @@
                   <div class="col-lg-6" style="padding:0px;text-align: left;">
                     <div class="form-group">
                           <select class="form-control" id="sel1" v-model="timeIndex">
-                            <option v-for="(time,index) in timedata" v-bind:key="index" v-bind:value="index">{{time.name}}</option>
+                            <option v-for="(time,index) in timedata" v-bind:key="index" v-bind:value="index==3?4:index">{{time.name}}</option>
                           </select>
                         </div>
                   </div>
                 </div>
                 <div class="row comprehensive_b_text">
-                  <button type="button" class="btn btn-outline-success" v-on:click="period=timeIndex">查询</button>
+                  <button type="button" class="btn btn-outline-success" v-on:click="linerequestData(optionData)">查询</button>
                 </div>
               </div>
             <div class="col-lg-12" style="padding:0px 50px;font-size:15px;">
@@ -62,9 +62,9 @@
                         <tbody>
                         <tr v-for="(nav,index) in tabledata" v-bind:key="index">
                             <td>{{index}}</td>
-                            <td>{{nav.photographtime}}</td>
-                            <td>{{nav.photographlong}}</td>
-                           
+                            <td>{{nav.name}}</td>
+                            <td>{{nav.value}}</td>
+                            
                         </tr>
                         </tbody>
                     </table>
@@ -78,473 +78,43 @@
 </template>
 
 <script>
+import { events } from "@/assets/scripts/events.js";
 import $ from "jquery";
 import "echarts/dist/echarts.min.js";
 import echarts from "echarts";
+import { map } from "bluebird";
 export default {
   name: "home",
   components: {},
   data: function() {
     return {
-      tabledata: 0,
-      timedata: [{ name: "日" }, { name: "周" }, { name: "月" }],
-      timeIndex: 0,
-      lines: [
-        {
-          name: "东线",
-          meters: [
-            {
-              name: "表箱01#"
-            },
-            {
-              name: "表箱02#"
-            },
-            {
-              name: "表箱03#"
-            },
-            {
-              name: "表箱04#"
-            },
-            {
-              name: "表箱05#"
-            },
-            {
-              name: "表箱06#"
-            },
-            {
-              name: "表箱07#"
-            },
-            {
-              name: "表箱08#"
-            }
-          ]
-        },
-        {
-          name: "西线",
-          meters: [
-            {
-              name: "表箱09#"
-            },
-            {
-              name: "表箱10#"
-            },
-            {
-              name: "表箱11#"
-            },
-            {
-              name: "表箱12#"
-            },
-            {
-              name: "表箱13#"
-            },
-            {
-              name: "表箱14#"
-            },
-            {
-              name: "表箱15#"
-            },
-            {
-              name: "表箱16#"
-            },
-            {
-              name: "表箱17#"
-            },
-            {
-              name: "表箱18#"
-            }
-          ]
-        },
-        {
-          name: "东线西支",
-          meters: [
-            {
-              name: "表箱19#"
-            },
-            {
-              name: "表箱20#"
-            },
-            {
-              name: "表箱21#"
-            },
-            {
-              name: "表箱22#"
-            },
-            {
-              name: "表箱23#"
-            },
-            {
-              name: "表箱24#"
-            },
-            {
-              name: "表箱25#"
-            },
-            {
-              name: "表箱26#"
-            }
-          ]
-        },
-        {
-          name: "东线东支",
-          meters: [
-            {
-              name: "表箱27#"
-            },
-            {
-              name: "表箱28#"
-            },
-            {
-              name: "表箱30#"
-            },
-            {
-              name: "表箱31#"
-            },
-            {
-              name: "表箱32#"
-            },
-            {
-              name: "表箱33#"
-            },
-            {
-              name: "表箱34#"
-            }
-          ]
-        }
+      tabledata: [],
+      timedata: [
+        { name: "日" },
+        { name: "周" },
+        { name: "月" },
+        { name: "前四周" }
       ],
-
+      timeIndex: 0,
+      lines: [],
       selectLineIndex: 0,
       selectMeterIndex: 0,
       selectLine: {},
       selectMeter: {},
       myChart: "",
       period: 0,
-      dayData: {
-        xLine: [
-          "0:00",
-          "2:00",
-          "4:00",
-          "6:00",
-          "8:00",
-          "10:00",
-          "12:00",
-          "14:00",
-          "16:00",
-          "18:00",
-          "20:00",
-          "22:00",
-          "24:00"
-        ],
-        yLine: [100, 80, 90, 70, 150, 200, 150, 251, 340, 360, 380, 270, 200],
-        tabledata: [
-          {
-            photographtime: "0:00",
-            photographlong: "0.412",
-            
-          },
-          {
-            photographtime: "2:00",
-            photographlong: "0.7416",
-           
-          },
-          {
-            photographtime: "4:00",
-            photographlong: "0.346",
-            
-          },
-          {
-            photographtime: "6:00",
-            photographlong: "0.387",
-           
-          },
-          {
-            photographtime: "8:00",
-            photographlong: "0.3874",
-           
-          },
-          {
-            photographtime: "10:00",
-            photographlong: "0.36587",
-          
-          },
-          {
-            photographtime: "12:00",
-            photographlong: "0.2355",
-           
-          },
-          {
-            photographtime: "14:00",
-            photographlong: "0.385",
-           
-          },
-          {
-            photographtime: "16:00",
-            photographlong: "0.235",
-           
-          },
-          {
-            photographtime: "18:00",
-            photographlong: "0.325",
-            
-          },
-          {
-            photographtime: "20:00",
-            photographlong: "0.36",
-           
-          },
-          {
-            photographtime: "12:00",
-            photographlong: "0.25",
-            
-          },
-          {
-            photographtime: "24:00",
-            photographlong: "0.32548",
-            
-          }
-        ]
-      },
-      weekData: {
-        xLine: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
-        yLine: [800, 700, 350, 600, 420, 790, 900],
-        tabledata: [
-          {
-            photographtime: "周一",
-            photographlong: "0.3747",
-           
-          },
-          {
-            photographtime: "周二",
-            photographlong: "0.124",
-            
-          },
-          {
-            photographtime: "周三",
-            photographlong: "0.254",
-           
-          },
-          {
-            photographtime: "周四",
-            photographlong: "0.387",
-            
-          },
-          {
-            photographtime: "周五",
-            photographlong: "0.357",
-          
-          },
-          {
-            photographtime: "周六",
-            photographlong: "0.3254",
-           
-          },
-          {
-            photographtime: "周日",
-            photographlong: "0.36585",
-           
-          }
-        ]
-      },
-      monthData: {
-        xLine: [
-          "一月",
-          "二月",
-          "三月",
-          "四月",
-          "五月",
-          "六月",
-          "七月",
-          "八月",
-          "九月",
-          "十月",
-          "十一月",
-          "十二月"
-        ],
-        yLine: [
-          5000,
-          5200,
-          4000,
-          3000,
-          2600,
-          2900,
-          3600,
-          4700,
-          3600,
-          3200,
-          3800,
-          4200
-        ],
-        tabledata: [
-          {
-            photographtime: "一月",
-            photographlong: "0.478",
-           
-          },
-          {
-            photographtime: "二月",
-            photographlong: "0.325465",
-           
-          },
-          {
-            photographtime: "三月",
-            photographlong: "0.1354",
-           
-          },
-          {
-            photographtime: "四月",
-            photographlong: "0.325",
-            
-          },
-          {
-            photographtime: "五月",
-            photographlong: "0.54",
-            
-          },
-          {
-            photographtime: "六月",
-            photographlong: "0.235",
-           
-          },
-          {
-            photographtime: "七月",
-            photographlong: "0.54",
-           
-          },
-          {
-            photographtime: "八月",
-            photographlong: "0.4",
-           
-          },
-          {
-            photographtime: "九月",
-            photographlong: "0.8",
-           
-          },
-          {
-            photographtime: "十月",
-            photographlong: "0.6",
-           
-          },
-          {
-            photographtime: "十一月",
-            photographlong: "1.5",
-           
-          },
-          {
-            photographtime: "十二月",
-            photographlong: "3.5",
-            
-          }
-        ]
-      },
-      tabledata: [
-        {
-          photographtime: "0:00",
-          photographlong: "0.5",
-          
-        },
-        {
-          photographtime: "2:00",
-          photographlong: "0.24",
-         
-        },
-        {
-          photographtime: "4:00",
-          photographlong: "0.79",
-          
-        },
-        {
-          photographtime: "6:00",
-          photographlong: "0.24",
-          
-        },
-        {
-          photographtime: "8:00",
-          photographlong: "0.37",
-         
-        },
-        {
-          photographtime: "10:00",
-          photographlong: "0.337",
-         
-        },
-        {
-          photographtime: "12:00",
-          photographlong: "0.469",
-         
-        },
-        {
-          photographtime: "14:00",
-          photographlong: "0.378",
-         
-        },
-        {
-          photographtime: "16:00",
-          photographlong: "0.35465",
-         
-        },
-        {
-          photographtime: "18:00",
-          photographlong: "0.378",
-         
-        },
-        {
-          photographtime: "20:00",
-          photographlong: "1.5",
-         
-        },
-        {
-          photographtime: "12:00",
-          photographlong: "0.37",
-         
-        },
-        {
-          photographtime: "24:00",
-          photographlong: "0.791",
-         
-        }
-      ],
-      myChart: "",
-      option: {
-        title: {
-          text: "电水煤气相关分析",
-          left: "center"
-        },
-        tooltip: {
-          trigger: "item",
-          formatter: "{a} <br/>{b} : {c}"
-        },
-        xAxis: {
-          type: "category",
-          name: "x",
-          splitLine: { show: false },
-          data: ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
-        },
-        grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true
-        },
-        yAxis: {
-          type: "log",
-          name: "y"
-        },
-        series: [
-          {
-            name: "3的指数",
-            type: "line",
-            data: [1, 3, 9, 27, 81, 247, 741, 2223, 6669]
-          },
-          {
-            name: "2的指数",
-            type: "line",
-            data: [1, 2, 4, 8, 16, 32, 64, 128, 256]
-          }
-        ]
+      option: 0,
+      optionData: {
+        XLIDstr: "",
+        BXIDstr: "",
+        Type: 0
       }
     };
   },
   mounted: function() {
     this.initCharts();
+    this.requestData();
+    this.linerequestData(this.optionData);
   },
   watch: {
     selectLineIndex: function(newVal) {
@@ -553,33 +123,41 @@ export default {
       this.selectLine = this.lines[newVal];
       console.log("this.selectLine:" + JSON.stringify(this.selectLine));
     },
-    timeIndex: function(newVal) {},
-    selectMeterIndex: function() {},
+    option: function(newVal) {
+      this.setOptions(newVal);
+      let tableboxdata = [];
+      newVal.xAxisData.forEach((ele, index) => {
+        let datatable = {
+          name: ele,
+          value: newVal.seriesData[index]
+        };
+        tableboxdata.push(datatable);
+      });
+      this.tabledata = tableboxdata;
+      console.log(JSON.stringify(this.tabledata));
+    },
     period: function(newVal) {
-      let optionData = "";
-      switch (parseInt(newVal)) {
-        case 0:
-          optionData = this.dayData;
-          this.tabledata = this.dayData.tabledata;
-          console.log("日" + this.tabledata);
-          break;
-        case 1:
-          optionData = this.weekData;
-          this.tabledata = this.weekData.tabledata;
-          console.log("周" + this.tabledata);
-          break;
-        case 2:
-          optionData = this.monthData;
-
-          this.tabledata = this.monthData.tabledata;
-          console.log("月" + this.tabledata);
-          break;
-        default:
-          break;
+      this.optionData.Type = parseInt(newVal);
+      if (newVal != 3) {
+        this.optionData.XLIDstr =
+          this.lines[this.selectLineIndex - 1].TabIDstr == undefined
+            ? ""
+            : this.lines[this.selectLineIndex - 1].TabIDstr;
+        this.optionData.BXIDstr =
+          this.selectLine.list_BX[this.selectMeterIndex - 1].TabIDstr ==
+          undefined
+            ? ""
+            : this.selectLine.list_BX[this.selectMeterIndex - 1].TabIDstr;
       }
-      this.setOptions(optionData);
-    }
+
+      this.linerequestData(this.optionData);
+    },
+    timeIndex: function(newVal) {
+      this.period = newVal;
+    },
+    selectMeterIndex: function() {}
   },
+
   methods: {
     exportAnaly: function() {
       window.open(
@@ -591,13 +169,42 @@ export default {
         document.getElementById("comprehensive_echarts"),
         "light"
       );
-      this.setOptions(this.dayData);
+    },
+    requestData: function() {
+      let params = {
+        UIDstr: events.USER_ID,
+        TaskIDstr: events.AREA_ID
+      };
+      let url = "JPTQ_Get_XL_BX_BY_TaskID";
+      events.TQ_request(
+        url,
+        params,
+        function(response) {
+          this.lines = response;
+        }.bind(this)
+      );
+    },
+    linerequestData: function(linedata) {
+      let params = {
+        UIDstr: events.USER_ID,
+        TaskIDstr: events.AREA_ID,
+        XLIDstr: linedata.XLIDstr,
+        BXIDstr: linedata.BXIDstr,
+        Type: linedata.Type
+      };
+      console.log("xxxxxxxxxxx请求的参数：" + JSON.stringify(params));
+      events.TQ_request(events.ELE_ANALYSIS, params, response => {
+        console.log(
+          "********************这就是大吉" + JSON.stringify(response)
+        );
+        this.option = response;
+      });
     },
     setOptions: function(optionData) {
       let option = {
         xAxis: {
           type: "category",
-          data: optionData.xLine,
+          data: optionData.xAxisData,
           axisLine: {
             lineStyle: {
               color: "#2c8185" //坐标轴线颜色
@@ -615,7 +222,7 @@ export default {
         },
         series: [
           {
-            data: optionData.yLine,
+            data: optionData.seriesData,
             type: "line",
             areaStyle: {}
           }

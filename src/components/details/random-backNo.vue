@@ -1,6 +1,6 @@
 <template>
     <div  class="back-no d-flex flex-column justify-content-between isUsing" v-bind:class="{'isBreak':isUsing==0}" v-on:click='emitDiaShow'>
-        <div v-if="hasColor&&showBack" v-bind:title="proList[2].name+':'+proList[2].info" class="back line-using" v-bind:class="{'line-break':isUsing==0}"></div>
+        <div v-if="hasColor&&showBack" v-bind:title="getTitle()" class="back line-using" v-bind:class="{'line-break':isUsing==0}"></div>
         <div v-if="proList.length>0" class="no d-flex flex-column">
             <div style="text-align:left"  >{{proList[1].name}}:{{proList[1].info}}</div>
             <div style="text-align:left" >{{proList[0].name}}:{{proList[0].info}}</div>
@@ -68,6 +68,12 @@ export default {
     }
   },
   methods: {
+    getTitle: function() {
+      if (this.proList.length == 3) {
+        return this.proList[2].name + ":" + this.proList[2].info;
+      }
+      return "";
+    },
     getBoxPro: function(proList) {
       let prosList = [];
       proList.forEach(pro => {
@@ -84,7 +90,6 @@ export default {
           };
           prosList.push(relPro);
         }
-        
       });
       this.proList = prosList;
     },

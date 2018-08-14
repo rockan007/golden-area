@@ -52,9 +52,6 @@ export default {
 .title-container {
   margin-left: 12px;
 }
-.title{
-
-}
 .title,
 .sub-title {
   text-align: left;
