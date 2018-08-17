@@ -1,21 +1,28 @@
 <template>
     <div class="operational-parameters flex-grow-1 d-flex flex-wrap" style="overflow-y:auto;">
-        <info-card class="col-6" v-for="(card,index) in cardList" v-bind:cardData="card" v-bind:order="index" v-on:showTrans="showInfo=1" v-bind:key="index"></info-card>
-        <info-dia v-if="showInfo" v-bind:infoHtml="infoHtml" v-bind:showInfo="showInfo" v-on:showNone="showInfo=0"></info-dia>
+        <info-card class="col-6" v-for="(card,index) in cardList" v-bind:cardData="card" v-bind:order="index" v-on:showTrans="showInfo" v-bind:key="index"></info-card>
+        <modal v-bind:diaInfo="modalDia"></modal>
     </div>
 </template>
 <script>
+import $ from "jquery";
 import infoCard from "../../components/details/info-card";
 import infoDia from "@/components/utils/info-dia";
+import modal from "@/components/utils/modal";
 export default {
   name: "operational-parameters",
   components: {
     infoCard,
-    infoDia
+    infoDia,
+    modal
   },
   data: function() {
     return {
-      showInfo: 0,
+      modalDia: {
+        id: "operational-params",
+        title: "变压器详情",
+        html: `<img src="http://wx.dianliangliang.com/sucai/byq.jpg" class='img-fluid'/>`
+      },
       infoHtml: `<img src="http://wx.dianliangliang.com/sucai/byq.jpg"/>`,
       cardList: [
         {
@@ -285,6 +292,12 @@ export default {
         }
       ]
     };
+  },
+  watch: {},
+  methods: {
+    showInfo: function() {
+      $("#" + this.modalDia.id).modal("show");
+    }
   }
 };
 </script>

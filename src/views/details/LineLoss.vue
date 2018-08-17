@@ -5,7 +5,7 @@
             <div class="lineLoss-title">
               线损分析
             </div>
-            <a class="standard-words" href="#"  v-on:click="showInfo=1"> <span class="iconfont icon-info"></span>线损标准</a>
+            <a class="standard-words" href="#"  v-on:click="showInfo"> <span class="iconfont icon-info"></span>线损标准</a>
         </div>
         <div class="lineLoss-body flex-grow-1 d-flex flex-column">
             <div class="date-select d-flex align-items-center justify-content-center ">
@@ -43,23 +43,32 @@
               </div>
             </div>
         </div>
-         <info-dia v-if="showInfo" v-bind:infoHtml="infoHtml" v-bind:showInfo="showInfo" v-on:showNone="showInfo=0"></info-dia>
+         <!-- <info-dia v-if="showInfo" v-bind:infoHtml="infoHtml" v-bind:showInfo="showInfo" v-on:showNone="showInfo=0"></info-dia> -->
+         <modal v-bind:diaInfo="modalData"></modal>
     </div>
 </template>
 <script>
+import $ from "jquery";
 import echarts from "echarts";
 import { events } from "@/assets/scripts/events.js";
 import dataTable from "@/components/utils/data-table";
+import modal from "@/components/utils/modal";
 import infoDia from "@/components/utils/info-dia";
 export default {
   name: "line-loss",
-  components: { dataTable,infoDia },
+  components: {
+    dataTable,
+    modal
+  },
   data: function() {
     return {
+      modalData: {
+        id: "lineLoss-standard",
+        title: "线损标准",
+        html: `<div style="text-align:left;"><div>线损率：0-8%属于合格范围</div><div>一级线损：变压器前线损</div>
+      <div>二级线损：变压器开关至表箱总开关的线损</div><div>三级线损：表箱总开关至分开关线损</div></div>`
+      },
       tableID: "line-loss",
-      showInfo: 0,
-      infoHtml:`<h3>线损标准</h3><div style="text-align:left;"><div>线损率：0-8%属于合格范围</div><div>一级线损：变压器前线损</div>
-      <div>二级线损：变压器开关至表箱总开关的线损</div><div>三级线损：表箱总开关至分开关线损</div></div>`,
       selectMeterBoxNo: 0,
       selectBox: {},
       startDate: events.formatDate(
@@ -149,6 +158,9 @@ export default {
   },
   filters: {},
   methods: {
+    showInfo: function() {
+      $("#" + this.modalData.id).modal("show");
+    },
     changeToTableData: function(lossData) {
       let tableRows = [];
       lossData.forEach(lose => {

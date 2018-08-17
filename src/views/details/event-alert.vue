@@ -3,13 +3,14 @@
         <div class="eventAlert-header d-flex justify-content-between">
             <div class="eventAlert-title ">事件预警</div> 
   
-              <a class="standard-words" href="#"  v-on:click="showInfo=1"> <span class="iconfont icon-info"></span>故障标准</a>
+              <a class="standard-words" href="#"  v-on:click="showInfo"> <span class="iconfont icon-info"></span>故障标准</a>
           
         </div>
         <div class="eventAlert-body flex-grow-1 flex-shrink-1" style="overflow-y:auto">
             <data-table tabId="alert-table" v-bind:tableData="tableData"></data-table>
         </div>
-        <info-dia v-if="showInfo" v-bind:infoHtml="infoHtml" v-bind:showInfo="showInfo" v-on:showNone="showInfo=0"></info-dia>
+        <!-- <info-dia v-if="showInfo" v-bind:infoHtml="infoHtml" v-bind:showInfo="showInfo" v-on:showNone="showInfo"></info-dia> -->
+        <modal v-bind:diaInfo="modalData"></modal>
     </div>
 </template>
 <script>
@@ -18,18 +19,20 @@ import "datatables.net/js/jquery.dataTables.min";
 import "datatables.net-dt/css/jquery.dataTables.min.css";
 import dataTable from "@/components/utils/data-table";
 import infoDia from "@/components/utils/info-dia";
+import modal from "@/components/utils/modal";
 import { events } from "@/assets/scripts/events";
 export default {
   name: "event-alert",
   components: {
     dataTable,
-    infoDia
+    modal
   },
   data: function() {
     return {
-      infoHtml:
-        `<h2>故障标准</h2>
-        <div style="text-align:left;">
+      modalData: {
+        id: "error-standard",
+        title: "故障标准",
+        html: `  <div style="text-align:left;">
         <div><h3>表上检测</h3><div>1、过负荷：实时电流超过额定电流1.2-2倍</div><div>2、过载：实时电流超过额定电流2-6倍</div>
         <div>3、单相接地（漏电）：实时电流超过额定电流＞6倍</div><div>4、断电：开关量采集模块直接判定是否断电</div>
         </div>
@@ -39,8 +42,8 @@ export default {
         </div>
         </div>
         </div>
-        </div>`,
-      showInfo: 0,
+        </div>`
+      },
       tableData: "",
       alertList: [
         {
@@ -323,12 +326,10 @@ export default {
         cols: cols,
         rows: rows
       };
+    },
+    showInfo: function() {
+      $("#" + this.modalData.id).modal("show");
     }
-    // exportAlert: function() {
-    //   window.open(
-    //     "http://wx.dianliangliang.com/sucai/courts-manage/courts-manage/事件警报.xlsx"
-    //   );
-    // }
   }
 };
 </script>
