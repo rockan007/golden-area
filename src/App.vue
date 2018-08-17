@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container d-flex flex-column">
+  <div id="app" class="container container-fluid d-flex flex-column">
     <area-nav></area-nav>
     <router-view class="flex-grow-1"/>
     <area-footer></area-footer>
