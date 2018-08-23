@@ -314,6 +314,18 @@
              M1090,920 L870,920 M830,920 L610,920 M570,920 L350,920
              M1630,660 L1630 900" />
             <use x="1325" y="490" xlink:href="#jp-tank" />
+            <g transform="translate(1440,480)" >
+                <text  y='28' text-anchor="middle" font-size='22' fill='red'>UA:0.00V</text>
+                <text   y="58" text-anchor="middle" font-size="22" fill='red'>IA:0.00A</text>
+            </g>
+             <g transform="translate(1300,560)" >
+                <text  y='28' text-anchor="middle" font-size='22' fill='red'>UA:0.00V</text>
+                <text   y="58" text-anchor="middle" font-size="22" fill='red'>IA:0.00A</text>
+            </g>
+             <g transform="translate(1470,560)" >
+                <text  y='28' text-anchor="middle" font-size='22' fill='red'>UA:0.00V</text>
+                <text   y="58" text-anchor="middle" font-size="22" fill='red'>IA:0.00A</text>
+            </g>
             <use x="1355" y="380" xlink:href="#transformer" />
             <g id="boxes-pole-5" transform="translate(1520,500)" fill="green"  class="boxes-5">
                   <g class="box-0" v-on:click="showBoxDialog(5,0)" transform="translate(0,0)">
@@ -555,8 +567,16 @@
                 </g>
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
-            <use x="2390" y="420" fill="green"  class="boxes-10" xlink:href="#telegraph-pole" />
-            <use x="2390" y="300" fill="green"  class="boxes-11" xlink:href="#telegraph-pole" />
+            <use x="2390" y="420" fill="green"  class="boxes-10" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(24)" v-on:mouseout="setMouseOut(24)"/>
+             <g id="pole-24" transform="translate(2360,375)" visibility='hidden'>
+                <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
+                <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>04-01</text>
+            </g>
+            <use x="2390" y="300" fill="green"  class="boxes-11" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(25)" v-on:mouseout="setMouseOut(25)"/>
+             <g id="pole-25" transform="translate(2360,345)" visibility='hidden'>
+                <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
+                <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>04-02</text>
+            </g>
             <g id="boxes-pole-10" transform="translate(2560,100)" fill="green"  class="boxes-10">
                   <g class="box-0" v-on:click="showBoxDialog(10,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
@@ -703,8 +723,8 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-13" transform="translate(1780,100)" fill="green"  class="boxes-13">
-                 <g class="box-0" v-on:click="showBoxDialog(13,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                 <g class="box-1" v-on:click="showBoxDialog(13,0)" transform="translate(120,100)">
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
@@ -724,11 +744,11 @@
                     </text>
                 </g>
                 <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(13)" v-on:mouseout="setMouseOut(13)"/>
-                  <g transform="translate(60,-50)" visibility='hidden'>
+                <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>04-05</text>
                 </g>
-                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points=" 110,40 120,100" />
             </g>
             <g id="boxes-pole-14" transform="translate(2560,900)" fill="green"  class="boxes-14">
                 <g class="box-0" v-on:click="showBoxDialog(14,0)" transform="translate(0,100)">
@@ -1156,15 +1176,28 @@
                     </text>
                 </g>
                 <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(22)" v-on:mouseout="setMouseOut(22)"/>
-                <g transform="translate(60,-50)" visibility='hidden'>
+                <g  transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-04</text>
                 </g>
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
-            <use x="310" y="900" fill="green"  class="boxes-26" xlink:href="#telegraph-pole" />
-            <use x="2390" y="1100" fill="green"  class="boxes-24" xlink:href="#telegraph-pole" />
-            <use x="2390" y="1250" fill="green"  class="boxes-25" xlink:href="#telegraph-pole" />
+            <use x="310" y="900" fill="green"  class="boxes-26" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(28)" v-on:mouseout="setMouseOut(28)"/>
+             <g id="pole-28"  transform="translate(280,850)" visibility='hidden'>
+                <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
+                <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-05</text>
+            </g>
+            <use x="2390" y="1100" fill="green"  class="boxes-24" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(26)" v-on:mouseout="setMouseOut(26)"/>
+            <g id="pole-26" transform="translate(2340,1150)" visibility='hidden'>
+                <rect width="140" height="40" rx="4" ry="4" fill="#00706b"></rect>
+                <text x='70' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-03-01</text>
+            </g>
+           
+            <use x="2390" y="1250" fill="green"  class="boxes-25" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(27)" v-on:mouseout="setMouseOut(27)"/>
+             <g id="pole-27"  transform="translate(2340,1300)" visibility='hidden'>
+                <rect width="140" height="40" rx="4" ry="4" fill="#00706b"></rect>
+                <text x='70' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-03-02</text>
+            </g>
             <use x="2150" y="1250" fill="green"  class="boxes-26" xlink:href="#telegraph-pole" />
             <g id="boxes-pole-23" transform="translate(1850,1250)" fill="green"  class="boxes-27">
                 <g class="box-0" v-on:click="showBoxDialog(23,0)" transform="translate(0,100)">
@@ -1239,7 +1272,8 @@ export default {
       showDialog: 0,
       selectMeterBoxNo: 0,
       selectMeters: "",
-      selectBoxMaxMetersNo: ""
+      selectBoxMaxMetersNo: "",
+      JPInfo: {}
     };
   },
   created: function() {
@@ -1251,30 +1285,40 @@ export default {
     this.setResizeListener();
   },
   watch: {
-    boxInfoMap: function(newVal) {
+    boxInfoMap: function() {
       this.getBoxInfo();
     }
   },
   methods: {
     setMouseOver: function(index) {
-      let order = 3;
-      if (index == 13) {
-        order = 2;
+      if (index < 24) {
+        let order = 3;
+        if (index == 13) {
+          order = 2;
+        }
+        let pole = document.getElementById("boxes-pole-" + index).childNodes[
+          order
+        ];
+        pole.style.visibility = "visible";
+      } else {
+        let pole = document.getElementById("pole-" + index);
+        pole.style.visibility = "visible";
       }
-      let pole = document.getElementById("boxes-pole-" + index).childNodes[
-        order
-      ];
-      pole.style.visibility = "visible";
     },
     setMouseOut: function(index) {
-      let order = 3;
-      if (index == 13) {
-        order = 2;
+      if (index < 24) {
+        let order = 3;
+        if (index == 13) {
+          order = 2;
+        }
+        let pole = document.getElementById("boxes-pole-" + index).childNodes[
+          order
+        ];
+        pole.style.visibility = "hidden";
+      } else {
+        let pole = document.getElementById("pole-" + index);
+        pole.style.visibility = "hidden";
       }
-      let pole = document.getElementById("boxes-pole-" + index).childNodes[
-        order
-      ];
-      pole.style.visibility = "hidden";
     },
     setResizeListener: function() {
       window.addEventListener(
@@ -1328,7 +1372,6 @@ export default {
         return;
       }
       let relBox = this.getRelBox(boxInfo);
-      console.log(order * 2 + 1);
       let box = document.getElementById("boxes-pole-" + index).childNodes[
         order
       ];
@@ -1386,6 +1429,7 @@ export default {
           console.log(
             "***********获取的JP柜数据：" + JSON.stringify(responseData)
           );
+          this.JPInfo = {};
         }
       );
     },

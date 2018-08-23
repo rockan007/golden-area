@@ -52,13 +52,16 @@ export default {
     meterData: {
       deep: true,
       handler: function(newVal) {
+         console.log("********************this.type:"+JSON.stringify( newVal))
         let meterInfo = {};
         meterInfo.TabIDStr = newVal.TabIDStr;
         meterInfo.YHM = newVal.YHM;
         meterInfo.HH = newVal.HH;
         meterInfo.XH = newVal.XH;
-        this.getMeterInfo(meterInfo, newVal.JCX);
         this.type = newVal.YHM ? 0 : 2;
+       
+        this.getMeterInfo(meterInfo, newVal.JCX);
+        
       }
     }
   },
@@ -79,6 +82,9 @@ export default {
   },
   methods: {
     getMeterInfo: function(meterInfo, infoList) {
+      if(!infoList){
+        return;
+      }
       infoList.forEach(info => {
         if (info.Value) {
           if (info.id <= 3) {
