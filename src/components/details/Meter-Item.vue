@@ -52,16 +52,14 @@ export default {
     meterData: {
       deep: true,
       handler: function(newVal) {
-         console.log("********************this.type:"+JSON.stringify( newVal))
+         console.log("********************this.type:"+JSON.stringify(newVal))
         let meterInfo = {};
         meterInfo.TabIDStr = newVal.TabIDStr;
         meterInfo.YHM = newVal.YHM;
         meterInfo.HH = newVal.HH;
         meterInfo.XH = newVal.XH;
         this.type = newVal.YHM ? 0 : 2;
-       
         this.getMeterInfo(meterInfo, newVal.JCX);
-        
       }
     }
   },
