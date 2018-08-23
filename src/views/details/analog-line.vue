@@ -5,15 +5,17 @@
             <defs>
                 <!--15米电杆-->
                 <g id="telegraph-pole">
-                    <circle cx="20" cy="20" r="20" fill="none" stroke="black" stroke-width="3" />
-                    <circle cx="20" cy="20" r="15" fill="none" stroke="black" stroke-width="3" />
-                    <circle cx="20" cy="20" r="10" fill="none" stroke="black" stroke-width="3" />
+                    <rect width='40' height='40' fill="rgba(0,0,0,0)" stroke="none"></rect>
+                    <circle cx="20" cy="20" r="20" fill="none" stroke="#00706b" stroke-width="3" />
+                    <circle cx="20" cy="20" r="15" fill="none" stroke="#00706b" stroke-width="3" />
+                    <circle cx="20" cy="20" r="10" fill="none" stroke="#00706b" stroke-width="3" />
+                    
                 </g>
                 <!--电表箱-->
                 <g id="metersBox" class="boxes">
-                    <rect width="80" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="80" y1="30" y2="30" stroke="black" />
-                    <line x1="40" x2="40" y1="0" y2="30" stroke="black" />
+                    <rect width="80" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="80" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="40" x2="40" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="20" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -26,44 +28,44 @@
                 </g>
                 <!--变压器-->
                 <g id="transformer">
-                    <line x1="30" x2="30" y1="0" y2="20" stroke="black" stroke-width="2" />
-                    <circle cx="30" cy="40" r="30" fill="none" stroke="black" stroke-width="2" />
-                    <circle cx="30" cy="70" r="30" fill="none" stroke="black" stroke-width="2" />
-                    <line x1="30" x2="30" y1="90" y2="110" stroke="black" stroke-width="2" />
+                    <line x1="30" x2="30" y1="0" y2="20" stroke="#00706b" stroke-width="2" />
+                    <circle cx="30" cy="40" r="30" fill="none" stroke="#00706b" stroke-width="2" />
+                    <circle cx="30" cy="70" r="30" fill="none" stroke="#00706b" stroke-width="2" />
+                    <line x1="30" x2="30" y1="90" y2="110" stroke="#00706b" stroke-width="2" />
                 </g>
                 <!--JP柜-->
                 <g id="jp-tank">
-                    <rect width="120" height="120" y="10" fill="none" stroke="black" stroke-width="2" />
-                    <line x1="60" x2="60" y1="0" y2="30" stroke="black" stroke-width="2" />
-                    <polygon fill="none" stroke="black" stroke-width="2" points="60,30 65,40 55,40 " />
-                    <path fill="none" stroke="black" stroke-width="2" d="M60,40 L60,70 M20,70 L100,70 M35,70 L35,96 M85,70 L85,96 M35,105 L35,150 M85,105 L85,150"
+                    <rect width="120" height="120" y="10" fill="none" stroke="#00706b" stroke-width="2" />
+                    <line x1="60" x2="60" y1="0" y2="30" stroke="#00706b" stroke-width="2" />
+                    <polygon fill="none" stroke="#00706b" stroke-width="2" points="60,30 65,40 55,40 " />
+                    <path fill="none" stroke="#00706b" stroke-width="2" d="M60,40 L60,70 M20,70 L100,70 M35,70 L35,96 M85,70 L85,96 M35,105 L35,150 M85,105 L85,150"
                     />
-                    <polygon fill="none" stroke="black" stroke-width="2" points="35,105 40,96 30,96" />
-                    <polygon fill="none" stroke="black" stroke-width="2" points="85,105 90,96 80,96" />
-                    <rect width="6" height="12" x="57" y="50" fill="none" stroke="black" stroke-width="2" />
-                    <rect width="6" height="12" x="32"  y="82" fill="none" stroke="black" stroke-width="2" />
-                    <rect width="6" height="12" x="82"  y="82" fill="none" stroke="black" stroke-width="2" />
+                    <polygon fill="none" stroke="#00706b" stroke-width="2" points="35,105 40,96 30,96" />
+                    <polygon fill="none" stroke="#00706b" stroke-width="2" points="85,105 90,96 80,96" />
+                    <rect width="6" height="12" x="57" y="50" fill="none" stroke="#00706b" stroke-width="2" />
+                    <rect width="6" height="12" x="32"  y="82" fill="none" stroke="#00706b" stroke-width="2" />
+                    <rect width="6" height="12" x="82"  y="82" fill="none" stroke="#00706b" stroke-width="2" />
                 </g>
                 <!--双箱子子加个杆-->
                 <!-- <g id="boxes-pole">
                     <use x="0" y="0" class="box-0" v-on:click="showBoxDialog(1,0)" xlink:href="#metersBox" />
                     <use x="100" y="0" class="box-1" v-on:click="showBoxDialog(0,1)" xlink:href="#metersBox" />
                     <use x="70" y="120" xlink:href="#telegraph-pole" />
-                    <polyline fill="none" stroke="black" stroke-width="2" points="40,60 90,120 100,60" />
+                    <polyline fill="none" stroke="#00706b" stroke-width="2" points="40,60 90,120 100,60" />
                 </g> -->
                 <!--杆+表箱-->
                 <!-- <g id="pole-boxes">
                     <use x="0" y="106" class="box-0" v-on:click="showBoxDialog(1,0)" xlink:href="#metersBox" />
                     <use x="100" y="106" class="box-1" v-on:click="showBoxDialog(0,1)" xlink:href="#metersBox" />
                     <use x="70" y="0" xlink:href="#telegraph-pole" />
-                    <polyline fill="none" stroke="black" stroke-width="2" points="40,100 90,40 100,100" />
+                    <polyline fill="none" stroke="#00706b" stroke-width="2" points="40,100 90,40 100,100" />
                 </g> -->
             </defs>
             <g id="boxes-pole-0" transform="translate(0,500)" fill="green"  class="boxes-0">
                 <g class="box-0"  v-on:click="showBoxDialog(0,0)" transform="translate(0,0)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -81,9 +83,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(0,1)"  transform="translate(120,0)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -100,18 +102,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="120" xlink:href="#telegraph-pole" />
-                 <g transform="translate(80,170)">
+                <use x="90" y="120" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(0)" v-on:mouseout="setMouseOut(0)"/>
+                 <g transform="translate(80,170)" visibility='hidden'>
                     <rect width="60" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='30' y='28' text-anchor="middle" font-size='22' fill='white'>06</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,60 110,120 120,60" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-1" transform="translate(260,500)" fill="green"   class="boxes-1">
                 <g class="box-0" v-on:click="showBoxDialog(1,0)"   transform="translate(0,0)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -129,9 +131,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(1,1)" transform="translate(120,0)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -148,18 +150,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="120" xlink:href="#telegraph-pole" />
-                <g transform="translate(80,170)">
+                <use x="90" y="120" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(1)" v-on:mouseout="setMouseOut(1)" />
+                <g transform="translate(80,170)" visibility='hidden'>
                     <rect width="60" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='30' y='28' text-anchor="middle" font-size='22' fill='white'>05</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,60 110,120 120,60" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-2" transform="translate(520,500)" fill="green"  class="boxes-2">
                   <g class="box-0" v-on:click="showBoxDialog(2,0)" transform="translate(0,0)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -177,9 +179,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(2,1)" transform="translate(120,0)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -196,18 +198,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="120" xlink:href="#telegraph-pole" />
-                <g transform="translate(80,170)">
+                <use x="90" y="120" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(2)" v-on:mouseout="setMouseOut(2)"/>
+                <g transform="translate(80,170)" visibility='hidden'>
                     <rect width="60" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='30' y='28' text-anchor="middle" font-size='22' fill='white'>04</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,60 110,120 120,60" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-3" transform="translate(780,500)" fill="green"  class="boxes-3">
                   <g class="box-0" v-on:click="showBoxDialog(3,0)" transform="translate(0,0)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -225,9 +227,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(3,1)" transform="translate(120,0)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -244,18 +246,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="120" xlink:href="#telegraph-pole" />
-                <g transform="translate(80,170)">
+                <use x="90" y="120" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(3)" v-on:mouseout="setMouseOut(3)" />
+                <g transform="translate(80,170)" visibility='hidden'>
                     <rect width="60" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='30' y='28' text-anchor="middle" font-size='22' fill='white'>03</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,60 110,120 120,60" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-4" transform="translate(1040,500)" fill="green"  class="boxes-4">
                    <g class="box-0" v-on:click="showBoxDialog(4,0)" transform="translate(0,0)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -273,9 +275,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(4,1)" transform="translate(120,0)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -292,14 +294,14 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="120" xlink:href="#telegraph-pole" />
-                <g transform="translate(80,170)">
+                <use x="90" y="120" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(4)" v-on:mouseout="setMouseOut(4)"/>
+                <g transform="translate(80,170)" visibility='hidden'>
                     <rect width="60" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='30' y='28' text-anchor="middle" font-size='22' fill='white'>02</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,60 110,120 120,60" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
-            <path stroke="black" stroke-width="2" d="M130,640 L350,640 M390,640 L610,640
+            <path stroke="#00706b" stroke-width="2" d="M130,640 L350,640 M390,640 L610,640
              M650,640 L870,640 M910,640 L1130,640 
              M1170,640 L1360,640 M1410,640 L1610,640 M1650,640 L1870,640
              M1910,640 L2130,640 M2170,640 L2390,640 M2430,640 L2650,640
@@ -315,9 +317,9 @@
             <use x="1355" y="380" xlink:href="#transformer" />
             <g id="boxes-pole-5" transform="translate(1520,500)" fill="green"  class="boxes-5">
                   <g class="box-0" v-on:click="showBoxDialog(5,0)" transform="translate(0,0)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -335,9 +337,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(5,1)" transform="translate(120,0)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -354,18 +356,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="120" xlink:href="#telegraph-pole" />
-                  <g transform="translate(80,170)">
+                <use x="90" y="120" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(5)" v-on:mouseout="setMouseOut(5)"/>
+                  <g transform="translate(80,170)" visibility='hidden'>
                     <rect width="60" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='30' y='28' text-anchor="middle" font-size='22' fill='white'>01</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,60 110,120 120,60" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-6" transform="translate(1780,500)" fill="green"  class="boxes-6">
                    <g class="box-0" v-on:click="showBoxDialog(6,0)" transform="translate(0,0)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -383,9 +385,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(6,1)" transform="translate(120,0)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -402,18 +404,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="120" xlink:href="#telegraph-pole" />
-                 <g transform="translate(80,170)">
+                <use x="90" y="120" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(6)" v-on:mouseout="setMouseOut(6)" />
+                 <g transform="translate(80,170)" visibility='hidden'>
                     <rect width="60" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='30' y='28' text-anchor="middle" font-size='22' fill='white'>02</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,60 110,120 120,60" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-7" transform="translate(2040,500)" fill="green"  class="boxes-7">
                   <g class="box-0" v-on:click="showBoxDialog(7,0)" transform="translate(0,0)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -431,9 +433,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(7,1)" transform="translate(120,0)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -450,18 +452,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="120" xlink:href="#telegraph-pole" />
-                 <g transform="translate(80,170)">
+                <use x="90" y="120" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(7)" v-on:mouseout="setMouseOut(7)"/>
+                 <g transform="translate(80,170)" visibility='hidden'>
                     <rect width="60" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='30' y='28' text-anchor="middle" font-size='22' fill='white'>03</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,60 110,120 120,60" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-8" transform="translate(2300,500)" fill="green"  class="boxes-8">
                   <g class="box-0" v-on:click="showBoxDialog(8,0)" transform="translate(0,0)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -479,9 +481,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(8,1)" transform="translate(120,0)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -499,17 +501,17 @@
                     </text>
                 </g>
                 <use x="90" y="120" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(8)" v-on:mouseout="setMouseOut(8)" />
-                <g transform="translate(80,170)">
+                <g transform="translate(80,170)" visibility='hidden'>
                     <rect width="60" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='30' y='28' text-anchor="middle" font-size='22' fill='white'>04</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,60 110,120 120,60" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-9" transform="translate(2560,500)" fill="green"  class="boxes-9">
                    <g class="box-0" v-on:click="showBoxDialog(9,0)" transform="translate(0,0)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -527,9 +529,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(9,1)" transform="translate(120,0)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -546,20 +548,20 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="120" xlink:href="#telegraph-pole" />
-                 <g transform="translate(80,170)">
+                <use x="90" y="120" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(9)" v-on:mouseout="setMouseOut(9)" />
+                 <g transform="translate(80,170)" visibility='hidden'>
                     <rect width="60" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='30' y='28' text-anchor="middle" font-size='22' fill='white'>05</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,60 110,120 120,60" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <use x="2390" y="420" fill="green"  class="boxes-10" xlink:href="#telegraph-pole" />
             <use x="2390" y="300" fill="green"  class="boxes-11" xlink:href="#telegraph-pole" />
             <g id="boxes-pole-10" transform="translate(2560,100)" fill="green"  class="boxes-10">
                   <g class="box-0" v-on:click="showBoxDialog(10,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -577,9 +579,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(10,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -596,19 +598,19 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                 <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(10)" v-on:mouseout="setMouseOut(10)"/>
+                 <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>04-03-01</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <!-- <use x="2140" y="106" fill="green"  class="boxes-10" xlink:href="#pole-boxes" /> -->
             <g id="boxes-pole-11" transform="translate(2300,100)" fill="green"  class="boxes-11">
                 <g class="box-0" v-on:click="showBoxDialog(11,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -626,9 +628,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(11,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -645,18 +647,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                 <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(11)" v-on:mouseout="setMouseOut(11)"/>
+                 <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>04-03</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-12" transform="translate(2040,100)" fill="green"  class="boxes-12">
                  <g class="box-0" v-on:click="showBoxDialog(12,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -674,9 +676,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(12,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -693,18 +695,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                 <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(12)" v-on:mouseout="setMouseOut(12)"/>
+                 <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>04-04</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-13" transform="translate(1780,100)" fill="green"  class="boxes-13">
                  <g class="box-0" v-on:click="showBoxDialog(13,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -721,18 +723,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                  <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(13)" v-on:mouseout="setMouseOut(13)"/>
+                  <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>04-05</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40" />
             </g>
             <g id="boxes-pole-14" transform="translate(2560,900)" fill="green"  class="boxes-14">
                 <g class="box-0" v-on:click="showBoxDialog(14,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -750,9 +752,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(14,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -769,18 +771,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(14)" v-on:mouseout="setMouseOut(14)"/>
+                <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-04</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-15" transform="translate(2300,900)" fill="green"  class="boxes-15">
                  <g class="box-0" v-on:click="showBoxDialog(15,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -798,9 +800,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(15,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -817,18 +819,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(15)" v-on:mouseout="setMouseOut(15)"/>
+                <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-03</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-16" transform="translate(2050,900)" fill="green"  class="boxes-16">
                 <g class="box-0" v-on:click="showBoxDialog(16,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -846,9 +848,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(16,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -865,18 +867,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(16)" v-on:mouseout="setMouseOut(16)"/>
+                <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-02</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-17" transform="translate(1790,900)" fill="green"  class="boxes-17">
                 <g class="box-0" v-on:click="showBoxDialog(17,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -894,9 +896,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(17,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -913,18 +915,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(17)" v-on:mouseout="setMouseOut(17)"/>
+                <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-01</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-18" transform="translate(1520,900)" fill="green"  class="boxes-18">
                 <g class="box-0" v-on:click="showBoxDialog(18,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -942,9 +944,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(18,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -961,18 +963,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(18)" v-on:mouseout="setMouseOut(18)"/>
+                <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-19" transform="translate(1260,900)" fill="green"  class="boxes-19">
                  <g class="box-0" v-on:click="showBoxDialog(19,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -990,9 +992,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(19,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -1009,18 +1011,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(19)" v-on:mouseout="setMouseOut(19)"/>
+                <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-01</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-20" transform="translate(1000,900)" fill="green"  class="boxes-20">
                  <g class="box-0" v-on:click="showBoxDialog(20,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -1038,9 +1040,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(20,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -1057,18 +1059,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(20)" v-on:mouseout="setMouseOut(20)"/>
+                <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-02</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-21" transform="translate(740,900)" fill="green"  class="boxes-21">
                 <g class="box-0" v-on:click="showBoxDialog(21,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -1086,9 +1088,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(21,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -1105,18 +1107,18 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(21)" v-on:mouseout="setMouseOut(21)"/>
+                <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-03</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-22" transform="translate(480,900)" fill="green"  class="boxes-22">
                 <g class="box-0" v-on:click="showBoxDialog(22,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -1134,9 +1136,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(22,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -1153,12 +1155,12 @@
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" />
-                <g transform="translate(60,-50)">
+                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(22)" v-on:mouseout="setMouseOut(22)"/>
+                <g transform="translate(60,-50)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
                     <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01-04</text>
                 </g>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <use x="310" y="900" fill="green"  class="boxes-26" xlink:href="#telegraph-pole" />
             <use x="2390" y="1100" fill="green"  class="boxes-24" xlink:href="#telegraph-pole" />
@@ -1166,9 +1168,9 @@
             <use x="2150" y="1250" fill="green"  class="boxes-26" xlink:href="#telegraph-pole" />
             <g id="boxes-pole-23" transform="translate(1850,1250)" fill="green"  class="boxes-27">
                 <g class="box-0" v-on:click="showBoxDialog(23,0)" transform="translate(0,100)">
-                   <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                   <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -1186,9 +1188,9 @@
                     </text>
                 </g>
                 <g class="box-1" v-on:click="showBoxDialog(23,1)" transform="translate(120,100)">
-                    <rect width="100" height="60" fill="green" class="box-back" stroke="black" stroke-width="2px" />
-                    <line x1="0" x2="100" y1="30" y2="30" stroke="black" />
-                    <line x1="50" x2="50" y1="0" y2="30" stroke="black" />
+                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
+                    <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
+                    <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
                     <text class="meter-no" x="25" y="22" font-size="20" fill="white" text-anchor="middle">
                         6
                     </text>
@@ -1206,7 +1208,7 @@
                     </text>
                 </g>
                 <use x="90" y="0" xlink:href="#telegraph-pole"/>
-                <polyline fill="none" stroke="black" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
                 </g>
         </svg>
         </div>
@@ -1254,6 +1256,26 @@ export default {
     }
   },
   methods: {
+    setMouseOver: function(index) {
+      let order = 3;
+      if (index == 13) {
+        order = 2;
+      }
+      let pole = document.getElementById("boxes-pole-" + index).childNodes[
+        order
+      ];
+      pole.style.visibility = "visible";
+    },
+    setMouseOut: function(index) {
+      let order = 3;
+      if (index == 13) {
+        order = 2;
+      }
+      let pole = document.getElementById("boxes-pole-" + index).childNodes[
+        order
+      ];
+      pole.style.visibility = "hidden";
+    },
     setResizeListener: function() {
       window.addEventListener(
         "resize",
@@ -1278,7 +1300,6 @@ export default {
           BXIDstr: boxIdStr
         },
         responseData => {
-          console.log("获取的响应数据：" + JSON.stringify(responseData));
           this.selectMeters = responseData;
         }
       );
@@ -1291,7 +1312,6 @@ export default {
       this.selectMeterBoxNo = box.childNodes[5].textContent;
       console.log(this.selectMeterBoxNo);
       this.getSelectMeters(this.selectMeterBoxNo);
-      console.log("showDia*********************");
       this.showDialog = 1;
     },
     getBoxInfo: function() {
