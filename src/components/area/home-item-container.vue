@@ -6,15 +6,14 @@
         <div class="item-content flex-grow-1 d-flex" style="cursor:pointer;">
             <area-profile v-if="item.order==0" isMainPage=1 ></area-profile>
             <GIS-map  style="margin:16px 16px;" v-else-if="item.order==1" v-bind:item="item" v-bind:isDetail="0"></GIS-map>
-            <pie-charts v-else-if="item.order==2" v-bind:item="item"></pie-charts>
-            <com-energy v-else-if="item.order==5" v-bind:item="item"></com-energy>
-              <line-charts  v-else-if="item.order==3" v-bind:item="item"></line-charts>
-            <fault-analysis v-else-if="item.order==4"></fault-analysis>
+            <pie-charts v-else-if="item.order==2&&hackReset" v-bind:item="item"></pie-charts>
+            <com-energy v-else-if="item.order==5&&hackReset" v-bind:item="item"></com-energy>
+            <line-charts  v-else-if="item.order==3&&hackReset" v-bind:item="item"></line-charts>
+            <fault-analysis v-else-if="item.order==4&&hackReset"></fault-analysis>
             <div class="flex-grow-1 d-flex flex-column justify-content-center align-items-center" v-else>
                <img  src="http://wx.dianliangliang.com/sucai/video-img-1.27534f14.jpg" style="width:80%;height:auto"/>
                <div class="online-video-title">实时在线监控</div>
             </div>
-           
         </div>
     </div>
 </template>
@@ -44,9 +43,26 @@ export default {
     }
   },
   data: function() {
-    return {};
+    return {
+      hackReset: true
+    };
+  },
+  mounted: function() {
+    this.setResizeListener();
   },
   methods: {
+    setResizeListener: function() {
+      window.addEventListener(
+        "resize",
+        function() {
+          console.log("****************onResize*******************");
+          this.hackReset = false;
+          this.$nextTick(() => {
+            this.hackReset = true;
+          });
+        }.bind(this)
+      );
+    },
     routerToDetail: function(item) {
       console.log("**********************" + item.order);
       let routerPath = "/detail-main/" + item.order;

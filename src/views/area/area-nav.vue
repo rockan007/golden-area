@@ -42,7 +42,7 @@ export default {
   background: linear-gradient(
     to bottom,
     rgba(0, 112, 107, 0.6),
-    rgba(0, 112, 107, 1)
+    #00706b
   ) !important;
 }
 .logo-img {

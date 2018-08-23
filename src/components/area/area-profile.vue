@@ -64,11 +64,12 @@ export default {
           this.getProfileList(responseData);
           setTimeout(() => {
             this.requestProfile();
-          }, 500);
+          }, 60000);
         }
       );
     },
     getProfileList: function(data) {
+      console.log("获取的台区：" + JSON.stringify(data));
       Object.keys(data).forEach((key, index) => {
         this.profileList[index].info = data[key];
       });

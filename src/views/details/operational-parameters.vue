@@ -7,13 +7,11 @@
 <script>
 import $ from "jquery";
 import infoCard from "../../components/details/info-card";
-import infoDia from "@/components/utils/info-dia";
 import modal from "@/components/utils/modal";
 export default {
   name: "operational-parameters",
   components: {
     infoCard,
-    infoDia,
     modal
   },
   data: function() {

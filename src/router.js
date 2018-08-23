@@ -6,7 +6,6 @@ import detailMain from '@/views/details/detail-main'
 import sampleGraph from '@/views/details/sample-graph'
 import GISMap from '@/views/details/GIS-map'
 import planGraph from '@/views/details/PlanGraph'
-import analogLine from '@/views/details/AnalogLine'
 import comprehensivePhoto from '@/views/details/comprehensive-photo';
 import comprehensiveEnergy from '@/views/details/comprehensive-energy'
 import comprehensiveEGW from '@/views/details/comprehensive-EGW'
@@ -19,6 +18,7 @@ import Faultlevel from '@/views/details/Fault-level'
 import faulttype from '@/views/details/fault-type'
 import faultyline from '@/views/details/faulty-line'
 import Metaanalysis from '@/views/details/Meta-analysis'
+import analogLine from '@/views/details/analog-line';
 Vue.use(Router)
 export default new Router({
   routes: [{

@@ -649,7 +649,7 @@ export default {
   bottom: 202px;
 }
 .meterNo-44 {
-  right: 267px;
+  right: 254px;
   bottom: 202px;
 }
 .meterNo-45 {
