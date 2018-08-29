@@ -17,11 +17,11 @@
 
 <script>
 import "datatables.net-buttons-dt/css/buttons.dataTables.min.css";
-import 'datatables.net-bs4/css/dataTables.bootstrap4.min.css'
+import 'datatables.net-bs4/css/dataTables.bootstrap4.min.css';
 import $ from "jquery";
 import jsZip from "jszip";
 import "datatables.net/js/jquery.dataTables.min.js";
-import "datatables.net-bs4/js/dataTables.bootstrap4.min"
+import "datatables.net-bs4/js/dataTables.bootstrap4.min";
 import "datatables.net-buttons/js/dataTables.buttons.min.js";
 import "datatables.net-buttons/js/buttons.html5.min.js";
 import { events } from "@/assets/scripts/events.js";
@@ -54,8 +54,6 @@ export default {
     tableData: {
       deep: true,
       handler: function(newVal) {
-        console.log("****************************************初始化DataTable");
-        console.log("***********newVal:" + JSON.stringify(newVal));
         if (newVal.cols) {
           this.$nextTick(() => {
             this.initialDataTable();
@@ -66,9 +64,7 @@ export default {
   },
   methods: {
     initialDataTable: function() {
-      console.log("当前ID:" + this.tabId);
       if (this.dataTable) {
-        console.log("重绘页面");
         this.dataTable.draw();
       } else {
         this.dataTable = $("#" + this.tabId).DataTable({

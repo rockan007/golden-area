@@ -62,7 +62,7 @@
                 </g> -->
             </defs>
             <g id="boxes-pole-0" transform="translate(0,500)" fill="green"  class="boxes-0">
-                <g class="box-0"  v-on:click="showBoxDialog(0,0)" transform="translate(0,0)">
+                <g class="box-0"  v-on:click="showBoxDialog(0,0)" v-on:mouseover="showInfo(0,0)" v-on:mouseout="hideInfo(0,0)" transform="translate(0,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -75,14 +75,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(0,1)"  transform="translate(120,0)">
+                <g class="box-1" v-on:click="showBoxDialog(0,1)" v-on:mouseover="showInfo(0,1)" v-on:mouseout="hideInfo(0,1)"  transform="translate(120,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -95,10 +95,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -110,7 +110,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-1" transform="translate(260,500)" fill="green"   class="boxes-1">
-                <g class="box-0" v-on:click="showBoxDialog(1,0)"   transform="translate(0,0)">
+                <g class="box-0" v-on:click="showBoxDialog(1,0)" v-on:mouseover="showInfo(1,0)" v-on:mouseout="hideInfo(1,0)"  transform="translate(0,0)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -123,14 +123,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(1,1)" transform="translate(120,0)">
+                <g class="box-1" v-on:click="showBoxDialog(1,1)" v-on:mouseover="showInfo(1,1)" v-on:mouseout="hideInfo(1,1)" transform="translate(120,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -143,10 +143,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -158,7 +158,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-2" transform="translate(520,500)" fill="green"  class="boxes-2">
-                  <g class="box-0" v-on:click="showBoxDialog(2,0)" transform="translate(0,0)">
+                  <g class="box-0" v-on:click="showBoxDialog(2,0)" v-on:mouseover="showInfo(2,0)" v-on:mouseout="hideInfo(2,0)" transform="translate(0,0)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -171,14 +171,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(2,1)" transform="translate(120,0)">
+                <g class="box-1" v-on:click="showBoxDialog(2,1)" v-on:mouseover="showInfo(2,1)" v-on:mouseout="hideInfo(2,1)" transform="translate(120,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -191,10 +191,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -206,7 +206,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-3" transform="translate(780,500)" fill="green"  class="boxes-3">
-                  <g class="box-0" v-on:click="showBoxDialog(3,0)" transform="translate(0,0)">
+                  <g class="box-0" v-on:click="showBoxDialog(3,0)" v-on:mouseover="showInfo(3,0)" v-on:mouseout="hideInfo(3,0)" transform="translate(0,0)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -219,14 +219,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(3,1)" transform="translate(120,0)">
+                <g class="box-1" v-on:click="showBoxDialog(3,1)" v-on:mouseover="showInfo(3,1)" v-on:mouseout="hideInfo(3,1)" transform="translate(120,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -239,10 +239,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -254,7 +254,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-4" transform="translate(1040,500)" fill="green"  class="boxes-4">
-                   <g class="box-0" v-on:click="showBoxDialog(4,0)" transform="translate(0,0)">
+                   <g class="box-0" v-on:click="showBoxDialog(4,0)" v-on:mouseover="showInfo(4,0)" v-on:mouseout="hideInfo(4,0)" transform="translate(0,0)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -267,14 +267,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(4,1)" transform="translate(120,0)">
+                <g class="box-1" v-on:click="showBoxDialog(4,1)" v-on:mouseover="showInfo(4,1)" v-on:mouseout="hideInfo(4,1)" transform="translate(120,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -287,10 +287,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -313,22 +313,25 @@
              M1880,920 L1650,920 M1610,920 L1390,920 M1350,920 L1130,920
              M1090,920 L870,920 M830,920 L610,920 M570,920 L350,920
              M1630,660 L1630 900" />
-            <use x="1325" y="490" xlink:href="#jp-tank" />
-            <g transform="translate(1440,480)" >
+            <use x="1325" y="490" xlink:href="#jp-tank" v-on:mouseover="showModal"/>
+            <g transform="translate(1440,480)" visibility="hidden">
                 <text  y='28' text-anchor="middle" font-size='22' fill='red'>UA:0.00V</text>
                 <text   y="58" text-anchor="middle" font-size="22" fill='red'>IA:0.00A</text>
             </g>
-             <g transform="translate(1300,560)" >
+             <g transform="translate(1300,560)" visibility="hidden" >
                 <text  y='28' text-anchor="middle" font-size='22' fill='red'>UA:0.00V</text>
                 <text   y="58" text-anchor="middle" font-size="22" fill='red'>IA:0.00A</text>
             </g>
-             <g transform="translate(1470,560)" >
+             <g transform="translate(1470,560)" visibility="hidden" >
                 <text  y='28' text-anchor="middle" font-size='22' fill='red'>UA:0.00V</text>
                 <text   y="58" text-anchor="middle" font-size="22" fill='red'>IA:0.00A</text>
             </g>
             <use x="1355" y="380" xlink:href="#transformer" />
+            <g>
+
+            </g>
             <g id="boxes-pole-5" transform="translate(1520,500)" fill="green"  class="boxes-5">
-                  <g class="box-0" v-on:click="showBoxDialog(5,0)" transform="translate(0,0)">
+                  <g class="box-0" v-on:click="showBoxDialog(5,0)" v-on:mouseover="showInfo(5,0)" v-on:mouseout="hideInfo(5,0)" transform="translate(0,0)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -341,14 +344,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(5,1)" transform="translate(120,0)">
+                <g class="box-1" v-on:click="showBoxDialog(5,1)" v-on:mouseover="showInfo(5,1)" v-on:mouseout="hideInfo(5,1)" transform="translate(120,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -361,10 +364,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -376,7 +379,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-6" transform="translate(1780,500)" fill="green"  class="boxes-6">
-                   <g class="box-0" v-on:click="showBoxDialog(6,0)" transform="translate(0,0)">
+                   <g class="box-0" v-on:click="showBoxDialog(6,0)" v-on:mouseover="showInfo(6,0)" v-on:mouseout="hideInfo(6,0)" transform="translate(0,0)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -389,14 +392,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(6,1)" transform="translate(120,0)">
+                <g class="box-1" v-on:click="showBoxDialog(6,1)" v-on:mouseover="showInfo(6,1)" v-on:mouseout="hideInfo(6,1)" transform="translate(120,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -409,10 +412,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -424,7 +427,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-7" transform="translate(2040,500)" fill="green"  class="boxes-7">
-                  <g class="box-0" v-on:click="showBoxDialog(7,0)" transform="translate(0,0)">
+                  <g class="box-0" v-on:click="showBoxDialog(7,0)" v-on:mouseover="showInfo(7,0)" v-on:mouseout="hideInfo(7,0)" transform="translate(0,0)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -437,14 +440,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(7,1)" transform="translate(120,0)">
+                <g class="box-1" v-on:click="showBoxDialog(7,1)" v-on:mouseover="showInfo(7,1)" v-on:mouseout="hideInfo(7,1)" transform="translate(120,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -457,10 +460,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -472,7 +475,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-8" transform="translate(2300,500)" fill="green"  class="boxes-8">
-                  <g class="box-0" v-on:click="showBoxDialog(8,0)" transform="translate(0,0)">
+                  <g class="box-0" v-on:click="showBoxDialog(8,0)" v-on:mouseover="showInfo(8,0)" v-on:mouseout="hideInfo(8,0)" transform="translate(0,0)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -485,14 +488,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(8,1)" transform="translate(120,0)">
+                <g class="box-1" v-on:click="showBoxDialog(8,1)" v-on:mouseover="showInfo(8,1)" v-on:mouseout="hideInfo(8,1)" transform="translate(120,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -505,10 +508,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -520,7 +523,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,120 120,60" />
             </g>
             <g id="boxes-pole-9" transform="translate(2560,500)" fill="green"  class="boxes-9">
-                   <g class="box-0" v-on:click="showBoxDialog(9,0)" transform="translate(0,0)">
+                   <g class="box-0" v-on:click="showBoxDialog(9,0)" v-on:mouseover="showInfo(9,0)" v-on:mouseout="hideInfo(9,0)" transform="translate(0,0)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -533,14 +536,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(9,1)" transform="translate(120,0)">
+                <g class="box-1" v-on:click="showBoxDialog(9,1)" v-on:mouseover="showInfo(9,1)" v-on:mouseout="hideInfo(9,1)" transform="translate(120,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -553,10 +556,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0" y="-28" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0" y="-28" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="-6" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-6" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -578,7 +581,7 @@
                 <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>04-02</text>
             </g>
             <g id="boxes-pole-10" transform="translate(2560,100)" fill="green"  class="boxes-10">
-                  <g class="box-0" v-on:click="showBoxDialog(10,0)" transform="translate(0,100)">
+                  <g class="box-0" v-on:click="showBoxDialog(10,0)" v-on:mouseover="showInfo(10,0)" v-on:mouseout="hideInfo(10,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -591,14 +594,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(10,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(10,1)" v-on:mouseover="showInfo(10,1)" v-on:mouseout="hideInfo(10,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -611,10 +614,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -627,7 +630,7 @@
             </g>
             <!-- <use x="2140" y="106" fill="green"  class="boxes-10" xlink:href="#pole-boxes" /> -->
             <g id="boxes-pole-11" transform="translate(2300,100)" fill="green"  class="boxes-11">
-                <g class="box-0" v-on:click="showBoxDialog(11,0)" transform="translate(0,100)">
+                <g class="box-0" v-on:click="showBoxDialog(11,0)" v-on:mouseover="showInfo(11,0)" v-on:mouseout="hideInfo(11,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -640,14 +643,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(11,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(11,1)" v-on:mouseover="showInfo(11,1)" v-on:mouseout="hideInfo(11,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -660,10 +663,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -688,14 +691,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(12,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(12,1)" v-on:mouseover="showInfo(12,1)" v-on:mouseout="hideInfo(12,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -708,10 +711,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -723,7 +726,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-13" transform="translate(1780,100)" fill="green"  class="boxes-13">
-                 <g class="box-1" v-on:click="showBoxDialog(13,0)" transform="translate(120,100)">
+                 <g class="box-1" v-on:click="showBoxDialog(13,0)" v-on:mouseover="showInfo(13,0)" v-on:mouseout="hideInfo(13,0)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -736,10 +739,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -751,7 +754,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points=" 110,40 120,100" />
             </g>
             <g id="boxes-pole-14" transform="translate(2560,900)" fill="green"  class="boxes-14">
-                <g class="box-0" v-on:click="showBoxDialog(14,0)" transform="translate(0,100)">
+                <g class="box-0" v-on:click="showBoxDialog(14,0)" v-on:mouseover="showInfo(14,0)" v-on:mouseout="hideInfo(14,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -764,14 +767,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(14,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(14,1)" v-on:mouseover="showInfo(14,1)" v-on:mouseout="hideInfo(14,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -784,10 +787,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -799,7 +802,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-15" transform="translate(2300,900)" fill="green"  class="boxes-15">
-                 <g class="box-0" v-on:click="showBoxDialog(15,0)" transform="translate(0,100)">
+                 <g class="box-0" v-on:click="showBoxDialog(15,0)" v-on:mouseover="showInfo(15,0)" v-on:mouseout="hideInfo(15,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -812,14 +815,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(15,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(15,1)" v-on:mouseover="showInfo(15,1)" v-on:mouseout="hideInfo(15,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -832,10 +835,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -847,7 +850,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-16" transform="translate(2050,900)" fill="green"  class="boxes-16">
-                <g class="box-0" v-on:click="showBoxDialog(16,0)" transform="translate(0,100)">
+                <g class="box-0" v-on:click="showBoxDialog(16,0)" v-on:mouseover="showInfo(16,0)" v-on:mouseout="hideInfo(16,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -860,14 +863,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(16,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(16,1)" v-on:mouseover="showInfo(16,1)" v-on:mouseout="hideInfo(16,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -880,10 +883,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -895,7 +898,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-17" transform="translate(1790,900)" fill="green"  class="boxes-17">
-                <g class="box-0" v-on:click="showBoxDialog(17,0)" transform="translate(0,100)">
+                <g class="box-0" v-on:click="showBoxDialog(17,0)" v-on:mouseover="showInfo(17,0)" v-on:mouseout="hideInfo(17,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -908,14 +911,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(17,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(17,1)" v-on:mouseover="showInfo(17,1)" v-on:mouseout="hideInfo(17,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -928,10 +931,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -942,8 +945,14 @@
                 </g>
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
-            <g id="boxes-pole-18" transform="translate(1520,900)" fill="green"  class="boxes-18">
-                <g class="box-0" v-on:click="showBoxDialog(18,0)" transform="translate(0,100)">
+            <use x="1610" y="900" fill="green"  class="boxes-25" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(30)" v-on:mouseout="setMouseOut(30)"/>
+             <g id="pole-30"  transform="translate(1560,850)" visibility='hidden' >
+                <rect width="140" height="40" rx="4" ry="4" fill="#00706b"></rect>
+                <text x='70' y='28' text-anchor="middle" font-size='22' fill='white'>01-01</text>
+            </g>
+            <path d="M1630,940 L1630,1160 " stroke="#00706b"  stroke-width="2"/>
+            <g id="boxes-pole-18" transform="translate(1520,1060)" fill="green"  class="boxes-18">
+                <g class="box-0" v-on:click="showBoxDialog(18,0)" v-on:mouseover="showInfo(18,0)" v-on:mouseout="hideInfo(18,0)" transform="translate(0,0)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -956,14 +965,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="-24" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-5" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(18,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(18,1)" v-on:mouseover="showInfo(18,1)" v-on:mouseout="hideInfo(18,1)" transform="translate(120,0)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -976,22 +985,22 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="-24" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="-5" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <use x="90" y="0" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(18)" v-on:mouseout="setMouseOut(18)"/>
-                <g transform="translate(60,-50)" visibility='hidden'>
+                <use x="90" y="100" xlink:href="#telegraph-pole" v-on:mouseover="setMouseOver(18)" v-on:mouseout="setMouseOut(18)"/>
+                <g transform="translate(60,150)" visibility='hidden'>
                     <rect width="100" height="40" rx="4" ry="4" fill="#00706b"></rect>
-                    <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-01</text>
+                    <text x='50' y='28' text-anchor="middle" font-size='22' fill='white'>01-02</text>
                 </g>
-                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
+                <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,60 110,100 120,60" />
             </g>
             <g id="boxes-pole-19" transform="translate(1260,900)" fill="green"  class="boxes-19">
-                 <g class="box-0" v-on:click="showBoxDialog(19,0)" transform="translate(0,100)">
+                 <g class="box-0" v-on:click="showBoxDialog(19,0)" v-on:mouseover="showInfo(19,0)" v-on:mouseout="hideInfo(19,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -1004,14 +1013,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(19,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(19,1)" v-on:mouseover="showInfo(19,1)" v-on:mouseout="hideInfo(19,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -1024,10 +1033,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -1039,7 +1048,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-20" transform="translate(1000,900)" fill="green"  class="boxes-20">
-                 <g class="box-0" v-on:click="showBoxDialog(20,0)" transform="translate(0,100)">
+                 <g class="box-0" v-on:click="showBoxDialog(20,0)" v-on:mouseover="showInfo(20,0)" v-on:mouseout="hideInfo(20,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -1052,14 +1061,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(20,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(20,1)" v-on:mouseover="showInfo(20,1)" v-on:mouseout="hideInfo(20,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -1072,10 +1081,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -1087,7 +1096,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-21" transform="translate(740,900)" fill="green"  class="boxes-21">
-                <g class="box-0" v-on:click="showBoxDialog(21,0)" transform="translate(0,100)">
+                <g class="box-0" v-on:click="showBoxDialog(21,0)" v-on:mouseover="showInfo(21,0)" v-on:mouseout="hideInfo(21,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -1100,14 +1109,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(21,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(21,1)" v-on:mouseover="showInfo(21,1)" v-on:mouseout="hideInfo(21,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -1120,10 +1129,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -1135,7 +1144,7 @@
                 <polyline fill="none" stroke="#00706b" stroke-width="2" points="50,100 110,40 120,100" />
             </g>
             <g id="boxes-pole-22" transform="translate(480,900)" fill="green"  class="boxes-22">
-                <g class="box-0" v-on:click="showBoxDialog(22,0)" transform="translate(0,100)">
+                <g class="box-0" v-on:click="showBoxDialog(22,0)" v-on:mouseover="showInfo(22,0)" v-on:mouseout="hideInfo(22,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -1148,14 +1157,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(22,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(22,1)" v-on:mouseover="showInfo(22,1)" v-on:mouseout="hideInfo(22,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -1168,10 +1177,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -1200,7 +1209,7 @@
             </g>
             <use x="2150" y="1250" fill="green"  class="boxes-26" xlink:href="#telegraph-pole" />
             <g id="boxes-pole-23" transform="translate(1850,1250)" fill="green"  class="boxes-27">
-                <g class="box-0" v-on:click="showBoxDialog(23,0)" transform="translate(0,100)">
+                <g class="box-0" v-on:click="showBoxDialog(23,0)" v-on:mouseover="showInfo(23,0)" v-on:mouseout="hideInfo(23,0)" transform="translate(0,100)">
                    <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -1213,14 +1222,14 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
-                <g class="box-1" v-on:click="showBoxDialog(23,1)" transform="translate(120,100)">
+                <g class="box-1" v-on:click="showBoxDialog(23,1)" v-on:mouseover="showInfo(23,1)" v-on:mouseout="hideInfo(23,1)" transform="translate(120,100)">
                     <rect width="100" height="60" fill="green" class="box-back" stroke="#00706b" stroke-width="2px" />
                     <line x1="0" x2="100" y1="30" y2="30" stroke="#00706b" />
                     <line x1="50" x2="50" y1="0" y2="30" stroke="#00706b" />
@@ -1233,10 +1242,10 @@
                     <text class="box-no" x="50" y="52" font-size="20" fill="white" text-anchor="middle">
                         54
                     </text>
-                    <text class="box-info-v" x="0"  y="82" font-size="20">
+                    <text class="box-info-v" visibility="hidden" x="0"  y="82" font-size="20">
                         U:0V
                     </text>
-                    <text class="box-info-a" x="0" y="106" font-size="20">
+                    <text class="box-info-a"  visibility="hidden" x="0" y="106" font-size="20">
                         I:0A
                     </text>
                 </g>
@@ -1254,16 +1263,20 @@
                 <meter-item  v-for="m in selectBoxMaxMetersNo"  v-bind:meterData="selectMeters[m-1]" :key="m" v-bind:meterOrder="m" class="col-4"></meter-item>
             </div>
         </div>
+        <modal v-bind:diaInfo="modalInfo"></modal>
     </div>
 </template>
 <script>
+import $ from 'jquery';
 import { events } from "@/assets/scripts/events";
 import { boxOrder } from "@/assets/scripts/meters-data";
 import meterItem from "@/components/details/Meter-Item";
+import modal from "@/components/utils/modal";
 export default {
   name: "line-loss",
   components: {
-    meterItem
+    meterItem,
+    modal
   },
   data: function() {
     return {
@@ -1273,7 +1286,12 @@ export default {
       selectMeterBoxNo: 0,
       selectMeters: "",
       selectBoxMaxMetersNo: "",
-      JPInfo: {}
+      JPInfo: {},
+      modalInfo: {
+        id: "modal-jp",
+        title: "JP柜信息",
+        html: ""
+      }
     };
   },
   created: function() {
@@ -1287,9 +1305,30 @@ export default {
   watch: {
     boxInfoMap: function() {
       this.getBoxInfo();
+    },
+    modalInfo: {
+      deep: true,
+      handler: function() {}
     }
   },
   methods: {
+    showModal: function() {
+      $("#" + this.modalInfo.id).modal("show");
+    },
+    showInfo: function(index, order) {
+      let box = document.getElementById("boxes-pole-" + index).childNodes[
+        order
+      ];
+      box.childNodes[6].style.visibility = "visible";
+      box.childNodes[7].style.visibility = "visible";
+    },
+    hideInfo: function(index, order) {
+      let box = document.getElementById("boxes-pole-" + index).childNodes[
+        order
+      ];
+      box.childNodes[6].style.visibility = "hidden";
+      box.childNodes[7].style.visibility = "hidden";
+    },
     setMouseOver: function(index) {
       if (index < 24) {
         let order = 3;
@@ -1429,9 +1468,30 @@ export default {
           console.log(
             "***********获取的JP柜数据：" + JSON.stringify(responseData)
           );
-          this.JPInfo = {};
+          this.modalInfo.html = this.getModalInfo(responseData);
         }
       );
+    },
+    getModalInfo: function(responseList) {
+      let modalHtml = "";
+      responseList.forEach(item => {
+        modalHtml += `<div class="card shadow" style="margin-top:20px;"><h5 class="card-header">${item.SBMName}</h5>${this.getJPLineInfo(
+          item.JCX
+        )}</div>`;
+      });
+      return modalHtml;
+    },
+    getJPLineInfo: function(attrList) {
+      let attrs = "<div class='card-body'>";
+      attrList.forEach(attr => {
+        if (attr.id < 7) {
+          attrs += `<div class=" d-flex justify-content-between"><div>${attr.code.toUpperCase()}:</div><div>${attr.Value}${
+            attr.dw
+          }</div></div>`;
+        }
+      });
+      attrs+='</div>'
+      return attrs;
     },
     getAreaBoxesProperties: function() {
       //获取表箱属性
@@ -1459,7 +1519,7 @@ export default {
           metersMaxNo: parseInt(box.Hang) * parseInt(box.Lie),
           metersNo: box.DianBiaoShu
         });
-        console.log("插入数据后的数据：" + JSON.stringify(box.JCX));
+        // console.log("插入数据后的数据：" + JSON.stringify(box.JCX));
         map.set(box.BXH, box.JCX);
         resNoMap.set(box.BXH, box.TabIDStr);
       });
@@ -1510,7 +1570,7 @@ export default {
   padding: 16px;
 }
 .analog-line-container {
-  color: white;
+  /* color: white; */
 }
 .analog-header {
   font-size: 24px;

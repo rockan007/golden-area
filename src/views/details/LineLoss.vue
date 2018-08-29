@@ -222,6 +222,13 @@ export default {
         },
         function(responseData) {
           console.log("获取的电表箱线损：" + JSON.stringify(responseData));
+          responseData.Series.forEach(serie => {
+            serie.value = serie.value.toFixed(2);
+          });
+          console.log(
+            "***********获取的电表箱线损：" + JSON.stringify(responseData)
+          );
+          console.log("此时的线损数据：" + JSON.stringify(this.boxLoss));
           this.boxLoss = Object.assign({}, this.boxLoss, responseData, {
             Name: this.selectBox.Text + "#表箱"
           });
@@ -331,7 +338,8 @@ export default {
       console.log("*******" + JSON.stringify(optionData));
       // 使用刚指定的配置项和数据显示图表。
       charts.setOption(option);
-    }
+    },
+    requestData: function() {}
   }
 };
 </script>
